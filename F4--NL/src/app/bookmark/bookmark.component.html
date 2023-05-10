@@ -12,17 +12,20 @@
         <div class="NavBar_wrapper__4m3K5" id="header">
             <div class="NavBar_logo__Rgo-5">
                 <div *ngIf="User.idrole == 0">
-                    <a href="/homepage-user"><img
-                        src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png" alt="F8"></a>
-                  </div>
-                  <div *ngIf="User.idrole == 1">
-                    <a href="/home-page-st"><img
-                        src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png" alt="F8"></a>
-                  </div>
-                  <div *ngIf="User.idrole == 2">
-                    <a href="/homepage-gv"><img
-                        src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png" alt="F8"></a>
-                  </div>
+                    <a routerLink="/homepage-user" routerLinkActive="active"><img
+                            src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
+                            alt="F8"></a>
+                </div>
+                <div *ngIf="User.idrole == 1">
+                    <a routerLink="/home-page-st" routerLinkActive="active"><img
+                            src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
+                            alt="F8"></a>
+                </div>
+                <div *ngIf="User.idrole == 2">
+                    <a routerLink="/homepage-gv" routerLinkActive="active"><img
+                            src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
+                            alt="F8"></a>
+                </div>
                 <h4 class="NavBar_logoHeading__bs7MP">Học Lập Trình Để Đi Làm</h4>
             </div>
             <!-- </div> -->
@@ -124,33 +127,30 @@
                     </div>
                     <ul class="Sidebar_list__HnCzM">
                         <div *ngIf="User.idrole == 0">
-                          <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/homepage-user"
-                              routerLinkActive="active"><i
-                                class="fa-solid fa-house"></i><span>Home</span></a>
-                          </li>
+                            <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/homepage-user"
+                                    routerLinkActive="active"><i class="fa-solid fa-house"></i><span>Home</span></a>
+                            </li>
                         </div>
                         <div *ngIf="User.idrole == 1">
-                          <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/home-page-st"
-                              routerLinkActive="active"><i
-                                class="fa-solid fa-house"></i><span>Home</span></a>
-                          </li>
+                            <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/home-page-st"
+                                    routerLinkActive="active"><i class="fa-solid fa-house"></i><span>Home</span></a>
+                            </li>
                         </div>
                         <div *ngIf="User.idrole == 2">
-                          <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/homepage-gv"
-                              routerLinkActive="active"><i
-                                class="fa-solid fa-house"></i><span>Home</span></a>
-                          </li>
+                            <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/homepage-gv"
+                                    routerLinkActive="active"><i class="fa-solid fa-house"></i><span>Home</span></a>
+                            </li>
                         </div>
-                        
+
                         <li><a class="Sidebar_itemBtn__Q78b7" routerLink="/study-route" routerLinkActive="active"><i
-                              class="fa-solid fa-road"></i><span>Lộ trình</span></a>
+                                    class="fa-solid fa-road"></i><span>Lộ trình</span></a>
                         </li>
                         <li><a class="Sidebar_itemBtn__Q78b7" routerLink="/study" routerLinkActive="active"><i
-                              class="fa-solid fa-lightbulb"></i><span>Học</span></a>
+                                    class="fa-solid fa-lightbulb"></i><span>Học</span></a>
                         </li>
-                        <li><a class="Sidebar_itemBtn__Q78b7 Sidebar_active__uvck8" routerLink="/blog" routerLinkActive="active"><i
-                              class="fa-solid fa-book"></i><span>Blog</span></a></li>
-                      </ul>
+                        <li><a class="Sidebar_itemBtn__Q78b7 Sidebar_active__uvck8" routerLink="/blog"
+                                routerLinkActive="active"><i class="fa-solid fa-book"></i><span>Blog</span></a></li>
+                    </ul>
                 </div>
             </div>
             <div class="App_withSidebarContent__o4VlQ">
@@ -196,7 +196,7 @@
                                     class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-12__2CxUL index-module_l-4__3tf5p">
                                     <div class="Banners_wrapper__8fjJA Banners_sticky__7wV6o"
                                         style="--sticky:80px; --align:flex-end;">
-                                 
+
                                     </div>
                                 </section>
                             </section>

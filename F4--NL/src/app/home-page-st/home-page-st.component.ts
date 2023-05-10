@@ -40,7 +40,7 @@ export class HomePageStComponent {
   ) { }
 
   userId: Number = 0;
-  User: UserModule = new UserModule(1, "", "", "", 1);
+  User: UserModule = new UserModule(0, "", "", "", 0,"");
 
   ngOnInit(): void {
     // this.userId =this.userIdService.getCurrentUserId();
@@ -50,7 +50,7 @@ export class HomePageStComponent {
       this.User = data;
       console.log("user data:" + data.username);
     })
-    console.log("Lay du lieu user roi ne!!!!!!" + this.User);
+    console.log("Lay du lieu user roi ne!!!!!!" + this.User.idrole);
 
   }
 

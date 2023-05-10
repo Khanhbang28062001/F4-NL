@@ -10,17 +10,17 @@
         <div class="NavBar_wrapper__4m3K5" id="header">
             <div class="NavBar_logo__Rgo-5">
                 <div *ngIf="User.idrole == 0">
-                    <a href="/homepage-user"><img
+                    <a routerLink="/homepage-user" routerLinkActive="active"><img
                             src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
                             alt="F8"></a>
                 </div>
                 <div *ngIf="User.idrole == 1">
-                    <a href="/home-page-st"><img
+                    <a routerLink="/home-page-st" routerLinkActive="active"><img
                             src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
                             alt="F8"></a>
                 </div>
                 <div *ngIf="User.idrole == 2">
-                    <a href="/homepage-gv"><img
+                    <a routerLink="/homepage-gv" routerLinkActive="active"><img
                             src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
                             alt="F8"></a>
                 </div>
@@ -154,20 +154,17 @@
                     <ul class="Sidebar_list__HnCzM">
                         <div *ngIf="User.idrole == 0">
                             <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/homepage-user"
-                                    routerLinkActive="active"><i
-                                        class="fa-solid fa-house"></i><span>Home</span></a>
+                                    routerLinkActive="active"><i class="fa-solid fa-house"></i><span>Home</span></a>
                             </li>
                         </div>
                         <div *ngIf="User.idrole == 1">
                             <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/home-page-st"
-                                    routerLinkActive="active"><i
-                                        class="fa-solid fa-house"></i><span>Home</span></a>
+                                    routerLinkActive="active"><i class="fa-solid fa-house"></i><span>Home</span></a>
                             </li>
                         </div>
                         <div *ngIf="User.idrole == 2">
                             <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/homepage-gv"
-                                    routerLinkActive="active"><i
-                                        class="fa-solid fa-house"></i><span>Home</span></a>
+                                    routerLinkActive="active"><i class="fa-solid fa-house"></i><span>Home</span></a>
                             </li>
                         </div>
 
@@ -179,8 +176,7 @@
                                     class="fa-solid fa-lightbulb"></i><span>Học</span></a>
                         </li>
                         <li><a class="Sidebar_itemBtn__Q78b7 Sidebar_active__uvck8" routerLink="/blog"
-                                routerLinkActive="active"><i
-                                    class="fa-solid fa-book"></i><span>Blog</span></a>
+                                routerLinkActive="active"><i class="fa-solid fa-book"></i><span>Blog</span></a>
                         </li>
                     </ul>
                 </div>
@@ -322,13 +318,31 @@
                                     <!-- Kiến Thức Nhập Môn IT -->
                                     <section
                                         class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb">
-                                        <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4"><a
-                                                class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX"
-                                                title="Kiến Thức Nhập Môn IT" target="_self" routerLink="/keep-study"
-                                                routerLinkActive="active"
-                                                style="background-image: url(https://files.fullstack.edu.vn/f8-prod/courses/7.png);"><button
-                                                    class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Tiếp tục
-                                                    học</button></a>
+                                        <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4">
+                                            <div *ngIf="User.idrole==0">
+                                                <a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX"
+                                                    title="Kiến Thức Nhập Môn IT" target="_self"
+                                                    routerLink="/course" routerLinkActive="active"
+                                                    style="background-image: url(https://files.fullstack.edu.vn/f8-prod/courses/7.png);"><button
+                                                        class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Xem khóa 
+                                                        học</button></a>
+                                            </div>
+                                            <div *ngIf="User.idrole==1">
+                                                <a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX"
+                                                    title="Kiến Thức Nhập Môn IT" target="_self"
+                                                    routerLink="/keep-study" routerLinkActive="active"
+                                                    style="background-image: url(https://files.fullstack.edu.vn/f8-prod/courses/7.png);"><button
+                                                        class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Tiếp tục
+                                                        học</button></a>
+                                            </div>
+                                            <div *ngIf="User.idrole==2">
+                                                <a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX"
+                                                    title="Kiến Thức Nhập Môn IT" target="_self"
+                                                    routerLink="/keep-study" routerLinkActive="active"
+                                                    style="background-image: url(https://files.fullstack.edu.vn/f8-prod/courses/7.png);"><button
+                                                        class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Tiếp tục
+                                                        học</button></a>
+                                            </div>
                                             <h3 class="CommonItem_title__EpYrE"><a target="_self"
                                                     href="/learning/lessons-for-newbie">Kiến
                                                     Thức Nhập Môn IT</a></h3>
@@ -368,13 +382,30 @@
                                     <!-- HTML CSS từ Zero đến Hero -->
                                     <section
                                         class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb">
-                                        <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4"><a
-                                                class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX"
-                                                title="HTML CSS từ Zero đến Hero" target="_self" routerLink="/course"
-                                                routerLinkActive="active"
-                                                style="background-image: url(https://files.fullstack.edu.vn/f8-prod/courses/2.png);"><button
+                                        <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4"><div *ngIf="User.idrole==0">
+                                            <a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX"
+                                                title="Kiến Thức Nhập Môn IT" target="_self"
+                                                routerLink="/course" routerLinkActive="active"
+                                                style="background-image: url(https://files.fullstack.edu.vn/f8-prod/courses/7.png);"><button
+                                                    class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Xem khóa 
+                                                    học</button></a>
+                                        </div>
+                                        <div *ngIf="User.idrole==1">
+                                            <a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX"
+                                                title="Kiến Thức Nhập Môn IT" target="_self"
+                                                routerLink="/keep-study" routerLinkActive="active"
+                                                style="background-image: url(https://files.fullstack.edu.vn/f8-prod/courses/7.png);"><button
                                                     class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Tiếp tục
                                                     học</button></a>
+                                        </div>
+                                        <div *ngIf="User.idrole==2">
+                                            <a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX"
+                                                title="Kiến Thức Nhập Môn IT" target="_self"
+                                                routerLink="/keep-study" routerLinkActive="active"
+                                                style="background-image: url(https://files.fullstack.edu.vn/f8-prod/courses/7.png);"><button
+                                                    class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Tiếp tục
+                                                    học</button></a>
+                                        </div>
                                             <h3 class="CommonItem_title__EpYrE"><a target="_self"
                                                     href="/learning/html-css">HTML CSS từ Zero
                                                     đến Hero</a></h3>
@@ -391,13 +422,30 @@
                                     <!-- Lập Trình JavaScript Cơ Bản -->
                                     <section
                                         class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb">
-                                        <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4"><a
-                                                class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX"
-                                                title="Lập Trình JavaScript Cơ Bản" target="_self" routerLink="/course"
-                                                routerLinkActive="active"
-                                                style="background-image: url(https://files.fullstack.edu.vn/f8-prod/courses/1.png);"><button
+                                        <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4"><div *ngIf="User.idrole==0">
+                                            <a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX"
+                                                title="Kiến Thức Nhập Môn IT" target="_self"
+                                                routerLink="/course" routerLinkActive="active"
+                                                style="background-image: url(https://files.fullstack.edu.vn/f8-prod/courses/7.png);"><button
+                                                    class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Xem khóa 
+                                                    học</button></a>
+                                        </div>
+                                        <div *ngIf="User.idrole==1">
+                                            <a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX"
+                                                title="Kiến Thức Nhập Môn IT" target="_self"
+                                                routerLink="/keep-study" routerLinkActive="active"
+                                                style="background-image: url(https://files.fullstack.edu.vn/f8-prod/courses/7.png);"><button
                                                     class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Tiếp tục
-                                                    học</button></a> 
+                                                    học</button></a>
+                                        </div>
+                                        <div *ngIf="User.idrole==2">
+                                            <a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX"
+                                                title="Kiến Thức Nhập Môn IT" target="_self"
+                                                routerLink="/keep-study" routerLinkActive="active"
+                                                style="background-image: url(https://files.fullstack.edu.vn/f8-prod/courses/7.png);"><button
+                                                    class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Tiếp tục
+                                                    học</button></a>
+                                        </div>
                                             <h3 class="CommonItem_title__EpYrE"><a target="_self"
                                                     href="/learning/javascript-co-ban">Lập Trình
                                                     JavaScript Cơ Bản</a>

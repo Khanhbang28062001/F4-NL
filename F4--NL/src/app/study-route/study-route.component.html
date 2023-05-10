@@ -9,17 +9,20 @@
     <div class="NavBar_wrapper__4m3K5" id="header">
       <div class="NavBar_logo__Rgo-5">
         <div *ngIf="User.idrole == 0">
-          <a href="/homepage-user"><img
-              src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png" alt="F8"></a>
-        </div>
-        <div *ngIf="User.idrole == 1">
-          <a href="/home-page-st"><img
-              src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png" alt="F8"></a>
-        </div>
-        <div *ngIf="User.idrole == 2">
-          <a href="/homepage-gv"><img
-              src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png" alt="F8"></a>
-        </div>
+          <a routerLink="/homepage-user" routerLinkActive="active"><img
+                  src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
+                  alt="F8"></a>
+      </div>
+      <div *ngIf="User.idrole == 1">
+          <a routerLink="/home-page-st" routerLinkActive="active"><img
+                  src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
+                  alt="F8"></a>
+      </div>
+      <div *ngIf="User.idrole == 2">
+          <a routerLink="/homepage-gv" routerLinkActive="active"><img
+                  src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
+                  alt="F8"></a>
+      </div>
         <h4 class="NavBar_logoHeading__bs7MP">Học Lập Trình Để Đi Làm</h4>
       </div>
       <!-- </div> -->

@@ -1,295 +1,295 @@
 <head>
-    <meta charset="utf-8">
-    <title>Bảo mật và đăng nhập</title>
-    <link href="security.component.css" rel="stylesheet">
-  </head>
-  <body >
-    <div id="root">
-      <div class="NavBar_wrapper__4m3K5" id="header">
-        <div class="NavBar_logo__Rgo-5">
-          <div *ngIf="User.idrole == 0">
-            <a href="/homepage-user"><img
-                    src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
-                    alt="F8"></a>
+  <meta charset="utf-8">
+  <title>Bảo mật và đăng nhập</title>
+  <link href="security.component.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="root">
+    <div class="NavBar_wrapper__4m3K5" id="header">
+      <div class="NavBar_logo__Rgo-5">
+        <div *ngIf="User.idrole == 0">
+          <a routerLink="/homepage-user" routerLinkActive="active"><img
+              src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png" alt="F8"></a>
         </div>
         <div *ngIf="User.idrole == 1">
-            <a href="/home-page-st"><img
-                    src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
-                    alt="F8"></a>
+          <a routerLink="/home-page-st" routerLinkActive="active"><img
+              src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png" alt="F8"></a>
         </div>
         <div *ngIf="User.idrole == 2">
-            <a href="/homepage-gv"><img
-                    src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
-                    alt="F8"></a>
+          <a routerLink="/homepage-gv" routerLinkActive="active"><img
+              src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png" alt="F8"></a>
         </div>
-          <h4 class="NavBar_logoHeading__bs7MP">Học Lập Trình Để Đi Làm</h4>
-        </div>
-        <!-- </div> -->
-        <div class="Navbar-Trangchu-Search-margin d-flex-center">
-          <div>
-            <div class="Search_wrapper__Bwvae d-flex-center" aria-expanded="false">
-              <div class="Search_searchIcon__-23JY">
-              </div>
-              <input class="Search_input__GnMba" spellcheck="false" placeholder="Tìm kiếm khóa học, bài viết, video, ..."
-                value="">
+        <h4 class="NavBar_logoHeading__bs7MP">Học Lập Trình Để Đi Làm</h4>
+      </div>
+      <!-- </div> -->
+      <div class="Navbar-Trangchu-Search-margin d-flex-center">
+        <div>
+          <div class="Search_wrapper__Bwvae d-flex-center" aria-expanded="false">
+            <div class="Search_searchIcon__-23JY">
             </div>
+            <input class="Search_input__GnMba" spellcheck="false" placeholder="Tìm kiếm khóa học, bài viết, video, ..."
+              value="">
           </div>
         </div>
-        <div class="NavBar_actions__nSNzo">
-          <div id="navbar-actions-portal">
-          </div>
-  
-          <div>
-            <div (click)="openNavNotification()" class="NavBar_actionBtn__tzSZd" id="notification-button"
-               ><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bell"
-                class="svg-inline--fa fa-bell NavBar_action-icon__l9MxX" role="img" xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 448 512">
-                <path fill="currentColor"
-                  d="M256 32V51.2C329 66.03 384 130.6 384 208V226.8C384 273.9 401.3 319.2 432.5 354.4L439.9 362.7C448.3 372.2 450.4 385.6 445.2 397.1C440 408.6 428.6 416 416 416H32C19.4 416 7.971 408.6 2.809 397.1C-2.353 385.6-.2883 372.2 8.084 362.7L15.5 354.4C46.74 319.2 64 273.9 64 226.8V208C64 130.6 118.1 66.03 192 51.2V32C192 14.33 206.3 0 224 0C241.7 0 256 14.33 256 32H256zM224 512C207 512 190.7 505.3 178.7 493.3C166.7 481.3 160 464.1 160 448H288C288 464.1 281.3 481.3 269.3 493.3C257.3 505.3 240.1 512 224 512z">
-                </path>
-              </svg></div>
-              <!-- aria-expanded="false" -->
-            <div *ngIf="isDropDownOpenNotification"
-              style="z-index: 9999; position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-68.8px, 60.8px);">
-              <ul class="Tippy-module_wrapper__1s5m5 Notification_container__ulN0K">
-                <header>
-                  <h6>Thông báo</h6>
-                </header>
-                <div class="Notification_content__0k-Tt hide-on-click">
-                  <p class="Notification_noResult__TJd2-">Chưa có thông báo nào</p>
-                </div>
-              </ul>
-            </div>
-          </div>
-          <div class="NavBar_avatar-wrapper__j7jMj" aria-expanded="false">
-            <div (click)="openNavProfile()" class="FallbackAvatar_avatar__gmj3S" style="--font-size:3.2px;"><img
-                class="NavBar_avatar__OG7ib"
-                src="https://files.fullstack.edu.vn/f8-prod/user_photos/293030/63e71768e42bd.jpg" alt="Khánh Băng"></div>
-          </div>
-          <div *ngIf="isDropDownOpen" 
-            style="z-index: 9999; position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-27.2px, 57.6px);">
-            <ul class="Tippy-module_wrapper__1s5m5 UserMenu_wrapper__kevhj hide-on-click">
-              <div class="UserMenu_user__GXFLp">
-                <div class="UserMenu_avatarWrapper__9ABYL">
-                  <div class="FallbackAvatar_avatar__gmj3S" style="--font-size:5.6px;"><img
-                      src="https://files.fullstack.edu.vn/f8-prod/user_photos/289130/63da5c8beb71a.jpg"
-                      alt="{{TenEmail}}"></div>
-                </div>
-                <div class="UserMenu_info__UqeZT"><span class="UserMenu_name__L18s-">{{ TenEmail }}</span>
-                  <div class="UserMenu_username__7qkRU">{{ Email }}</div>
-                </div>
+      </div>
+      <div class="NavBar_actions__nSNzo">
+        <div id="navbar-actions-portal">
+        </div>
+
+        <div>
+          <div (click)="openNavNotification()" class="NavBar_actionBtn__tzSZd" id="notification-button"><svg
+              aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bell"
+              class="svg-inline--fa fa-bell NavBar_action-icon__l9MxX" role="img" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512">
+              <path fill="currentColor"
+                d="M256 32V51.2C329 66.03 384 130.6 384 208V226.8C384 273.9 401.3 319.2 432.5 354.4L439.9 362.7C448.3 372.2 450.4 385.6 445.2 397.1C440 408.6 428.6 416 416 416H32C19.4 416 7.971 408.6 2.809 397.1C-2.353 385.6-.2883 372.2 8.084 362.7L15.5 354.4C46.74 319.2 64 273.9 64 226.8V208C64 130.6 118.1 66.03 192 51.2V32C192 14.33 206.3 0 224 0C241.7 0 256 14.33 256 32H256zM224 512C207 512 190.7 505.3 178.7 493.3C166.7 481.3 160 464.1 160 448H288C288 464.1 281.3 481.3 269.3 493.3C257.3 505.3 240.1 512 224 512z">
+              </path>
+            </svg></div>
+          <!-- aria-expanded="false" -->
+          <div *ngIf="isDropDownOpenNotification"
+            style="z-index: 9999; position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-68.8px, 60.8px);">
+            <ul class="Tippy-module_wrapper__1s5m5 Notification_container__ulN0K">
+              <header>
+                <h6>Thông báo</h6>
+              </header>
+              <div class="Notification_content__0k-Tt hide-on-click">
+                <p class="Notification_noResult__TJd2-">Chưa có thông báo nào</p>
               </div>
-              <hr>
-              <ul class="UserMenu_list__FI9-C">
-                <li><a class="UserMenu_item__NXwf1" routerLink="/profile" routerLinkActive="active">Trang cá nhân</a></li>
-              </ul>
-              <hr>
-              <ul class="UserMenu_list__FI9-C">
-                <li><a class="UserMenu_item__NXwf1" routerLink="/write-blog" routerLinkActive="active">Viết blog</a></li>
-                <li><a class="UserMenu_item__NXwf1" routerLink="/posts-drafts" routerLinkActive="active">Bài viết của tôi</a></li>
-              </ul>
-              <hr>
-              <ul class="UserMenu_list__FI9-C">
-                <li><a class="UserMenu_item__NXwf1" routerLink="/posts-public" routerLinkActive="active">Bài viết đã lưu</a></li>
-              </ul>
-              <hr>
-              <ul class="UserMenu_list__FI9-C">
-                <li><a class="UserMenu_item__NXwf1" href="/setting-account">Cài đặt</a></li>
-                <li><a class="UserMenu_item__NXwf1" routerLink="/login-form" routerLinkActive="active" >Đăng xuất</a></li>
-              </ul>
             </ul>
           </div>
         </div>
-      </div>
-      <div class="Setting_setting-wrapper__FdLtc">
-        <div class="Setting_sidebar-wrapper__OR4mJ">
-          <h1 class="Setting_heading__pfRml">Cài đặt</h1>
-          <ul class="Setting_sidebar-list__7Yj-I">
-            <li>
-              <a href="/setting-account"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="user"
-                  class="svg-inline--fa fa-user Setting_icon__cYZ5C" role="img" xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 448 512">
-                  <path fill="currentColor"
-                    d="M272 304h-96C78.8 304 0 382.8 0 480c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32C448 382.8 369.2 304 272 304zM48.99 464C56.89 400.9 110.8 352 176 352h96c65.16 0 119.1 48.95 127 112H48.99zM224 256c70.69 0 128-57.31 128-128c0-70.69-57.31-128-128-128S96 57.31 96 128C96 198.7 153.3 256 224 256zM224 48c44.11 0 80 35.89 80 80c0 44.11-35.89 80-80 80S144 172.1 144 128C144 83.89 179.9 48 224 48z">
-                  </path>
-                </svg><span>Cài đặt tài khoản</span></a>
-            </li>
-            <li>
-              <a href="/settings/security" aria-current="page" class="Setting_active__bcAyq"><svg aria-hidden="true"
-                  focusable="false" data-prefix="fas" data-icon="shield"
-                  class="svg-inline--fa fa-shield Setting_icon__cYZ5C" role="img" xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 512 512">
-                  <path fill="currentColor"
-                    d="M466.5 83.71l-192-80C269.6 1.67 261.3 0 256 0C250.7 0 242.5 1.67 237.6 3.702l-192 80C27.7 91.1 16 108.6 16 127.1c0 257.2 189.2 384 239.1 384c51.1 0 240-128.2 240-384C496 108.6 484.3 91.1 466.5 83.71zM256 446.5l.0234-381.1c.0059-.0234 0 0 0 0l175.9 73.17C427.8 319.7 319 417.1 256 446.5z">
-                  </path>
-                </svg><span>Bảo mật và đăng nhập</span></a>
-            </li>
+        <div class="NavBar_avatar-wrapper__j7jMj" aria-expanded="false">
+          <div (click)="openNavProfile()" class="FallbackAvatar_avatar__gmj3S" style="--font-size:3.2px;"><img
+              class="NavBar_avatar__OG7ib"
+              src="https://files.fullstack.edu.vn/f8-prod/user_photos/293030/63e71768e42bd.jpg" alt="Khánh Băng"></div>
+        </div>
+        <div *ngIf="isDropDownOpen"
+          style="z-index: 9999; position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-27.2px, 57.6px);">
+          <ul class="Tippy-module_wrapper__1s5m5 UserMenu_wrapper__kevhj hide-on-click">
+            <div class="UserMenu_user__GXFLp">
+              <div class="UserMenu_avatarWrapper__9ABYL">
+                <div class="FallbackAvatar_avatar__gmj3S" style="--font-size:5.6px;"><img
+                    src="https://files.fullstack.edu.vn/f8-prod/user_photos/289130/63da5c8beb71a.jpg"
+                    alt="{{TenEmail}}"></div>
+              </div>
+              <div class="UserMenu_info__UqeZT"><span class="UserMenu_name__L18s-">{{ TenEmail }}</span>
+                <div class="UserMenu_username__7qkRU">{{ Email }}</div>
+              </div>
+            </div>
+            <hr>
+            <ul class="UserMenu_list__FI9-C">
+              <li><a class="UserMenu_item__NXwf1" routerLink="/profile" routerLinkActive="active">Trang cá nhân</a></li>
+            </ul>
+            <hr>
+            <ul class="UserMenu_list__FI9-C">
+              <li><a class="UserMenu_item__NXwf1" routerLink="/write-blog" routerLinkActive="active">Viết blog</a></li>
+              <li><a class="UserMenu_item__NXwf1" routerLink="/posts-drafts" routerLinkActive="active">Bài viết của
+                  tôi</a></li>
+            </ul>
+            <hr>
+            <ul class="UserMenu_list__FI9-C">
+              <li><a class="UserMenu_item__NXwf1" routerLink="/posts-public" routerLinkActive="active">Bài viết đã
+                  lưu</a></li>
+            </ul>
+            <hr>
+            <ul class="UserMenu_list__FI9-C">
+              <li><a class="UserMenu_item__NXwf1" href="/setting-account">Cài đặt</a></li>
+              <li><a class="UserMenu_item__NXwf1" routerLink="/login-form" routerLinkActive="active">Đăng xuất</a></li>
+            </ul>
           </ul>
         </div>
-        <div class="Setting_pageWrapper__PM+M5">
-          <section class="index-module_row__-AHgh">
-            <section
-              class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-12__2CxUL index-module_l-12__340Ve">
-              <div class="Setting_wrapper__TX8z0">
-                <div class="GroupField_wrapper__1-jfw">
-                  <h2 class="GroupField_heading__PIaoN">
-                    Liên kết tài khoản đăng nhập
-                  </h2>
-                  <div class="Setting_connectionsList__TBDYU">
-                    <div>
-                      <div class="Setting_connectionLabel__6xw-s">
-                        Liên kết Google
-                      </div>
-                      <div class="Setting_connectionContent__hTjDR">
-                        <div>
-                          <div class="FallbackAvatar_avatar__gmj3S" style="--font-size: 5.6px">
-                            <img
-                              src="https://lh3.googleusercontent.com/a/AGNmyxZTflY0_2_VF4CnFJNPm14RTZv5-il-hRlf_oIT=s96-c"
-                              alt="ttka1607@gmail.com" />
-                          </div>
-                          <span class="Setting_providerName__YiHct">ttka1607@gmail.com</span>
+      </div>
+    </div>
+    <div class="Setting_setting-wrapper__FdLtc">
+      <div class="Setting_sidebar-wrapper__OR4mJ">
+        <h1 class="Setting_heading__pfRml">Cài đặt</h1>
+        <ul class="Setting_sidebar-list__7Yj-I">
+          <li>
+            <a href="/setting-account"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="user"
+                class="svg-inline--fa fa-user Setting_icon__cYZ5C" role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512">
+                <path fill="currentColor"
+                  d="M272 304h-96C78.8 304 0 382.8 0 480c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32C448 382.8 369.2 304 272 304zM48.99 464C56.89 400.9 110.8 352 176 352h96c65.16 0 119.1 48.95 127 112H48.99zM224 256c70.69 0 128-57.31 128-128c0-70.69-57.31-128-128-128S96 57.31 96 128C96 198.7 153.3 256 224 256zM224 48c44.11 0 80 35.89 80 80c0 44.11-35.89 80-80 80S144 172.1 144 128C144 83.89 179.9 48 224 48z">
+                </path>
+              </svg><span>Cài đặt tài khoản</span></a>
+          </li>
+          <li>
+            <a href="/settings/security" aria-current="page" class="Setting_active__bcAyq"><svg aria-hidden="true"
+                focusable="false" data-prefix="fas" data-icon="shield"
+                class="svg-inline--fa fa-shield Setting_icon__cYZ5C" role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512">
+                <path fill="currentColor"
+                  d="M466.5 83.71l-192-80C269.6 1.67 261.3 0 256 0C250.7 0 242.5 1.67 237.6 3.702l-192 80C27.7 91.1 16 108.6 16 127.1c0 257.2 189.2 384 239.1 384c51.1 0 240-128.2 240-384C496 108.6 484.3 91.1 466.5 83.71zM256 446.5l.0234-381.1c.0059-.0234 0 0 0 0l175.9 73.17C427.8 319.7 319 417.1 256 446.5z">
+                </path>
+              </svg><span>Bảo mật và đăng nhập</span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="Setting_pageWrapper__PM+M5">
+        <section class="index-module_row__-AHgh">
+          <section
+            class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-12__2CxUL index-module_l-12__340Ve">
+            <div class="Setting_wrapper__TX8z0">
+              <div class="GroupField_wrapper__1-jfw">
+                <h2 class="GroupField_heading__PIaoN">
+                  Liên kết tài khoản đăng nhập
+                </h2>
+                <div class="Setting_connectionsList__TBDYU">
+                  <div>
+                    <div class="Setting_connectionLabel__6xw-s">
+                      Liên kết Google
+                    </div>
+                    <div class="Setting_connectionContent__hTjDR">
+                      <div>
+                        <div class="FallbackAvatar_avatar__gmj3S" style="--font-size: 5.6px">
+                          <img
+                            src="https://lh3.googleusercontent.com/a/AGNmyxZTflY0_2_VF4CnFJNPm14RTZv5-il-hRlf_oIT=s96-c"
+                            alt="ttka1607@gmail.com" />
                         </div>
-                        <button class="Setting_disconnectButton__97qSD">
-                          Hủy liên kết
-                        </button>
+                        <span class="Setting_providerName__YiHct">ttka1607@gmail.com</span>
                       </div>
+                      <button class="Setting_disconnectButton__97qSD">
+                        Hủy liên kết
+                      </button>
                     </div>
+                  </div>
+                  <div>
+                    <div class="Setting_connectionLabel__6xw-s">
+                      Liên kết Facebook
+                    </div>
+                    <div class="Setting_connectionContent__hTjDR">
+                      <span class="Setting_noConnectionMessage__HrouN">Chưa liên kết tài khoản Facebook</span><button
+                        class="Setting_connectButton__Mvun4">
+                        <img src="/static/media/facebook-18px.f8cbbfa43b6a279006c9d53266b2c3e8.svg" alt="" />Liên kết
+                        Facebook
+                      </button>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="Setting_connectionLabel__6xw-s">
+                      Liên kết số điện thoại
+                    </div>
+                    <div class="Setting_connectionContent__hTjDR">
+                      <span class="Setting_noConnectionMessage__HrouN">Chưa liên kết số điện thoại nào</span><button
+                        class="Setting_connectButton__Mvun4">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone"
+                          class="svg-inline--fa fa-phone" role="img" xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 512 512">
+                          <path fill="currentColor"
+                            d="M511.2 387l-23.25 100.8c-3.266 14.25-15.79 24.22-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.969-27.2 24.22-30.45l100.8-23.25C139.7-2.602 154.7 5.018 160.8 18.92l46.52 108.5c5.438 12.78 1.77 27.67-8.98 36.45L144.5 207.1c33.98 69.22 90.26 125.5 159.5 159.5l44.08-53.8c8.688-10.78 23.69-14.51 36.47-8.975l108.5 46.51C506.1 357.2 514.6 372.4 511.2 387z">
+                          </path>
+                        </svg>Liên kết số điện thoại
+                      </button>
+                    </div>
+                  </div>
+                  <div id="send-verifycode-button" style="opacity: 0"></div>
+                </div>
+              </div>
+              <div class="GroupField_wrapper__1-jfw">
+                <h2 class="GroupField_heading__PIaoN">Mạng xã hội</h2>
+                <div class="FieldWrapper_wrapper__QcEfS">
+                  <div class="InputField_fieldContent__iWttQ">
+                    <h3 class="InputField_fieldContentLabel__wJO4a">
+                      Facebook
+                    </h3>
                     <div>
-                      <div class="Setting_connectionLabel__6xw-s">
-                        Liên kết Facebook
-                      </div>
-                      <div class="Setting_connectionContent__hTjDR">
-                        <span class="Setting_noConnectionMessage__HrouN">Chưa liên kết tài khoản Facebook</span><button
-                          class="Setting_connectButton__Mvun4">
-                          <img src="/static/media/facebook-18px.f8cbbfa43b6a279006c9d53266b2c3e8.svg" alt="" />Liên kết
-                          Facebook
-                        </button>
+                      <div class="InputField_fieldContentEdit__KYEiF">
+                        <input type="text" name="facebook_url" class="InputField_fieldContentInput__lO21W"
+                          maxlength="150" placeholder="Eg. https://www.facebook.com/hoclaptrinhf8" disabled=""
+                          value="" />
+                        <div class="InputField_description__unJBo"></div>
                       </div>
                     </div>
-                    <div>
-                      <div class="Setting_connectionLabel__6xw-s">
-                        Liên kết số điện thoại
-                      </div>
-                      <div class="Setting_connectionContent__hTjDR">
-                        <span class="Setting_noConnectionMessage__HrouN">Chưa liên kết số điện thoại nào</span><button
-                          class="Setting_connectButton__Mvun4">
-                          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone"
-                            class="svg-inline--fa fa-phone" role="img" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 512 512">
-                            <path fill="currentColor"
-                              d="M511.2 387l-23.25 100.8c-3.266 14.25-15.79 24.22-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.969-27.2 24.22-30.45l100.8-23.25C139.7-2.602 154.7 5.018 160.8 18.92l46.52 108.5c5.438 12.78 1.77 27.67-8.98 36.45L144.5 207.1c33.98 69.22 90.26 125.5 159.5 159.5l44.08-53.8c8.688-10.78 23.69-14.51 36.47-8.975l108.5 46.51C506.1 357.2 514.6 372.4 511.2 387z">
-                            </path>
-                          </svg>Liên kết số điện thoại
-                        </button>
-                      </div>
-                    </div>
-                    <div id="send-verifycode-button" style="opacity: 0"></div>
+                  </div>
+                  <div class="InputField_fieldBtn__OG6ZB">
+                    <button class="Button_fieldButton__B93oZ Button_fieldButtonDefault__7a6UD">
+                      Chỉnh sửa
+                    </button>
                   </div>
                 </div>
-                <div class="GroupField_wrapper__1-jfw">
-                  <h2 class="GroupField_heading__PIaoN">Mạng xã hội</h2>
-                  <div class="FieldWrapper_wrapper__QcEfS">
-                    <div class="InputField_fieldContent__iWttQ">
-                      <h3 class="InputField_fieldContentLabel__wJO4a">
-                        Facebook
-                      </h3>
-                      <div>
-                        <div class="InputField_fieldContentEdit__KYEiF">
-                          <input type="text" name="facebook_url" class="InputField_fieldContentInput__lO21W"
-                            maxlength="150" placeholder="Eg. https://www.facebook.com/hoclaptrinhf8" disabled=""
-                            value="" />
-                          <div class="InputField_description__unJBo"></div>
-                        </div>
+                <div class="FieldWrapper_wrapper__QcEfS">
+                  <div class="InputField_fieldContent__iWttQ">
+                    <h3 class="InputField_fieldContentLabel__wJO4a">Youtube</h3>
+                    <div>
+                      <div class="InputField_fieldContentEdit__KYEiF">
+                        <input type="text" name="youtube_url" class="InputField_fieldContentInput__lO21W"
+                          maxlength="150" placeholder="Eg. https://www.youtube.com/c/F8VNOfficial" disabled=""
+                          value="" />
+                        <div class="InputField_description__unJBo"></div>
                       </div>
-                    </div>
-                    <div class="InputField_fieldBtn__OG6ZB">
-                      <button class="Button_fieldButton__B93oZ Button_fieldButtonDefault__7a6UD">
-                        Chỉnh sửa
-                      </button>
                     </div>
                   </div>
-                  <div class="FieldWrapper_wrapper__QcEfS">
-                    <div class="InputField_fieldContent__iWttQ">
-                      <h3 class="InputField_fieldContentLabel__wJO4a">Youtube</h3>
-                      <div>
-                        <div class="InputField_fieldContentEdit__KYEiF">
-                          <input type="text" name="youtube_url" class="InputField_fieldContentInput__lO21W"
-                            maxlength="150" placeholder="Eg. https://www.youtube.com/c/F8VNOfficial" disabled=""
-                            value="" />
-                          <div class="InputField_description__unJBo"></div>
-                        </div>
+                  <div class="InputField_fieldBtn__OG6ZB">
+                    <button class="Button_fieldButton__B93oZ Button_fieldButtonDefault__7a6UD">
+                      Chỉnh sửa
+                    </button>
+                  </div>
+                </div>
+                <div class="FieldWrapper_wrapper__QcEfS">
+                  <div class="InputField_fieldContent__iWttQ">
+                    <h3 class="InputField_fieldContentLabel__wJO4a">
+                      Linkedin
+                    </h3>
+                    <div>
+                      <div class="InputField_fieldContentEdit__KYEiF">
+                        <input type="text" name="linkedin_url" class="InputField_fieldContentInput__lO21W"
+                          maxlength="150" placeholder="Eg. https://www.linkedin.com/in/hoclaptrinhf8/" disabled=""
+                          value="" />
+                        <div class="InputField_description__unJBo"></div>
                       </div>
-                    </div>
-                    <div class="InputField_fieldBtn__OG6ZB">
-                      <button class="Button_fieldButton__B93oZ Button_fieldButtonDefault__7a6UD">
-                        Chỉnh sửa
-                      </button>
                     </div>
                   </div>
-                  <div class="FieldWrapper_wrapper__QcEfS">
-                    <div class="InputField_fieldContent__iWttQ">
-                      <h3 class="InputField_fieldContentLabel__wJO4a">
-                        Linkedin
-                      </h3>
-                      <div>
-                        <div class="InputField_fieldContentEdit__KYEiF">
-                          <input type="text" name="linkedin_url" class="InputField_fieldContentInput__lO21W"
-                            maxlength="150" placeholder="Eg. https://www.linkedin.com/in/hoclaptrinhf8/" disabled=""
-                            value="" />
-                          <div class="InputField_description__unJBo"></div>
-                        </div>
+                  <div class="InputField_fieldBtn__OG6ZB">
+                    <button class="Button_fieldButton__B93oZ Button_fieldButtonDefault__7a6UD">
+                      Chỉnh sửa
+                    </button>
+                  </div>
+                </div>
+                <div class="FieldWrapper_wrapper__QcEfS">
+                  <div class="InputField_fieldContent__iWttQ">
+                    <h3 class="InputField_fieldContentLabel__wJO4a">
+                      Instagram
+                    </h3>
+                    <div>
+                      <div class="InputField_fieldContentEdit__KYEiF">
+                        <input type="text" name="instagram_url" class="InputField_fieldContentInput__lO21W"
+                          maxlength="150" placeholder="Eg. https://www.instagram.com/hoclaptrinhf8/" disabled=""
+                          value="" />
+                        <div class="InputField_description__unJBo"></div>
                       </div>
-                    </div>
-                    <div class="InputField_fieldBtn__OG6ZB">
-                      <button class="Button_fieldButton__B93oZ Button_fieldButtonDefault__7a6UD">
-                        Chỉnh sửa
-                      </button>
                     </div>
                   </div>
-                  <div class="FieldWrapper_wrapper__QcEfS">
-                    <div class="InputField_fieldContent__iWttQ">
-                      <h3 class="InputField_fieldContentLabel__wJO4a">
-                        Instagram
-                      </h3>
-                      <div>
-                        <div class="InputField_fieldContentEdit__KYEiF">
-                          <input type="text" name="instagram_url" class="InputField_fieldContentInput__lO21W"
-                            maxlength="150" placeholder="Eg. https://www.instagram.com/hoclaptrinhf8/" disabled=""
-                            value="" />
-                          <div class="InputField_description__unJBo"></div>
-                        </div>
+                  <div class="InputField_fieldBtn__OG6ZB">
+                    <button class="Button_fieldButton__B93oZ Button_fieldButtonDefault__7a6UD">
+                      Chỉnh sửa
+                    </button>
+                  </div>
+                </div>
+                <div class="FieldWrapper_wrapper__QcEfS">
+                  <div class="InputField_fieldContent__iWttQ">
+                    <h3 class="InputField_fieldContentLabel__wJO4a">Twitter</h3>
+                    <div>
+                      <div class="InputField_fieldContentEdit__KYEiF">
+                        <input type="text" name="twitter_url" class="InputField_fieldContentInput__lO21W"
+                          maxlength="150" placeholder="Eg. https://twitter.com/hoclaptrinhf8" disabled="" value="" />
+                        <div class="InputField_description__unJBo"></div>
                       </div>
-                    </div>
-                    <div class="InputField_fieldBtn__OG6ZB">
-                      <button class="Button_fieldButton__B93oZ Button_fieldButtonDefault__7a6UD">
-                        Chỉnh sửa
-                      </button>
                     </div>
                   </div>
-                  <div class="FieldWrapper_wrapper__QcEfS">
-                    <div class="InputField_fieldContent__iWttQ">
-                      <h3 class="InputField_fieldContentLabel__wJO4a">Twitter</h3>
-                      <div>
-                        <div class="InputField_fieldContentEdit__KYEiF">
-                          <input type="text" name="twitter_url" class="InputField_fieldContentInput__lO21W"
-                            maxlength="150" placeholder="Eg. https://twitter.com/hoclaptrinhf8" disabled="" value="" />
-                          <div class="InputField_description__unJBo"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="InputField_fieldBtn__OG6ZB">
-                      <button class="Button_fieldButton__B93oZ Button_fieldButtonDefault__7a6UD">
-                        Chỉnh sửa
-                      </button>
-                    </div>
+                  <div class="InputField_fieldBtn__OG6ZB">
+                    <button class="Button_fieldButton__B93oZ Button_fieldButtonDefault__7a6UD">
+                      Chỉnh sửa
+                    </button>
                   </div>
                 </div>
               </div>
-            </section>
+            </div>
           </section>
-        </div>
+        </section>
       </div>
-
-      <div class="Toastify"></div>
     </div>
-  </body>
+
+    <div class="Toastify"></div>
+  </div>
+</body>

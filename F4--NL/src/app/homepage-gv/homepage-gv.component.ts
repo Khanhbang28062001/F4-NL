@@ -29,7 +29,7 @@ export class HomepageGvComponent {
   ) { }
 
   userId: Number = 0;
-  User: UserModule = new UserModule(0, "", "", "", 0);
+  User: UserModule = new UserModule(0, "", "", "", 0,"");
 
   ngOnInit(): void {
     // this.userId =this.userIdService.getCurrentUserId();
@@ -42,6 +42,5 @@ export class HomepageGvComponent {
     console.log("Lay du lieu user gv roi ne!!!!!!" + this.User);
 
   }
-
 
 }

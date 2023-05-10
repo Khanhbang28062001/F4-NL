@@ -33,7 +33,7 @@ export class WriteBlogComponent implements OnInit {
     // (so truong du lieu trong ban)
   });
   userId: Number = 0;
-  User: UserModule = new UserModule(0, "", "", "", 0);
+  User: UserModule = new UserModule(0, "", "", "", 0,"");
 
   constructor(
     private common: CommonService,
@@ -67,7 +67,7 @@ export class WriteBlogComponent implements OnInit {
     this.userIdService.currentUserId.subscribe(userId => this.userId = userId);
     this.userService.getUserById(this.userId).subscribe((data) => {
       this.User = data;
-      console.log("Lay du lieu user blog roi ne!!!!!! " + this.User.idrole);
+      console.log("Lay du lieu user roi ne!!!!!! " + this.User.idrole);
     })
   }
 

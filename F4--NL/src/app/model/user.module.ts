@@ -16,8 +16,8 @@ export class UserModule {
     public password: String,
     public email: String,
     public idrole: Number,
+    public imguser:String,
   ) {
-
   }
   
 }

@@ -15,7 +15,7 @@ export class AdminComponent {
   ) { }
 
   userId: Number = 0;
-  User: UserModule = new UserModule(1, "", "", "", 1);
+  User: UserModule = new UserModule(0, "", "", "", 0,"");
 
   ngOnInit(): void {
     // this.userId =this.userIdService.getCurrentUserId();

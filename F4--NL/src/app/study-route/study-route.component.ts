@@ -42,7 +42,7 @@ export class StudyRouteComponent {
   ) {
   }
   userId: Number = 0;
-  User: UserModule = new UserModule(0, "", "", "", 0);
+  User: UserModule = new UserModule(0, "", "", "", 0,"");
   
   public ngOnInit(): void {
     this.userIdService.currentUserId.subscribe(userId => this.userId = userId);

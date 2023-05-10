@@ -1,235 +1,230 @@
 <head>
-    <meta charset="utf-8">
-    <title>Viết Blog</title>
-    <link href="posts-public.component.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <title>Viết Blog</title>
+  <link href="posts-public.component.css" rel="stylesheet">
 </head>
 
 <body>
-    <div id="root">
-        <div class="NavBar_wrapper__4m3K5" id="header">
-            <div class="NavBar_logo__Rgo-5">
-              <div *ngIf="User.idrole == 0">
-                <a href="/homepage-user"><img
-                        src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
-                        alt="F8"></a>
+  <div id="root">
+    <div class="NavBar_wrapper__4m3K5" id="header">
+      <div class="NavBar_logo__Rgo-5">
+        <div *ngIf="User.idrole == 0">
+          <a routerLink="/homepage-user" routerLinkActive="active"><img
+              src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png" alt="F8"></a>
+        </div>
+        <div *ngIf="User.idrole == 1">
+          <a routerLink="/home-page-st" routerLinkActive="active"><img
+              src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png" alt="F8"></a>
+        </div>
+        <div *ngIf="User.idrole == 2">
+          <a routerLink="/homepage-gv" routerLinkActive="active"><img
+              src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png" alt="F8"></a>
+        </div>
+        <div *ngIf="User.idrole == 0">
+          <a routerLink="/homepage-user" routerLinkActive="active" class="NavBar_backHome__U1RTm">
+            <h4 class="NavBar_logoHeading__bs7MP">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left"
+                class="svg-inline--fa fa-chevron-left " role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512">
+                <path fill="currentColor"
+                  d="M224 480c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25l192-192c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l169.4 169.4c12.5 12.5 12.5 32.75 0 45.25C240.4 476.9 232.2 480 224 480z">
+                </path>
+              </svg>
+              <span>Quay lại</span>
+            </h4>
+          </a>
+        </div>
+        <div *ngIf="User.idrole == 1">
+          <a routerLink="/home-page-st" routerLinkActive="active" class="NavBar_backHome__U1RTm">
+            <h4 class="NavBar_logoHeading__bs7MP">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left"
+                class="svg-inline--fa fa-chevron-left " role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512">
+                <path fill="currentColor"
+                  d="M224 480c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25l192-192c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l169.4 169.4c12.5 12.5 12.5 32.75 0 45.25C240.4 476.9 232.2 480 224 480z">
+                </path>
+              </svg>
+              <span>Quay lại</span>
+            </h4>
+          </a>
+        </div>
+        <div *ngIf="User.idrole == 2">
+          <a routerLink="/homepage-gv" routerLinkActive="active" class="NavBar_backHome__U1RTm">
+            <h4 class="NavBar_logoHeading__bs7MP">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left"
+                class="svg-inline--fa fa-chevron-left " role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 320 512">
+                <path fill="currentColor"
+                  d="M224 480c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25l192-192c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l169.4 169.4c12.5 12.5 12.5 32.75 0 45.25C240.4 476.9 232.2 480 224 480z">
+                </path>
+              </svg>
+              <span>Quay lại</span>
+            </h4>
+          </a>
+        </div>
+
+      </div>
+      <div class="NavBar_body__4Yhth d-flex-center">
+        <div>
+          <div class="Search_wrapper__Bwvae d-flex-center" aria-expanded="false">
+            <div class="Search_searchIcon__-23JY"></div>
+            <input class="Search_input__GnMba" spellcheck="false" placeholder="Tìm kiếm khóa học, bài viết, video, ..."
+              value="">
+          </div>
+        </div>
+      </div>
+
+      <div class="NavBar_actions__nSNzo">
+        <div id="navbar-actions-portal">
+        </div>
+
+        <div>
+          <div (click)="openNavNotification()" class="NavBar_actionBtn__tzSZd" id="notification-button"><svg
+              aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bell"
+              class="svg-inline--fa fa-bell NavBar_action-icon__l9MxX" role="img" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512">
+              <path fill="currentColor"
+                d="M256 32V51.2C329 66.03 384 130.6 384 208V226.8C384 273.9 401.3 319.2 432.5 354.4L439.9 362.7C448.3 372.2 450.4 385.6 445.2 397.1C440 408.6 428.6 416 416 416H32C19.4 416 7.971 408.6 2.809 397.1C-2.353 385.6-.2883 372.2 8.084 362.7L15.5 354.4C46.74 319.2 64 273.9 64 226.8V208C64 130.6 118.1 66.03 192 51.2V32C192 14.33 206.3 0 224 0C241.7 0 256 14.33 256 32H256zM224 512C207 512 190.7 505.3 178.7 493.3C166.7 481.3 160 464.1 160 448H288C288 464.1 281.3 481.3 269.3 493.3C257.3 505.3 240.1 512 224 512z">
+              </path>
+            </svg></div>
+          <!-- aria-expanded="false" -->
+          <div *ngIf="isDropDownOpenNotification"
+            style="z-index: 9999; position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-68.8px, 60.8px);">
+            <ul class="Tippy-module_wrapper__1s5m5 Notification_container__ulN0K">
+              <header>
+                <h6>Thông báo</h6>
+              </header>
+              <div class="Notification_content__0k-Tt hide-on-click">
+                <p class="Notification_noResult__TJd2-">Chưa có thông báo nào</p>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <div class="NavBar_avatar-wrapper__j7jMj" aria-expanded="false">
+          <div (click)="openNavProfile()" class="FallbackAvatar_avatar__gmj3S" style="--font-size:3.2px;"><img
+              class="NavBar_avatar__OG7ib"
+              src="{{User.imguser}}" alt="User"></div>
+        </div>
+        <div *ngIf="isDropDownOpen"
+          style="z-index: 9999; position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-27.2px, 57.6px);">
+          <ul class="Tippy-module_wrapper__1s5m5 UserMenu_wrapper__kevhj hide-on-click">
+            <div class="UserMenu_user__GXFLp">
+              <div class="UserMenu_avatarWrapper__9ABYL">
+                <div class="FallbackAvatar_avatar__gmj3S" style="--font-size:5.6px;"><img
+                    src="{{User.imguser}}"
+                    alt="{{User.username}}"></div>
+              </div>
+              <div class="UserMenu_info__UqeZT"><span class="UserMenu_name__L18s-">{{ User.username }}</span>
+                <div class="UserMenu_username__7qkRU">{{ User.email }}</div>
+              </div>
+            </div>
+            <hr>
+            <ul class="UserMenu_list__FI9-C">
+              <li><a class="UserMenu_item__NXwf1" routerLink="/profile" routerLinkActive="active">Trang cá nhân</a></li>
+            </ul>
+            <hr>
+            <ul class="UserMenu_list__FI9-C">
+              <li><a class="UserMenu_item__NXwf1" routerLink="/write-blog" routerLinkActive="active">Viết blog</a></li>
+              <li><a class="UserMenu_item__NXwf1" routerLink="/posts-drafts" routerLinkActive="active">Bài viết của
+                  tôi</a></li>
+            </ul>
+            <hr>
+            <ul class="UserMenu_list__FI9-C">
+              <li><a class="UserMenu_item__NXwf1" routerLink="/posts-public" routerLinkActive="active">Bài viết đã
+                  lưu</a></li>
+            </ul>
+            <hr>
+            <ul class="UserMenu_list__FI9-C">
+              <li><a class="UserMenu_item__NXwf1" href="/setting-account">Cài đặt</a></li>
+              <li><a class="UserMenu_item__NXwf1" routerLink="/login-form" routerLinkActive="active">Đăng xuất</a></li>
+            </ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="App_withSidebar__8lwIi">
+      <div class="App_sidebarWrap__3LwsB">
+        <div class="Sidebar_wrapper__kUJFm" id="sidebar">
+          <div>
+            <div class="CreateButton_wrapper__Bb6o6" aria-expanded="false">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus"
+                class="svg-inline--fa fa-plus CreateButton_icon__ipBrz" role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512">
+                <path fill="currentColor"
+                  d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z">
+                </path>
+              </svg>
+            </div>
+          </div>
+          <ul class="Sidebar_list__HnCzM">
+            <div *ngIf="User.idrole == 0">
+              <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/homepage-user"
+                  routerLinkActive="active"><i class="fa-solid fa-house"></i><span>Home</span></a>
+              </li>
             </div>
             <div *ngIf="User.idrole == 1">
-                <a href="/home-page-st"><img
-                        src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
-                        alt="F8"></a>
+              <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/home-page-st"
+                  routerLinkActive="active"><i class="fa-solid fa-house"></i><span>Home</span></a>
+              </li>
             </div>
             <div *ngIf="User.idrole == 2">
-                <a href="/homepage-gv"><img
-                        src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
-                        alt="F8"></a>
-            </div>
-            <div *ngIf="User.idrole == 0">
-              <a href="/homepage-user" class="NavBar_backHome__U1RTm">
-                  <h4 class="NavBar_logoHeading__bs7MP">
-                      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left"
-                          class="svg-inline--fa fa-chevron-left " role="img" xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 320 512">
-                          <path fill="currentColor"
-                              d="M224 480c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25l192-192c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l169.4 169.4c12.5 12.5 12.5 32.75 0 45.25C240.4 476.9 232.2 480 224 480z">
-                          </path>
-                      </svg>
-                      <span>Quay lại</span>
-                  </h4>
-              </a>
-              </div>
-              <div *ngIf="User.idrole == 1">
-                  <a href="/home-page-st" class="NavBar_backHome__U1RTm">
-                      <h4 class="NavBar_logoHeading__bs7MP">
-                          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left"
-                              class="svg-inline--fa fa-chevron-left " role="img" xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 320 512">
-                              <path fill="currentColor"
-                                  d="M224 480c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25l192-192c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l169.4 169.4c12.5 12.5 12.5 32.75 0 45.25C240.4 476.9 232.2 480 224 480z">
-                              </path>
-                          </svg>
-                          <span>Quay lại</span>
-                      </h4>
-                  </a>
-                  </div>
-                  <div *ngIf="User.idrole == 2" >
-                      <a href="/homepage-gv" class="NavBar_backHome__U1RTm">
-                          <h4 class="NavBar_logoHeading__bs7MP">
-                              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left"
-                                  class="svg-inline--fa fa-chevron-left " role="img" xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 320 512">
-                                  <path fill="currentColor"
-                                      d="M224 480c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25l192-192c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l169.4 169.4c12.5 12.5 12.5 32.75 0 45.25C240.4 476.9 232.2 480 224 480z">
-                                  </path>
-                              </svg>
-                              <span>Quay lại</span>
-                          </h4>
-                      </a>
-                      </div>
-
-            </div>
-            <div class="NavBar_body__4Yhth d-flex-center">
-                <div>
-                    <div class="Search_wrapper__Bwvae d-flex-center" aria-expanded="false">
-                        <div class="Search_searchIcon__-23JY"></div>
-                        <input class="Search_input__GnMba" spellcheck="false"
-                            placeholder="Tìm kiếm khóa học, bài viết, video, ..." value="">
-                    </div>
-                </div>
+              <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/homepage-gv"
+                  routerLinkActive="active"><i class="fa-solid fa-house"></i><span>Home</span></a>
+              </li>
             </div>
 
-            <div class="NavBar_actions__nSNzo">
-                <div id="navbar-actions-portal">
-                </div>
-        
-                <div>
-                  <div (click)="openNavNotification()" class="NavBar_actionBtn__tzSZd" id="notification-button"
-                     ><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bell"
-                      class="svg-inline--fa fa-bell NavBar_action-icon__l9MxX" role="img" xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 448 512">
-                      <path fill="currentColor"
-                        d="M256 32V51.2C329 66.03 384 130.6 384 208V226.8C384 273.9 401.3 319.2 432.5 354.4L439.9 362.7C448.3 372.2 450.4 385.6 445.2 397.1C440 408.6 428.6 416 416 416H32C19.4 416 7.971 408.6 2.809 397.1C-2.353 385.6-.2883 372.2 8.084 362.7L15.5 354.4C46.74 319.2 64 273.9 64 226.8V208C64 130.6 118.1 66.03 192 51.2V32C192 14.33 206.3 0 224 0C241.7 0 256 14.33 256 32H256zM224 512C207 512 190.7 505.3 178.7 493.3C166.7 481.3 160 464.1 160 448H288C288 464.1 281.3 481.3 269.3 493.3C257.3 505.3 240.1 512 224 512z">
-                      </path>
-                    </svg></div>
-                    <!-- aria-expanded="false" -->
-                  <div *ngIf="isDropDownOpenNotification"
-                    style="z-index: 9999; position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-68.8px, 60.8px);">
-                    <ul class="Tippy-module_wrapper__1s5m5 Notification_container__ulN0K">
-                      <header>
-                        <h6>Thông báo</h6>
-                      </header>
-                      <div class="Notification_content__0k-Tt hide-on-click">
-                        <p class="Notification_noResult__TJd2-">Chưa có thông báo nào</p>
-                      </div>
-                    </ul>
-                  </div>
-                </div>
-                <div class="NavBar_avatar-wrapper__j7jMj" aria-expanded="false">
-                  <div (click)="openNavProfile()" class="FallbackAvatar_avatar__gmj3S" style="--font-size:3.2px;"><img
-                      class="NavBar_avatar__OG7ib"
-                      src="https://files.fullstack.edu.vn/f8-prod/user_photos/293030/63e71768e42bd.jpg" alt="Khánh Băng"></div>
-                </div>
-                <div *ngIf="isDropDownOpen" 
-                  style="z-index: 9999; position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-27.2px, 57.6px);">
-                  <ul class="Tippy-module_wrapper__1s5m5 UserMenu_wrapper__kevhj hide-on-click">
-                    <div class="UserMenu_user__GXFLp">
-                      <div class="UserMenu_avatarWrapper__9ABYL">
-                        <div class="FallbackAvatar_avatar__gmj3S" style="--font-size:5.6px;"><img
-                            src="https://files.fullstack.edu.vn/f8-prod/user_photos/289130/63da5c8beb71a.jpg"
-                            alt="{{TenEmail}}"></div>
-                      </div>
-                      <div class="UserMenu_info__UqeZT"><span class="UserMenu_name__L18s-">{{ TenEmail }}</span>
-                        <div class="UserMenu_username__7qkRU">{{ Email }}</div>
-                      </div>
-                    </div>
-                    <hr>
-                    <ul class="UserMenu_list__FI9-C">
-                      <li><a class="UserMenu_item__NXwf1" routerLink="/profile" routerLinkActive="active">Trang cá nhân</a></li>
-                    </ul>
-                    <hr>
-                    <ul class="UserMenu_list__FI9-C">
-                      <li><a class="UserMenu_item__NXwf1" routerLink="/write-blog" routerLinkActive="active">Viết blog</a></li>
-                      <li><a class="UserMenu_item__NXwf1" routerLink="/posts-drafts" routerLinkActive="active">Bài viết của tôi</a></li>
-                    </ul>
-                    <hr>
-                    <ul class="UserMenu_list__FI9-C">
-                      <li><a class="UserMenu_item__NXwf1" routerLink="/posts-public" routerLinkActive="active">Bài viết đã lưu</a></li>
-                    </ul>
-                    <hr>
-                    <ul class="UserMenu_list__FI9-C">
-                      <li><a class="UserMenu_item__NXwf1" href="/setting-account">Cài đặt</a></li>
-                      <li><a class="UserMenu_item__NXwf1" routerLink="/homepage-user" routerLinkActive="active" >Đăng xuất</a></li>
-                    </ul>
-                  </ul>
-                </div>
-              </div>
+            <li><a class="Sidebar_itemBtn__Q78b7" routerLink="/study-route" routerLinkActive="active"><i
+                  class="fa-solid fa-road"></i><span>Lộ trình</span></a>
+            </li>
+            <li><a class="Sidebar_itemBtn__Q78b7" routerLink="/study" routerLinkActive="active"><i
+                  class="fa-solid fa-lightbulb"></i><span>Học</span></a>
+            </li>
+            <li><a class="Sidebar_itemBtn__Q78b7 Sidebar_active__uvck8" routerLink="/blog" routerLinkActive="active"><i
+                  class="fa-solid fa-book"></i><span>Blog</span></a></li>
+          </ul>
         </div>
-        <div class="App_withSidebar__8lwIi">
-            <div class="App_sidebarWrap__3LwsB">
-                <div class="Sidebar_wrapper__kUJFm" id="sidebar">
+      </div>
+      <div class="App_withSidebarContent__o4VlQ">
+        <section class="index-module_grid__1q71E index-module_fullWidth__3X-6x" style="max-width: 1920px;">
+          <div class="DefaultLayout_container__NgAo7">
+            <div class="DefaultLayout_container-top__l5XfT">
+              <h1 class="DefaultLayout_heading__AvBHu">Bài viết của tôi</h1>
+            </div>
+            <div class="container-body">
+              <section class="index-module_row__-AHgh">
+                <section
+                  class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-12__2CxUL index-module_l-8__yebHm">
                   <div>
-                    <div class="CreateButton_wrapper__Bb6o6" aria-expanded="false">
-                      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus"
-                        class="svg-inline--fa fa-plus CreateButton_icon__ipBrz" role="img" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 448 512">
-                        <path fill="currentColor"
-                          d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z">
-                        </path>
-                      </svg>
+                    <div class="HeadingTabs_wrapper__eoUTO">
+                      <ul class="HeadingTabs_tabs__Uyitz">
+                        <li><a href="/me/posts/drafts">Bản nháp (1)</a></li>
+                        <li><a aria-current="page" class="HeadingTabs_active__d9vTD" href="/me/posts/published">Đã xuất
+                            bản </a></li>
+                      </ul>
+                      <div class="HeadingTabs_divider__guOSZ"></div>
+                    </div>
+                    <div></div>
+                    <div class="MyPosts_noResult__+W1O9">
+                      <p>Chưa có xuất bản nào.</p>
+                      <p>Bạn có thể <a href="/new-post">viết bài mới</a> hoặc <a href="/blog">đọc
+                          bài viết</a> khác trên F4 nhé.</p>
                     </div>
                   </div>
-                  <ul class="Sidebar_list__HnCzM">
-                    <div *ngIf="User.idrole == 0">
-                      <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/homepage-user"
-                          routerLinkActive="active"><i
-                            class="fa-solid fa-house"></i><span>Home</span></a>
-                      </li>
-                    </div>
-                    <div *ngIf="User.idrole == 1">
-                      <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/home-page-st"
-                          routerLinkActive="active"><i
-                            class="fa-solid fa-house"></i><span>Home</span></a>
-                      </li>
-                    </div>
-                    <div *ngIf="User.idrole == 2">
-                      <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/homepage-gv"
-                          routerLinkActive="active"><i
-                            class="fa-solid fa-house"></i><span>Home</span></a>
-                      </li>
-                    </div>
-                    
-                    <li><a class="Sidebar_itemBtn__Q78b7" routerLink="/study-route" routerLinkActive="active"><i
-                          class="fa-solid fa-road"></i><span>Lộ trình</span></a>
-                    </li>
-                    <li><a class="Sidebar_itemBtn__Q78b7" routerLink="/study" routerLinkActive="active"><i
-                          class="fa-solid fa-lightbulb"></i><span>Học</span></a>
-                    </li>
-                    <li><a class="Sidebar_itemBtn__Q78b7 Sidebar_active__uvck8" routerLink="/blog" routerLinkActive="active"><i
-                          class="fa-solid fa-book"></i><span>Blog</span></a></li>
-                  </ul>
-                </div>
-              </div>
-            <div class="App_withSidebarContent__o4VlQ">
-                <section class="index-module_grid__1q71E index-module_fullWidth__3X-6x" style="max-width: 1920px;">
-                    <div class="DefaultLayout_container__NgAo7">
-                        <div class="DefaultLayout_container-top__l5XfT">
-                            <h1 class="DefaultLayout_heading__AvBHu">Bài viết của tôi</h1>
-                        </div>
-                        <div class="container-body">
-                            <section class="index-module_row__-AHgh">
-                                <section
-                                    class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-12__2CxUL index-module_l-8__yebHm">
-                                    <div>
-                                        <div class="HeadingTabs_wrapper__eoUTO">
-                                            <ul class="HeadingTabs_tabs__Uyitz">
-                                                <li><a href="/me/posts/drafts">Bản nháp (1)</a></li>
-                                                <li><a aria-current="page" class="HeadingTabs_active__d9vTD"
-                                                        href="/me/posts/published">Đã xuất bản </a></li>
-                                            </ul>
-                                            <div class="HeadingTabs_divider__guOSZ"></div>
-                                        </div>
-                                        <div></div>
-                                        <div class="MyPosts_noResult__+W1O9">
-                                            <p>Chưa có xuất bản nào.</p>
-                                            <p>Bạn có thể <a href="/new-post">viết bài mới</a> hoặc <a href="/blog">đọc
-                                                    bài viết</a> khác trên F4 nhé.</p>
-                                        </div>
-                                    </div>
-                                </section>
-                                <section
-                                    class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-12__2CxUL index-module_l-4__3tf5p">
-                                    <div class="Banners_wrapper__8fjJA Banners_sticky__7wV6o"
-                                        style="--sticky:80px; --align:flex-end;">
-                                        
-                                    </div>
-                                </section>
-                            </section>
-                        </div>
-                    </div>
                 </section>
-             
-            </div>
-        </div>
+                <section
+                  class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-12__2CxUL index-module_l-4__3tf5p">
+                  <div class="Banners_wrapper__8fjJA Banners_sticky__7wV6o" style="--sticky:80px; --align:flex-end;">
 
-        <div class="Toastify"></div>
+                  </div>
+                </section>
+              </section>
+            </div>
+          </div>
+        </section>
+
+      </div>
     </div>
+
+    <div class="Toastify"></div>
+  </div>
 </body>

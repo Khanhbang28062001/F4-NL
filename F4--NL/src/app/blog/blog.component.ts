@@ -46,7 +46,8 @@ export class BlogComponent {
   ) { }
 
   userId: Number = 0;
-  User: UserModule = new UserModule(0, "", "", "", 0);
+  User: UserModule = new UserModule(0, "", "", "", 0, "");
+
 
   public ngOnInit(): void {
     this.getBlogService.getAllSubmitBlog().subscribe((data) => {
@@ -59,9 +60,11 @@ export class BlogComponent {
       console.log("Lay du lieu role id route roi ne!!!!!! " + this.User.idrole);
     })
   }
-
-
-
-
+  public Login() {
+    this.router.navigate(['/login-form']);
+  }
+  public signup() {
+    this.router.navigate(['/signup-form']);
+  }
 
 }
