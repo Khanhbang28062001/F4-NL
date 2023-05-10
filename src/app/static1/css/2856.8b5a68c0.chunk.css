@@ -1,0 +1,92 @@
+.SuggestionBox_wrapper__1wl-2 {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    overflow: hidden
+}
+
+.SuggestionBox_info__etqmd {
+    width: 400px
+}
+
+.SuggestionBox_info__etqmd h2 {
+    font-size: 2.4rem;
+    font-weight: 900;
+    line-height: 1.6
+}
+
+.SuggestionBox_info__etqmd p {
+    font-size: 1.4rem;
+    line-height: 1.6
+}
+
+.SuggestionBox_image__xlDiL img {
+    position: relative;
+    right: -44px;
+    width: 420px
+}
+
+.SuggestionBox_cta__f4eTC {
+    border: 2px solid #292929;
+    border-radius: 999px;
+    color: #292929;
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 8px;
+    padding: 10px 16px;
+    text-align: center;
+    transition: .2s ease
+}
+
+.SuggestionBox_cta__f4eTC:hover {
+    background-color: #292929;
+    color: #fff
+}
+
+@media(min-width: 740px)and (max-width:1023px) {
+    .SuggestionBox_image__xlDiL img {
+        width:360px
+    }
+}
+
+@media(min-width: 0)and (max-width:739px) {
+    .SuggestionBox_wrapper__1wl-2 {
+        flex-direction:column;
+        padding: 0 16px
+    }
+
+    .SuggestionBox_info__etqmd {
+        width: 100%
+    }
+
+    .SuggestionBox_image__xlDiL {
+        display: none
+    }
+
+    .SuggestionBox_cta__f4eTC {
+        padding: 12px 16px;
+        width: 100%
+    }
+}
+
+.CoursesList_heading__onCaG {
+    color: #000;
+    font-size: 2.4rem;
+    font-weight: 900
+}
+
+.CoursesList_content__n3BIx {
+    position: relative;
+    top: -16px
+}
+
+.CoursesList_google-ads__-L1-I {
+    margin-top: 98px
+}
+
+.CoursesList_course-item__JrFHT {
+    overflow: unset;
+    position: relative
+}

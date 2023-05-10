@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Blog</title>
+  <link href="blog.component.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="root">
+    <div class="NavBar_wrapper__4m3K5" id="header">
+      <div class="NavBar_logo__Rgo-5">
+        <a href="/home-page-st"><img
+            src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png" alt="F8"></a>
+        <h4 class="NavBar_logoHeading__bs7MP">Học Lập Trình Để Đi Làm</h4>
+      </div>
+      <!-- </div> -->
+      <div class="Navbar-Trangchu-Search-margin d-flex-center">
+        <div>
+          <div class="Search_wrapper__Bwvae d-flex-center" aria-expanded="false">
+            <div class="Search_searchIcon__-23JY">
+            </div>
+            <input class="Search_input__GnMba" spellcheck="false" placeholder="Tìm kiếm khóa học, bài viết, video, ..."
+              value="">
+          </div>
+        </div>
+      </div>
+      <div class="NavBar_actions__nSNzo">
+        <div id="navbar-actions-portal">
+        </div>
+
+        <div>
+          <div (click)="openNavNotification()" class="NavBar_actionBtn__tzSZd" id="notification-button"><svg
+              aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bell"
+              class="svg-inline--fa fa-bell NavBar_action-icon__l9MxX" role="img" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512">
+              <path fill="currentColor"
+                d="M256 32V51.2C329 66.03 384 130.6 384 208V226.8C384 273.9 401.3 319.2 432.5 354.4L439.9 362.7C448.3 372.2 450.4 385.6 445.2 397.1C440 408.6 428.6 416 416 416H32C19.4 416 7.971 408.6 2.809 397.1C-2.353 385.6-.2883 372.2 8.084 362.7L15.5 354.4C46.74 319.2 64 273.9 64 226.8V208C64 130.6 118.1 66.03 192 51.2V32C192 14.33 206.3 0 224 0C241.7 0 256 14.33 256 32H256zM224 512C207 512 190.7 505.3 178.7 493.3C166.7 481.3 160 464.1 160 448H288C288 464.1 281.3 481.3 269.3 493.3C257.3 505.3 240.1 512 224 512z">
+              </path>
+            </svg></div>
+          <!-- aria-expanded="false" -->
+          <div *ngIf="isDropDownOpenNotification"
+            style="z-index: 9999; position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-68.8px, 60.8px);">
+            <ul class="Tippy-module_wrapper__1s5m5 Notification_container__ulN0K">
+              <header>
+                <h6>Thông báo</h6>
+              </header>
+              <div class="Notification_content__0k-Tt hide-on-click">
+                <p class="Notification_noResult__TJd2-">Chưa có thông báo nào</p>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <div class="NavBar_avatar-wrapper__j7jMj" aria-expanded="false">
+          <div (click)="openNavProfile()" class="FallbackAvatar_avatar__gmj3S" style="--font-size:3.2px;"><img
+              class="NavBar_avatar__OG7ib"
+              src="https://files.fullstack.edu.vn/f8-prod/user_photos/293030/63e71768e42bd.jpg" alt="Khánh Băng"></div>
+        </div>
+        <div *ngIf="isDropDownOpen"
+          style="z-index: 9999; position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-27.2px, 57.6px);">
+          <ul class="Tippy-module_wrapper__1s5m5 UserMenu_wrapper__kevhj hide-on-click">
+            <div class="UserMenu_user__GXFLp">
+              <div class="UserMenu_avatarWrapper__9ABYL">
+                <div class="FallbackAvatar_avatar__gmj3S" style="--font-size:5.6px;"><img
+                    src="https://files.fullstack.edu.vn/f8-prod/user_photos/289130/63da5c8beb71a.jpg"
+                    alt="{{TenEmail}}"></div>
+              </div>
+              <div class="UserMenu_info__UqeZT"><span class="UserMenu_name__L18s-">{{ TenEmail }}</span>
+                <div class="UserMenu_username__7qkRU">{{ Email }}</div>
+              </div>
+            </div>
+            <hr>
+            <ul class="UserMenu_list__FI9-C">
+              <li><a class="UserMenu_item__NXwf1" routerLink="/profile" routerLinkActive="active">Trang cá
+                  nhân</a><router-outlet></router-outlet></li>
+            </ul>
+            <hr>
+            <ul class="UserMenu_list__FI9-C">
+              <li><a class="UserMenu_item__NXwf1" routerLink="/write-blog" routerLinkActive="active">Viết
+                  blog</a><router-outlet></router-outlet></li>
+              <li><a class="UserMenu_item__NXwf1" routerLink="/posts-drafts" routerLinkActive="active">Bài viết của
+                  tôi</a><router-outlet></router-outlet></li>
+            </ul>
+            <hr>
+            <ul class="UserMenu_list__FI9-C">
+              <li><a class="UserMenu_item__NXwf1" routerLink="/posts-public" routerLinkActive="active">Bài viết đã
+                  lưu</a><router-outlet></router-outlet></li>
+            </ul>
+            <hr>
+            <ul class="UserMenu_list__FI9-C">
+              <li><a class="UserMenu_item__NXwf1" href="/setting-account">Cài đặt</a></li>
+              <li><a class="UserMenu_item__NXwf1" routerLink="/login-form" routerLinkActive="active">Đăng
+                  xuất</a><router-outlet></router-outlet></li>
+            </ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="App_withSidebar__8lwIi">
+      <div class="App_sidebarWrap__3LwsB">
+        <div class="Sidebar_wrapper__kUJFm" id="sidebar">
+          <div>
+            <div class="CreateButton_wrapper__Bb6o6" aria-expanded="false">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus"
+                class="svg-inline--fa fa-plus CreateButton_icon__ipBrz" role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512">
+                <path fill="currentColor"
+                  d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z">
+                </path>
+              </svg>
+            </div>
+          </div>
+          <ul class="Sidebar_list__HnCzM">
+            <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/home-page-st"
+                routerLinkActive="active"><i
+                  class="fa-solid fa-house"></i><span>Home</span></a><router-outlet></router-outlet></li>
+            <li><a class="Sidebar_itemBtn__Q78b7" routerLink="/study-route" routerLinkActive="active"><i
+                  class="fa-solid fa-road"></i><span>Lộ trình</span></a><router-outlet></router-outlet>
+            </li>
+            <li><a class="Sidebar_itemBtn__Q78b7" routerLink="/home-page-st" routerLinkActive="active"><i
+                  class="fa-solid fa-lightbulb"></i><span>Học</span></a><router-outlet></router-outlet>
+            </li>
+            <li><a class="Sidebar_itemBtn__Q78b7 Sidebar_active__uvck8" routerLink="/blog" routerLinkActive="active"><i
+                  class="fa-solid fa-book"></i><span>Blog</span></a><router-outlet></router-outlet></li>
+          </ul>
+        </div>
+      </div>
+      <div class="App_withSidebarContent__o4VlQ">
+        <section class="index-module_grid__1q71E index-module_fullWidth__3X-6x" style="max-width: 1920px">
+          <div class="DefaultLayout_container__NgAo7">
+            <div class="DefaultLayout_container-top__l5XfT">
+              <h1 class="DefaultLayout_heading__AvBHu">Bài viết nổi bật</h1>
+              <div class="MarkdownParser_wrapper__JYN63 DefaultLayout_desc__rr0iE">
+                <p>
+                  Tổng hợp các bài viết chia sẻ về kinh nghiệm tự học lập trình
+                  online và các kỹ thuật lập trình web.
+                </p>
+              </div>
+            </div>
+            <div class="container-body">
+              <section class="index-module_row__-AHgh">
+                <section
+                  class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-12__2CxUL index-module_l-8__yebHm">
+                  <div class="Blog_leftLayout__Kuc0z" *ngFor="let blog of blogs">
+                    <div>
+                      <div class="PostItem_wrapper__5s6Lk">
+                        <div class="PostItem_header__kJhep">
+                          <div class="PostItem_author__-CiNM">
+                            <a routerLink="/blog" routerLinkActive="active">
+                              <div class="FallbackAvatar_avatar__gmj3S FallbackAvatar_pro__-8mK+"
+                                style="--font-size: 2.9px">
+                                <img src="{{blog.imageurlBlog}}" alt="Đặng Thị Khánh Băng" />
+                              </div>
+                            </a><router-outlet></router-outlet>
+
+                            <a href="{{blog.imageurlBlog}}">
+                              <span>Đặng Thị Khánh Băng {{blog.id}}</span>
+                              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-check"
+                                class="svg-inline--fa fa-circle-check UserName_icon__zT+rB" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="font-size: 1rem">
+                                <path fill="currentColor"
+                                  d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM371.8 211.8C382.7 200.9 382.7 183.1 371.8 172.2C360.9 161.3 343.1 161.3 332.2 172.2L224 280.4L179.8 236.2C168.9 225.3 151.1 225.3 140.2 236.2C129.3 247.1 129.3 264.9 140.2 275.8L204.2 339.8C215.1 350.7 232.9 350.7 243.8 339.8L371.8 211.8z">
+                                </path>
+                              </svg>
+                            </a>
+                          </div>
+                          <div class="PostItem_actions__eWV5m">
+                            <div class="Bookmark_toggleBtn__sSS-2 PostItem_optionBtn__h8ALw">
+                              <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="bookmark"
+                                class="svg-inline--fa fa-bookmark" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 384 512">
+                                <path fill="currentColor"
+                                  d="M336 0h-288C21.49 0 0 21.49 0 48v431.9c0 24.7 26.79 40.08 48.12 27.64L192 423.6l143.9 83.93C357.2 519.1 384 504.6 384 479.9V48C384 21.49 362.5 0 336 0zM336 452L192 368l-144 84V54C48 50.63 50.63 48 53.1 48h276C333.4 48 336 50.63 336 54V452z">
+                                </path>
+                              </svg>
+                            </div>
+                            <div class="PostItem_optionBtn__h8ALw" aria-expanded="false">
+                              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="ellipsis"
+                                class="svg-inline--fa fa-ellipsis" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 448 512">
+                                <path fill="currentColor"
+                                  d="M120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200C94.93 200 120 225.1 120 256zM280 256C280 286.9 254.9 312 224 312C193.1 312 168 286.9 168 256C168 225.1 193.1 200 224 200C254.9 200 280 225.1 280 256zM328 256C328 225.1 353.1 200 384 200C414.9 200 440 225.1 440 256C440 286.9 414.9 312 384 312C353.1 312 328 286.9 328 256z">
+                                </path>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="PostItem_body__Fnfo-">
+                          <div class="PostItem_info__DZr39">
+                            <a [routerLink]="['/blogDetail/', +blog.id]" >
+                              <h2 class="PostItem_title__8lSHm">
+                                {{blog.descriptionBlog}}
+                              </h2>
+                            </a><router-outlet></router-outlet>
+                            <p class="PostItem_desc__be9G8">
+                              {{blog.contentBlog}}
+                            </p>
+                            <div class="PostItem_info__DZr39">
+                              <span>{{blog.timeCreateBlog}}</span>
+                              <span class="PostItem_dot__ZYdFt">·</span>2 phút
+                              đọc
+                            </div>
+                          </div>
+                          <div class="PostItem_thumb__m4iXl">
+                            <img src="{{blog.imageurlBlog}}" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="Pagination_wrapper__Rvhto">
+                      <div class="Pagination_pages__FFgjW">
+                        <div class="Pagination_page__fm3g4 Pagination_btn-pre__Pm0Wu">
+                          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angles-left"
+                            class="svg-inline--fa fa-angles-left Pagination_icon__rsM4G" role="img"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path fill="currentColor"
+                              d="M77.25 256l137.4-137.4c12.5-12.5 12.5-32.75 0-45.25s-32.75-12.5-45.25 0l-160 160c-12.5 12.5-12.5 32.75 0 45.25l160 160C175.6 444.9 183.8 448 192 448s16.38-3.125 22.62-9.375c12.5-12.5 12.5-32.75 0-45.25L77.25 256zM269.3 256l137.4-137.4c12.5-12.5 12.5-32.75 0-45.25s-32.75-12.5-45.25 0l-160 160c-12.5 12.5-12.5 32.75 0 45.25l160 160C367.6 444.9 375.8 448 384 448s16.38-3.125 22.62-9.375c12.5-12.5 12.5-32.75 0-45.25L269.3 256z">
+                            </path>
+                          </svg>
+                        </div>
+                        <div class="Pagination_page__fm3g4">
+                          <span style="margin: 0px auto">1</span>
+                        </div>
+                        <div class="Pagination_page__fm3g4 Pagination_active__q3h4d">
+                          <span style="margin: 0px auto">2</span>
+                        </div>
+                        <div class="Pagination_page__fm3g4">
+                          <span style="margin: 0px auto">3</span>
+                        </div>
+                        <div class="Pagination_page__fm3g4">
+                          <span style="margin: 0px auto">4</span>
+                        </div>
+                        <div class="Pagination_page__fm3g4">
+                          <span style="margin: 0px auto">5</span>
+                        </div>
+                        <div class="Pagination_page__fm3g4">
+                          <span style="margin: 0px auto">6</span>
+                        </div>
+                        <div class="Pagination_page__fm3g4 Pagination_hidden__Obbio">
+                          <span style="margin: 0px auto">7</span>
+                        </div>
+                        <div class="Pagination_page__fm3g4 Pagination_hidden__Obbio">
+                          <span style="margin: 0px auto">8</span>
+                        </div>
+                        <div class="Pagination_page__fm3g4 Pagination_hidden__Obbio">
+                          <span style="margin: 0px auto">9</span>
+                        </div>
+                        <div class="Pagination_page__fm3g4 Pagination_hidden__Obbio">
+                          <span style="margin: 0px auto">10</span>
+                        </div>
+                        <div class="Pagination_page__fm3g4 Pagination_hidden__Obbio">
+                          <span style="margin: 0px auto">11</span>
+                        </div>
+                        <div class="Pagination_page__fm3g4 Pagination_btn-next__TNt+b">
+                          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angles-right"
+                            class="svg-inline--fa fa-angles-right Pagination_icon__rsM4G" role="img"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path fill="currentColor"
+                              d="M246.6 233.4l-160-160c-12.5-12.5-32.75-12.5-45.25 0s-12.5 32.75 0 45.25L178.8 256l-137.4 137.4c-12.5 12.5-12.5 32.75 0 45.25C47.63 444.9 55.81 448 64 448s16.38-3.125 22.62-9.375l160-160C259.1 266.1 259.1 245.9 246.6 233.4zM438.6 233.4l-160-160c-12.5-12.5-32.75-12.5-45.25 0s-12.5 32.75 0 45.25L370.8 256l-137.4 137.4c-12.5 12.5-12.5 32.75 0 45.25C239.6 444.9 247.8 448 256 448s16.38-3.125 22.62-9.375l160-160C451.1 266.1 451.1 245.9 438.6 233.4z">
+                            </path>
+                          </svg>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section
+                  class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-12__2CxUL index-module_l-4__3tf5p">
+                  <div class="TopicsList_wrapper__lizCe">
+                    <h3>Các chủ đề được đề xuất</h3>
+                    <ul class="TopicsList_topics__EU6iM">
+                      <li>
+                        <a href="/blog/topic/front-end-mobile-apps">Front-end / Mobile apps</a>
+                      </li>
+                      <li>
+                        <a href="/blog/topic/back-end-devops">Back-end / Devops</a>
+                      </li>
+                      <li>
+                        <a href="/blog/topic/ui-ux-design">UI / UX / Design</a>
+                      </li>
+                      <li><a href="/blog/topic/others">Others</a></li>
+                    </ul>
+                  </div>
+                  <div class="Banners_wrapper__8fjJA Banners_sticky__7wV6o" style="--sticky: 80px; --align: flex-start">
+
+                  </div>
+                </section>
+              </section>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="Toastify"></div>
+  </div>
+</body>
+
+</html>

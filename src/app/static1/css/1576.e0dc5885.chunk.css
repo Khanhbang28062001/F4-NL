@@ -1,0 +1,225 @@
+.MyPostItem_wrapper__LYeZB {
+    border: 2px solid #e8e8e8;
+    border-radius: 16px;
+    margin-top: 16px;
+    padding: 16px 24px 22px;
+    position: relative
+}
+
+.MyPostItem_wrapper__LYeZB h3 {
+    margin-top: 0;
+    padding-right: 24px
+}
+
+.MyPostItem_wrapper__LYeZB h3 a {
+    color: var(--text-color);
+    font-size: 1.9rem;
+    line-height: 1.6
+}
+
+.MyPostItem_wrapper__LYeZB p {
+    color: var(--desc-color);
+    font-size: 1.5rem;
+    line-height: 2.4rem;
+    margin-top: .8rem
+}
+
+.MyPostItem_wrapper__LYeZB>div:first-child {
+    flex: 1 1;
+    padding-right: 6rem
+}
+
+.MyPostItem_wrapper__LYeZB>div:last-child img {
+    width: 80px
+}
+
+.MyPostItem_author__LTSvL {
+    color: var(--desc-color);
+    font-size: 1.4rem
+}
+
+.MyPostItem_author__LTSvL .MyPostItem_dot__u8k\+x {
+    padding: 0 6px
+}
+
+.MyPostItem_author__LTSvL a {
+    color: #029e74
+}
+
+.MyPostItem_action__quI6d {
+    align-items: center;
+    color: var(--desc-color);
+    display: flex;
+    font-size: 1.4rem
+}
+
+.MyPostItem_action__quI6d>div {
+    align-items: center;
+    display: flex;
+    margin-right: 3.2rem
+}
+
+.MyPostItem_action__quI6d>div:hover {
+    color: var(--black-color);
+    cursor: pointer
+}
+
+.MyPostItem_more__jS8rj {
+    color: #666;
+    font-size: 1.6rem;
+    margin-left: 4px;
+    padding: 4px 8px;
+    position: absolute;
+    right: 16px;
+    top: 8px
+}
+
+.MyPostItem_more__jS8rj:hover {
+    color: var(--black-color);
+    cursor: pointer
+}
+
+.MyPostItem_bigSearch__sf3BD {
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    font-size: 3.6rem;
+    margin-top: 5rem
+}
+
+.MyPostItem_publishedAt__0aeKh {
+    color: #757575;
+    margin-right: 8px
+}
+
+.MyPosts_noResult__\+W1O9 {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-top: 32px
+}
+
+.MyPosts_noResult__\+W1O9 a {
+    color: #029e74;
+    font-weight: 600;
+    text-decoration: underline
+}
+
+.HeadingTabs_wrapper__eoUTO h1 {
+    color: var(--text-color);
+    font-size: 3rem;
+    font-weight: 600
+}
+
+.HeadingTabs_tabs__Uyitz {
+    display: flex;
+    list-style: none;
+    margin-bottom: 0;
+    margin-top: 16px;
+    padding-left: 0
+}
+
+.HeadingTabs_tabs__Uyitz li+li {
+    margin-left: 24px
+}
+
+.HeadingTabs_tabs__Uyitz a {
+    color: var(--desc-color);
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding-bottom: 14px
+}
+
+.HeadingTabs_tabs__Uyitz a.HeadingTabs_active__d9vTD,.HeadingTabs_tabs__Uyitz a:hover {
+    color: var(--black-color)
+}
+
+.HeadingTabs_tabs__Uyitz a.HeadingTabs_active__d9vTD {
+    font-weight: 700;
+    position: relative
+}
+
+.HeadingTabs_tabs__Uyitz a.HeadingTabs_active__d9vTD::after {
+    border-bottom: 2px solid var(--black-color);
+    bottom: -1px;
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0
+}
+
+.HeadingTabs_divider__guOSZ {
+    border-bottom: 1px solid rgba(0,0,0,.1)
+}
+
+@media(min-width: 0px)and (max-width:739px) {
+    .HeadingTabs_tabs__Uyitz {
+        -ms-overflow-style:none;
+        overflow-x: auto
+    }
+
+    .HeadingTabs_tabs__Uyitz::-webkit-scrollbar {
+        display: none
+    }
+
+    .HeadingTabs_tabs__Uyitz a {
+        white-space: nowrap
+    }
+}
+
+.Banners_wrapper__8fjJA {
+    display: flex;
+    justify-content: flex-end;
+    justify-content: var(--align,flex-end)
+}
+
+.Banners_wrapper__8fjJA.Banners_sticky__7wV6o {
+    position: -webkit-sticky;
+    position: sticky;
+    top: var(--sticky)
+}
+
+.Banners_content__\+mAzY {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px
+}
+
+@media(min-width: 740px)and (max-width:1023px) {
+    .Banners_content__\+mAzY {
+        gap:16px
+    }
+}
+
+@media(min-width: 0px)and (max-width:739px) {
+    .Banners_content__\+mAzY {
+        align-items:center
+    }
+}
+
+
+.Banners_googleAds__OwJBK {
+    border: 1px solid #e8e8e8;
+    border-radius: 16px;
+    margin-top: 32px;
+    overflow: hidden;
+    width: 300px
+}
+
+@media(min-width: 0)and (max-width:1023px) {
+    .Banners_wrapper__8fjJA {
+        position:static
+    }
+
+    .Banners_content__\+mAzY {
+        max-width: 100%;
+        width: 100%
+    }
+}
+
+@media(min-width: 740px)and (max-width:1023px) {
+    .Banners_content__\+mAzY {
+        flex-direction:row
+    }
+
+}
+

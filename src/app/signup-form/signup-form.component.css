@@ -1,0 +1,10 @@
+
+@import url(../static1/css/main.b2b22e6b.css);
+@import url(../static1/css/style.css);
+@import url(../static1/css/message.css);
+.alert-danger {
+    margin-top: 20px;
+    color: #5e5e5e;
+    background-color: #62ff368c;
+    border-color: #c6e7f50a;
+}

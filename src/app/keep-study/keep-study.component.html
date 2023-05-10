@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="SIQIFfmR8hhzmuoTX27TN_uf9rd425mDs_TNWTTiISk">
+    <title>Mô hình Client - Server là gì?</title>
+    <link href="keep-study.component.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="root">
+        <div></div>
+        <div>
+            <section class="index-module_grid__1q71E index-module_fullWidth__3X-6x">
+                <div class="Header_wrapper__kLf4u">
+                    <div class="Header_back-btn__itVsY" title="Rời khỏi đây" routerLink="/home-page-st"
+                        routerLinkActive="active"><svg aria-hidden="true" focusable="false" data-prefix="fas"
+                            data-icon="chevron-left" class="svg-inline--fa fa-chevron-left Header_icon__2EjW3"
+                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                            <path fill="currentColor"
+                                d="M224 480c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25l192-192c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l169.4 169.4c12.5 12.5 12.5 32.75 0 45.25C240.4 476.9 232.2 480 224 480z">
+                            </path>
+                        </svg></div><a class="Header_logo__HzGsJ" routerLink="/home-page-st"
+                        routerLinkActive="active"><router-outlet></router-outlet><img
+                            src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
+                            alt="F8"></a>
+                    <div class="Header_course-title__8+56A">Kiến Thức Nhập Môn IT</div>
+                    <div class="Header_actions__3NV5j">
+                        <div class="Header_progress-bar__j-Wm9">
+                            <div class="CircularProgressBar_pie-wrapper__ga0xC progress-45 style-2"
+                                style="--size:34px; --progress:0; --bar-width:2px; --shadow-border-color:#4d4f50;">
+                                <div class="CircularProgressBar_pie__pROMB">
+                                    <div
+                                        class="CircularProgressBar_left-side__Q9ngf CircularProgressBar_half-circle__07yig">
+                                    </div>
+                                </div>
+                                <div class="CircularProgressBar_shadow__N5Vl-"></div>
+                                <div class="CircularProgressBar_body__BYOBo">
+                                    <div class="Header_percent__WYlCI"><span class="Header_num__0cLsk">0</span>%</div>
+                                </div>
+                            </div>
+                            <p class="Header_completed-msg__4yWLU"><strong><span
+                                        class="Header_num__0cLsk">0</span>/<span
+                                        class="Header_num__0cLsk">11</span></strong> bài học</p>
+                        </div><button class="Header_action-btn__v9NQY" data-tour=""><svg aria-hidden="true"
+                                focusable="false" data-prefix="fas" data-icon="file"
+                                class="svg-inline--fa fa-file Header_icon__2EjW3" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                <path fill="currentColor"
+                                    d="M256 0v128h128L256 0zM224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128z">
+                                </path>
+                            </svg><span class="Header_label__1K6P4" (click)="openNote()" >Ghi chú</span></button><button
+                            class="Header_action-btn__v9NQY Header_help-btn__WsMLg"><svg aria-hidden="true"
+                                focusable="false" data-prefix="fas" data-icon="circle-question"
+                                class="svg-inline--fa fa-circle-question Header_icon__2EjW3" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path fill="currentColor"
+                                    d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 400c-18 0-32-14-32-32s13.1-32 32-32c17.1 0 32 14 32 32S273.1 400 256 400zM325.1 258L280 286V288c0 13-11 24-24 24S232 301 232 288V272c0-8 4-16 12-21l57-34C308 213 312 206 312 198C312 186 301.1 176 289.1 176h-51.1C225.1 176 216 186 216 198c0 13-11 24-24 24s-24-11-24-24C168 159 199 128 237.1 128h51.1C329 128 360 159 360 198C360 222 347 245 325.1 258z">
+                                </path>
+                            </svg><span class="Header_label__1K6P4">Hướng dẫn</span></button>
+                    </div>
+                </div>
+                <div class="Tracks_wrapper__rjtW+">
+                    <div class="Tracks_container__f6ZNT" id="learn-playlist">
+                        <header class="Tracks_header__zNeCh">
+                            <h1 class="Tracks_heading__CjgkM">Nội dung khóa học</h1><button
+                                class="Tracks_close-btn__--X6U"><svg aria-hidden="true" focusable="false"
+                                    data-prefix="fas" data-icon="xmark" class="svg-inline--fa fa-xmark " role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                    <path fill="currentColor"
+                                        d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z">
+                                    </path>
+                                </svg></button>
+                        </header>
+                        <div class="Tracks_body__fNK+2">
+                            <div class="TrackItem_wrapper__5kdF3">
+                                <h3 class="TrackItem_title__tR93h">1. Khái niệm kỹ thuật cần biết</h3><span
+                                    class="TrackItem_desc__KkiVq">0/2 | 22:09</span><span
+                                    class="TrackItem_icon__SLY+b"><svg aria-hidden="true" focusable="false"
+                                        data-prefix="fas" data-icon="chevron-up" class="svg-inline--fa fa-chevron-up "
+                                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                        <path fill="currentColor"
+                                            d="M416 352c-8.188 0-16.38-3.125-22.62-9.375L224 173.3l-169.4 169.4c-12.5 12.5-32.75 12.5-45.25 0s-12.5-32.75 0-45.25l192-192c12.5-12.5 32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25C432.4 348.9 424.2 352 416 352z">
+                                        </path>
+                                    </svg></span>
+                            </div>
+                            <div class="TrackItem_track-steps-list__MBqL1 TrackItem_opened__we0VF">
+                                <div class="StepItem_wrapper__sWYHG learn-item-1 StepItem_active__a6dKx">
+                                    <div class="StepItem_info__UckcT">
+                                        <h3 class="StepItem_title__PgsXi">1. Mô hình Client - Server là gì?</h3>
+                                        <p class="StepItem_desc__zN9Bs"><svg aria-hidden="true" focusable="false"
+                                                data-prefix="fas" data-icon="compact-disc"
+                                                class="svg-inline--fa fa-compact-disc StepItem_lesson-icon__wGQGc StepItem_active__a6dKx"
+                                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <path fill="currentColor"
+                                                    d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM80.72 256H79.63c-9.078 0-16.4-8.011-15.56-17.34C72.36 146 146.5 72.06 239.3 64.06C248.3 63.28 256 70.75 256 80.09c0 8.35-6.215 15.28-14.27 15.99C164.7 102.9 103.1 164.3 96.15 241.4C95.4 249.6 88.77 256 80.72 256zM256 351.1c-53.02 0-96-43-96-95.1s42.98-96 96-96s96 43 96 96S309 351.1 256 351.1zM256 224C238.3 224 224 238.2 224 256s14.3 32 32 32c17.7 0 32-14.25 32-32S273.7 224 256 224z">
+                                                </path>
+                                            </svg><span>11:35</span></p>
+                                    </div>
+                                    <div class="StepItem_icon-box__TETaD"></div>
+                                </div>
+                                <div class="StepItem_wrapper__sWYHG learn-item-2 StepItem_locked__G55MG">
+                                    <div class="StepItem_info__UckcT">
+                                        <h3 class="StepItem_title__PgsXi">2. Domain là gì? Tên miền là gì?</h3>
+                                        <p class="StepItem_desc__zN9Bs"><svg aria-hidden="true" focusable="false"
+                                                data-prefix="fas" data-icon="circle-play"
+                                                class="svg-inline--fa fa-circle-play StepItem_lesson-icon__wGQGc"
+                                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <path fill="currentColor"
+                                                    d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                </path>
+                                            </svg><span>10:34</span></p>
+                                    </div>
+                                    <div class="StepItem_icon-box__TETaD"><svg aria-hidden="true" focusable="false"
+                                            data-prefix="fas" data-icon="lock"
+                                            class="svg-inline--fa fa-lock StepItem_state-icon__w1Yoc StepItem_lock__io1qG"
+                                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                            <path fill="currentColor"
+                                                d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z">
+                                            </path>
+                                        </svg></div>
+                                </div>
+                            </div>
+                            <div class="TrackItem_wrapper__5kdF3">
+                                <h3 class="TrackItem_title__tR93h">2. Môi trường, con người IT</h3><span
+                                    class="TrackItem_desc__KkiVq">0/3 | 01:46:14</span><span
+                                    class="TrackItem_icon__SLY+b"><svg aria-hidden="true" focusable="false"
+                                        data-prefix="fas" data-icon="chevron-down"
+                                        class="svg-inline--fa fa-chevron-down " role="img"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                        <path fill="currentColor"
+                                            d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z">
+                                        </path>
+                                    </svg></span>
+                            </div>
+                            <div class="TrackItem_track-steps-list__MBqL1">
+                                <div class="StepItem_wrapper__sWYHG learn-item-1 StepItem_locked__G55MG">
+                                    <div class="StepItem_info__UckcT">
+                                        <h3 class="StepItem_title__PgsXi">3. Học IT cần tố chất gì? Góc nhìn khác từ
+                                            chuyên gia định hướng giáo dục</h3>
+                                        <p class="StepItem_desc__zN9Bs"><svg aria-hidden="true" focusable="false"
+                                                data-prefix="fas" data-icon="circle-play"
+                                                class="svg-inline--fa fa-circle-play StepItem_lesson-icon__wGQGc"
+                                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <path fill="currentColor"
+                                                    d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                </path>
+                                            </svg><span>24:10</span></p>
+                                    </div>
+                                    <div class="StepItem_icon-box__TETaD"><svg aria-hidden="true" focusable="false"
+                                            data-prefix="fas" data-icon="lock"
+                                            class="svg-inline--fa fa-lock StepItem_state-icon__w1Yoc StepItem_lock__io1qG"
+                                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                            <path fill="currentColor"
+                                                d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z">
+                                            </path>
+                                        </svg></div>
+                                </div>
+                                <div class="StepItem_wrapper__sWYHG learn-item-2 StepItem_locked__G55MG">
+                                    <div class="StepItem_info__UckcT">
+                                        <h3 class="StepItem_title__PgsXi">4. Sinh viên IT đi thực tập tại doanh nghiệp
+                                            cần biết những gì?</h3>
+                                        <p class="StepItem_desc__zN9Bs"><svg aria-hidden="true" focusable="false"
+                                                data-prefix="fas" data-icon="circle-play"
+                                                class="svg-inline--fa fa-circle-play StepItem_lesson-icon__wGQGc"
+                                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <path fill="currentColor"
+                                                    d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                </path>
+                                            </svg><span>34:51</span></p>
+                                    </div>
+                                    <div class="StepItem_icon-box__TETaD"><svg aria-hidden="true" focusable="false"
+                                            data-prefix="fas" data-icon="lock"
+                                            class="svg-inline--fa fa-lock StepItem_state-icon__w1Yoc StepItem_lock__io1qG"
+                                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                            <path fill="currentColor"
+                                                d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z">
+                                            </path>
+                                        </svg></div>
+                                </div>
+                                <div class="StepItem_wrapper__sWYHG learn-item-3 StepItem_locked__G55MG">
+                                    <div class="StepItem_info__UckcT">
+                                        <h3 class="StepItem_title__PgsXi">5. Trải nghiệm thực tế sau 2 tháng làm việc
+                                            tại doanh nghiệp của học viên F4?</h3>
+                                        <p class="StepItem_desc__zN9Bs"><svg aria-hidden="true" focusable="false"
+                                                data-prefix="fas" data-icon="circle-play"
+                                                class="svg-inline--fa fa-circle-play StepItem_lesson-icon__wGQGc"
+                                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <path fill="currentColor"
+                                                    d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                </path>
+                                            </svg><span>47:13</span></p>
+                                    </div>
+                                    <div class="StepItem_icon-box__TETaD"><svg aria-hidden="true" focusable="false"
+                                            data-prefix="fas" data-icon="lock"
+                                            class="svg-inline--fa fa-lock StepItem_state-icon__w1Yoc StepItem_lock__io1qG"
+                                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                            <path fill="currentColor"
+                                                d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z">
+                                            </path>
+                                        </svg></div>
+                                </div>
+                            </div>
+                            <div class="TrackItem_wrapper__5kdF3">
+                                <h3 class="TrackItem_title__tR93h">3. Phương pháp, định hướng</h3><span
+                                    class="TrackItem_desc__KkiVq">0/4 | 01:04:27</span><span
+                                    class="TrackItem_icon__SLY+b"><svg aria-hidden="true" focusable="false"
+                                        data-prefix="fas" data-icon="chevron-down"
+                                        class="svg-inline--fa fa-chevron-down " role="img"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                        <path fill="currentColor"
+                                            d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z">
+                                        </path>
+                                    </svg></span>
+                            </div>
+                            <div class="TrackItem_track-steps-list__MBqL1">
+                                <div class="StepItem_wrapper__sWYHG learn-item-1 StepItem_locked__G55MG">
+                                    <div class="StepItem_info__UckcT">
+                                        <h3 class="StepItem_title__PgsXi">6. Phương pháp học lập trình của Admin F4?
+                                        </h3>
+                                        <p class="StepItem_desc__zN9Bs"><svg aria-hidden="true" focusable="false"
+                                                data-prefix="fas" data-icon="circle-play"
+                                                class="svg-inline--fa fa-circle-play StepItem_lesson-icon__wGQGc"
+                                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <path fill="currentColor"
+                                                    d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                </path>
+                                            </svg><span>24:06</span></p>
+                                    </div>
+                                    <div class="StepItem_icon-box__TETaD"><svg aria-hidden="true" focusable="false"
+                                            data-prefix="fas" data-icon="lock"
+                                            class="svg-inline--fa fa-lock StepItem_state-icon__w1Yoc StepItem_lock__io1qG"
+                                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                            <path fill="currentColor"
+                                                d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z">
+                                            </path>
+                                        </svg></div>
+                                </div>
+                                <div class="StepItem_wrapper__sWYHG learn-item-2 StepItem_locked__G55MG">
+                                    <div class="StepItem_info__UckcT">
+                                        <h3 class="StepItem_title__PgsXi">7. Làm sao để có thu nhập cao và đi xa hơn
+                                            trong ngành IT?</h3>
+                                        <p class="StepItem_desc__zN9Bs"><svg aria-hidden="true" focusable="false"
+                                                data-prefix="fas" data-icon="circle-play"
+                                                class="svg-inline--fa fa-circle-play StepItem_lesson-icon__wGQGc"
+                                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <path fill="currentColor"
+                                                    d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                </path>
+                                            </svg><span>25:40</span></p>
+                                    </div>
+                                    <div class="StepItem_icon-box__TETaD"><svg aria-hidden="true" focusable="false"
+                                            data-prefix="fas" data-icon="lock"
+                                            class="svg-inline--fa fa-lock StepItem_state-icon__w1Yoc StepItem_lock__io1qG"
+                                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                            <path fill="currentColor"
+                                                d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z">
+                                            </path>
+                                        </svg></div>
+                                </div>
+                                <div class="StepItem_wrapper__sWYHG learn-item-3 StepItem_locked__G55MG">
+                                    <div class="StepItem_info__UckcT">
+                                        <h3 class="StepItem_title__PgsXi">8. 8 lời khuyên giúp học lập trình tại F4 hiệu
+                                            quả hơn!</h3>
+                                        <p class="StepItem_desc__zN9Bs"><svg aria-hidden="true" focusable="false"
+                                                data-prefix="fas" data-icon="circle-play"
+                                                class="svg-inline--fa fa-circle-play StepItem_lesson-icon__wGQGc"
+                                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <path fill="currentColor"
+                                                    d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                </path>
+                                            </svg><span>06:27</span></p>
+                                    </div>
+                                    <div class="StepItem_icon-box__TETaD"><svg aria-hidden="true" focusable="false"
+                                            data-prefix="fas" data-icon="lock"
+                                            class="svg-inline--fa fa-lock StepItem_state-icon__w1Yoc StepItem_lock__io1qG"
+                                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                            <path fill="currentColor"
+                                                d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z">
+                                            </path>
+                                        </svg></div>
+                                </div>
+                                <div class="StepItem_wrapper__sWYHG learn-item-4 StepItem_locked__G55MG">
+                                    <div class="StepItem_info__UckcT">
+                                        <h3 class="StepItem_title__PgsXi">9. Tại sao nên học trên website này hơn là học
+                                            trên Youtube?</h3>
+                                        <p class="StepItem_desc__zN9Bs"><svg aria-hidden="true" focusable="false"
+                                                data-prefix="fas" data-icon="circle-play"
+                                                class="svg-inline--fa fa-circle-play StepItem_lesson-icon__wGQGc"
+                                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <path fill="currentColor"
+                                                    d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                </path>
+                                            </svg><span>08:14</span></p>
+                                    </div>
+                                    <div class="StepItem_icon-box__TETaD"><svg aria-hidden="true" focusable="false"
+                                            data-prefix="fas" data-icon="lock"
+                                            class="svg-inline--fa fa-lock StepItem_state-icon__w1Yoc StepItem_lock__io1qG"
+                                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                            <path fill="currentColor"
+                                                d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z">
+                                            </path>
+                                        </svg></div>
+                                </div>
+                            </div>
+                            <div class="TrackItem_wrapper__5kdF3">
+                                <h3 class="TrackItem_title__tR93h">4. Hoàn thành khóa học</h3><span
+                                    class="TrackItem_desc__KkiVq">0/2 | 13:00</span><span
+                                    class="TrackItem_icon__SLY+b"><svg aria-hidden="true" focusable="false"
+                                        data-prefix="fas" data-icon="chevron-down"
+                                        class="svg-inline--fa fa-chevron-down " role="img"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                        <path fill="currentColor"
+                                            d="M224 416c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L224 338.8l169.4-169.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-192 192C240.4 412.9 232.2 416 224 416z">
+                                        </path>
+                                    </svg></span>
+                            </div>
+                            <div class="TrackItem_track-steps-list__MBqL1">
+                                <div class="StepItem_wrapper__sWYHG learn-item-1 StepItem_locked__G55MG">
+                                    <div class="StepItem_info__UckcT">
+                                        <h3 class="StepItem_title__PgsXi">10. Ứng tuyển xin việc làm</h3>
+                                        <p class="StepItem_desc__zN9Bs"><svg aria-hidden="true" focusable="false"
+                                                data-prefix="fas" data-icon="file-lines"
+                                                class="svg-inline--fa fa-file-lines StepItem_lesson-icon__wGQGc"
+                                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                                <path fill="currentColor"
+                                                    d="M256 0v128h128L256 0zM224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128zM272 416h-160C103.2 416 96 408.8 96 400C96 391.2 103.2 384 112 384h160c8.836 0 16 7.162 16 16C288 408.8 280.8 416 272 416zM272 352h-160C103.2 352 96 344.8 96 336C96 327.2 103.2 320 112 320h160c8.836 0 16 7.162 16 16C288 344.8 280.8 352 272 352zM288 272C288 280.8 280.8 288 272 288h-160C103.2 288 96 280.8 96 272C96 263.2 103.2 256 112 256h160C280.8 256 288 263.2 288 272z">
+                                                </path>
+                                            </svg><span>12:00</span></p>
+                                    </div>
+                                    <div class="StepItem_icon-box__TETaD"><svg aria-hidden="true" focusable="false"
+                                            data-prefix="fas" data-icon="lock"
+                                            class="svg-inline--fa fa-lock StepItem_state-icon__w1Yoc StepItem_lock__io1qG"
+                                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                            <path fill="currentColor"
+                                                d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z">
+                                            </path>
+                                        </svg></div>
+                                </div>
+                                <div class="StepItem_wrapper__sWYHG learn-item-2 StepItem_locked__G55MG">
+                                    <div class="StepItem_info__UckcT">
+                                        <h3 class="StepItem_title__PgsXi">11. Hoàn thành khóa học</h3>
+                                        <p class="StepItem_desc__zN9Bs"><svg aria-hidden="true" focusable="false"
+                                                data-prefix="fas" data-icon="file-lines"
+                                                class="svg-inline--fa fa-file-lines StepItem_lesson-icon__wGQGc"
+                                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                                <path fill="currentColor"
+                                                    d="M256 0v128h128L256 0zM224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128zM272 416h-160C103.2 416 96 408.8 96 400C96 391.2 103.2 384 112 384h160c8.836 0 16 7.162 16 16C288 408.8 280.8 416 272 416zM272 352h-160C103.2 352 96 344.8 96 336C96 327.2 103.2 320 112 320h160c8.836 0 16 7.162 16 16C288 344.8 280.8 352 272 352zM288 272C288 280.8 280.8 288 272 288h-160C103.2 288 96 280.8 96 272C96 263.2 103.2 256 112 256h160C280.8 256 288 263.2 288 272z">
+                                                </path>
+                                            </svg><span>01:00</span></p>
+                                    </div>
+                                    <div class="StepItem_icon-box__TETaD"><svg aria-hidden="true" focusable="false"
+                                            data-prefix="fas" data-icon="lock"
+                                            class="svg-inline--fa fa-lock StepItem_state-icon__w1Yoc StepItem_lock__io1qG"
+                                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                            <path fill="currentColor"
+                                                d="M80 192V144C80 64.47 144.5 0 224 0C303.5 0 368 64.47 368 144V192H384C419.3 192 448 220.7 448 256V448C448 483.3 419.3 512 384 512H64C28.65 512 0 483.3 0 448V256C0 220.7 28.65 192 64 192H80zM144 192H304V144C304 99.82 268.2 64 224 64C179.8 64 144 99.82 144 144V192z">
+                                            </path>
+                                        </svg></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Tracks_overlay__5cs2-"></div>
+                <div class="Content_wrapper__rvE31">
+                    <div class="Video_wrapper__aoEDT noselect">
+                        <div data-tour="learning-center">
+                            <div class="VideoPlayer_wrapper__s0KXB">
+                                <div class="VideoPlayer_player__CA18S" style="width: 100%; height: 100%;">
+                                    <div class="react-player__preview" tabindex="0"
+                                        style="width: 100%; height: 100%; background-size: cover; background-position: center center; cursor: pointer; display: flex; align-items: center; justify-content: center; background-image: url(https://i.ytimg.com/vi/zoELAirXMJY/maxresdefault.jpg);">
+                                        <div class="react-player__shadow"
+                                            style="background: radial-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0) 60%); border-radius: 64px; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center;">
+                                            <div class="react-player__play-icon"
+                                                style="border-style: solid; border-width: 16px 0px 16px 26px; border-color: transparent transparent transparent white; margin-left: 7px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Video_content__BXh4c">
+                        <div class="Video_contentTop__ngj7P">
+                            <header class="wrapper">
+                                <h1 class="Heading_heading__VnWS7">Mô hình Client - Server là gì?</h1>
+                                <p class="Heading_updated__LqCQ8">Cập nhật tháng 11 năm 2022</p>
+                            </header><button (click)="addNoteInTime()" class="Video_addNote__J7xMM"
+                                data-tour="notes-tutorial"><svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                    data-icon="plus" class="svg-inline--fa fa-plus " role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path fill="currentColor"
+                                        d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z">
+                                    </path>
+                                </svg><span class="Video_label__02ile">Thêm ghi chú tại
+                                    <span>{{TimeGhiChu}}</span></span></button>
+                        </div>
+                        <div class="MarkdownParser_wrapper__JYN63" style="--font-size:1.6rem; --line-height:2;">
+                            <p>Tham gia các cộng đồng để cùng học hỏi, chia sẻ và "thám thính" xem F4 sắp có gì mới nhé!
+                            </p>
+                        </div>
+                    </div>
+                    <p class="Powered_wrapper__gMw0S">Made with <svg aria-hidden="true" focusable="false"
+                            data-prefix="fas" data-icon="heart" class="svg-inline--fa fa-heart Powered_heart__XNpAr"
+                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path fill="currentColor"
+                                d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z">
+                            </path>
+                        </svg> <span class="Powered_dot__Xieku">·</span> Powered by F4</p>
+                </div>
+                <div class="ActionBar_wrapper__i+Rr7"><button
+                        class="ActionBar_btn__hAj1w ActionBar_disabled__rpsj+"><svg aria-hidden="true" focusable="false"
+                            data-prefix="fas" data-icon="chevron-left" class="svg-inline--fa fa-chevron-left "
+                            role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                            <path fill="currentColor"
+                                d="M224 480c-8.188 0-16.38-3.125-22.62-9.375l-192-192c-12.5-12.5-12.5-32.75 0-45.25l192-192c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L77.25 256l169.4 169.4c12.5 12.5 12.5 32.75 0 45.25C240.4 476.9 232.2 480 224 480z">
+                            </path>
+                        </svg><span>BÀI TRƯỚC</span></button><button
+                        class="ActionBar_btn__hAj1w ActionBar_primary__sGoa2 ActionBar_disabled__rpsj+"><span>BÀI TIẾP
+                            THEO</span><svg aria-hidden="true" focusable="false" data-prefix="fas"
+                            data-icon="chevron-right" class="svg-inline--fa fa-chevron-right " role="img"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                            <path fill="currentColor"
+                                d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z">
+                            </path>
+                        </svg></button>
+                    <div class="ActionBar_toggle-wrap__R5D0Y">
+                        <h3 class="ActionBar_track-title__eXPwb">1. Khái niệm kỹ thuật cần biết</h3><button
+                            class="ActionBar_toggle-btn__TXpoa"><svg aria-hidden="true" focusable="false"
+                                data-prefix="fas" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right "
+                                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor"
+                                    d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z">
+                                </path>
+                            </svg></button>
+                    </div>
+                </div>
+                <div class="Main_comment-btn__5MLCL Main_show-tracks__Ew4EM" data-tour="comments-tutorial"><button
+                        class="ActionButton_wrapper__u6ldY"><svg aria-hidden="true" focusable="false" data-prefix="fas"
+                            data-icon="comments" class="svg-inline--fa fa-comments " role="img"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                            <path fill="currentColor"
+                                d="M416 176C416 78.8 322.9 0 208 0S0 78.8 0 176c0 39.57 15.62 75.96 41.67 105.4c-16.39 32.76-39.23 57.32-39.59 57.68c-2.1 2.205-2.67 5.475-1.441 8.354C1.9 350.3 4.602 352 7.66 352c38.35 0 70.76-11.12 95.74-24.04C134.2 343.1 169.8 352 208 352C322.9 352 416 273.2 416 176zM599.6 443.7C624.8 413.9 640 376.6 640 336C640 238.8 554 160 448 160c-.3145 0-.6191 .041-.9336 .043C447.5 165.3 448 170.6 448 176c0 98.62-79.68 181.2-186.1 202.5C282.7 455.1 357.1 512 448 512c33.69 0 65.32-8.008 92.85-21.98C565.2 502 596.1 512 632.3 512c3.059 0 5.76-1.725 7.02-4.605c1.229-2.879 .6582-6.148-1.441-8.354C637.6 498.7 615.9 475.3 599.6 443.7z">
+                            </path>
+                        </svg><span class="ActionButton_title__UG43u">Hỏi đáp</span></button></div>
+                <div *ngIf="isAddNote" class="CreateNote_wrapper__ubDuR">
+                    <div class="CreateNote_inner__xqtS5">
+                        <h2 class="CreateNote_heading__ubCFo">Thêm ghi chú tại <span>{{ TimeGhiChu }}</span></h2>
+                        <div class="">
+                            <div class="Editor_createContent__6wwgd">
+                                <div id="rdw-wrapper-4679" class="Editor_editorWrapper__qDz0j rdw-editor-wrapper"
+                                    aria-label="rdw-wrapper">
+                                    <div class="rdw-editor-toolbar Editor_editorToolbar__mgIip" aria-label="rdw-toolbar"
+                                        aria-hidden="false" style="visibility: visible;">
+                                        <div class="rdw-block-wrapper" aria-label="rdw-block-control">
+                                            <div class="rdw-dropdown-wrapper rdw-block-dropdown"
+                                                aria-label="rdw-dropdown" aria-expanded="false"><a
+                                                    class="rdw-dropdown-selectedtext"
+                                                    title="Block Type"><span>Normal</span>
+                                                    <div class="rdw-dropdown-carettoopen"></div>
+                                                </a></div>
+                                        </div>
+                                        <div class="rdw-inline-wrapper" aria-label="rdw-inline-control">
+                                            <div class="rdw-option-wrapper" aria-selected="false" title="Bold" ><img
+                                                    alt=""
+                                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTYuMjM2IDBjMS42NTIgMCAyLjk0LjI5OCAzLjg2Ni44OTMuOTI1LjU5NSAxLjM4OCAxLjQ4NSAxLjM4OCAyLjY2OSAwIC42MDEtLjE3MyAxLjEzOS0uNTE2IDEuNjEtLjM0My40NzQtLjg0NC44My0xLjQ5OSAxLjA2OC44NDMuMTY3IDEuNDc0LjUyMyAxLjg5NSAxLjA3MS40MTkuNTUuNjMgMS4xODMuNjMgMS45MDMgMCAxLjI0NS0uNDQ0IDIuMTg3LTEuMzMgMi44MjUtLjg4Ni42NDEtMi4xNDQuOTYxLTMuNzY5Ljk2MUgwdi0yLjE2N2gxLjQ5NFYyLjE2N0gwVjBoNi4yMzZ6TTQuMzA4IDUuNDQ2aDIuMDI0Yy43NTIgMCAxLjMzLS4xNDMgMS43MzQtLjQzLjQwNS0uMjg1LjYwOC0uNzAxLjYwOC0xLjI1IDAtLjYtLjIwNC0xLjA0NC0uNjEyLTEuMzMtLjQwOC0uMjg2LTEuMDE2LS40MjctMS44MjYtLjQyN0g0LjMwOHYzLjQzN3ptMCAxLjgwNFYxMWgyLjU5M2MuNzQ3IDAgMS4zMTQtLjE1MiAxLjcwNy0uNDUyLjM5LS4zLjU4OC0uNzQ1LjU4OC0xLjMzNCAwLS42MzYtLjE2OC0xLjEyNC0uNS0xLjQ2LS4zMzYtLjMzNS0uODY0LS41MDQtMS41ODItLjUwNEg0LjMwOHoiIGZpbGw9IiMwMDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==">
+                                            </div>
+                                            <div class="rdw-option-wrapper" aria-selected="false" title="Italic"><img
+                                                    alt=""
+                                                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHBhdGggZD0iTTcgM1YyaDR2MUg5Ljc1M2wtMyAxMEg4djFINHYtMWgxLjI0N2wzLTEwSDd6Ii8+PC9zdmc+">
+                                            </div>
+                                        </div>
+                                        <div class="rdw-list-wrapper" aria-label="rdw-list-control">
+                                            <div class="rdw-option-wrapper" aria-selected="false" title="Unordered"><img
+                                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0iIzAwMCIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMS43MiAzLjQyN2MuOTUxIDAgMS43MjItLjc2OCAxLjcyMi0xLjcwOFMyLjY3LjAxIDEuNzIuMDFDLjc3LjAwOCAwIC43NzUgMCAxLjcxNWMwIC45NC43NzQgMS43MTEgMS43MiAxLjcxMXptMC0yLjYyNWMuNTEgMCAuOTIyLjQxMi45MjIuOTE0YS45Mi45MiAwIDAgMS0xLjg0MiAwIC45Mi45MiAwIDAgMSAuOTItLjkxNHpNMS43MiA4LjcwM2MuOTUxIDAgMS43MjItLjc2OCAxLjcyMi0xLjcwOFMyLjY3IDUuMjg3IDEuNzIgNS4yODdDLjc3IDUuMjg3IDAgNi4wNTIgMCA2Ljk5NXMuNzc0IDEuNzA4IDEuNzIgMS43MDh6bTAtMi42MjJjLjUxIDAgLjkyMi40MTIuOTIyLjkxNGEuOTIuOTIgMCAwIDEtMS44NDIgMGMwLS41MDUuNDE1LS45MTQuOTItLjkxNHpNMS43MiAxMy45ODJjLjk1MSAwIDEuNzIyLS43NjggMS43MjItMS43MDggMC0uOTQzLS43NzQtMS43MDgtMS43MjEtMS43MDgtLjk0NyAwLTEuNzIxLjc2OC0xLjcyMSAxLjcwOHMuNzc0IDEuNzA4IDEuNzIgMS43MDh6bTAtMi42MjVjLjUxIDAgLjkyMi40MTIuOTIyLjkxNGEuOTIuOTIgMCAxIDEtMS44NDIgMCAuOTIuOTIgMCAwIDEgLjkyLS45MTR6TTUuNzQ0IDIuMTE1aDkuODQ1YS40LjQgMCAwIDAgLjQwMS0uMzk5LjQuNCAwIDAgMC0uNDAxLS4zOTlINS43NDRhLjQuNCAwIDAgMC0uNDAyLjM5OS40LjQgMCAwIDAgLjQwMi4zOTl6TTUuNzQ0IDcuMzk0aDkuODQ1YS40LjQgMCAwIDAgLjQwMS0uMzk5LjQuNCAwIDAgMC0uNDAxLS4zOThINS43NDRhLjQuNCAwIDAgMC0uNDAyLjM5OC40LjQgMCAwIDAgLjQwMi4zOTl6TTUuNzQ0IDEyLjY3aDkuODQ1YS40LjQgMCAwIDAgLjQwMS0uMzk5LjQuNCAwIDAgMC0uNDAxLS4zOTlINS43NDRhLjQuNCAwIDAgMC0uNDAyLjQuNC40IDAgMCAwIC40MDIuMzk4eiIvPjwvZz48L3N2Zz4="
+                                                    alt=""></div>
+                                            <div class="rdw-option-wrapper" aria-selected="false" title="Ordered"><img
+                                                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMiIGhlaWdodD0iMTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0iIzAwMCIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNNC4yMDIgMS40NjZoOC4xNWMuMzM4IDAgLjYxMi0uMzIyLjYxMi0uNzIgMC0uMzk3LS4yNzQtLjcyLS42MTItLjcyaC04LjE1Yy0uMzM4IDAtLjYxMS4zMjMtLjYxMS43MiAwIC4zOTguMjczLjcyLjYxLjcyek0xMi4zNTIgNS43ODNoLTguMTVjLS4zMzggMC0uNjExLjMyMi0uNjExLjcyIDAgLjM5Ny4yNzMuNzIuNjEuNzJoOC4xNTFjLjMzOCAwIC42MTItLjMyMy42MTItLjcyIDAtLjM5OC0uMjc0LS43Mi0uNjEyLS43MnpNMTIuMzUyIDExLjU0aC04LjE1Yy0uMzM4IDAtLjYxMS4zMjItLjYxMS43MiAwIC4zOTYuMjczLjcxOS42MS43MTloOC4xNTFjLjMzOCAwIC42MTItLjMyMy42MTItLjcyIDAtLjM5Ny0uMjc0LS43Mi0uNjEyLS43MnpNLjc2NyAxLjI0OXYxLjgwMmMwIC4xOTUuMTM2LjM0My4zMTUuMzQzLjE3NiAwIC4zMTUtLjE1LjMxNS0uMzQzVi4zNTZjMC0uMTktLjEzMy0uMzM5LS4zMDItLjMzOS0uMTQ4IDAtLjIyMy4xMTgtLjI0Ny4xNTZhLjIyOC4yMjggMCAwIDAtLjAwMy4wMDVMLjU3OS42MjFhLjQ3NC40NzQgMCAwIDAtLjA5OC4yNzNjMCAuMTk0LjEyOC4zNTEuMjg2LjM1NXpNLjM1MiA4LjE5SDEuNTVjLjE1NyAwIC4yODUtLjE2Mi4yODUtLjM2MiAwLS4xOTgtLjEyOC0uMzU5LS4yODUtLjM1OUguNjh2LS4wMDZjMC0uMTA3LjIxLS4yODEuMzc4LS40MjIuMzM2LS4yNzguNzUzLS42MjUuNzUzLTEuMjI2IDAtLjU3LS4zNzYtMS0uODc0LTEtLjQ3NyAwLS44MzYuMzg1LS44MzYuODk3IDAgLjI5Ny4xNjQuNDAyLjMwNS40MDIuMiAwIC4zMjEtLjE3Ni4zMjEtLjM0NiAwLS4xMDYuMDIzLS4yMjguMjA0LS4yMjguMjQzIDAgLjI1LjI1NC4yNS4yODMgMCAuMjI4LS4yNTIuNDQyLS40OTUuNjQ5LS4zMDEuMjU1LS42NDIuNTQ0LS42NDIuOTkydi4zODRjMCAuMjA1LjE1OS4zNDMuMzA4LjM0M3pNMS43NyAxMC41NDNjMC0uNTkyLS4yOTYtLjkzMS0uODE0LS45MzEtLjY4IDAtLjg1OS41Ny0uODU5Ljg3MiAwIC4zNTEuMjIyLjM5LjMxOC4zOS4xODUgMCAuMzEtLjE0OC4zMS0uMzY2IDAtLjA4NC4wMjYtLjE4MS4yMjQtLjE4MS4xNDIgMCAuMi4wMjQuMi4yNjcgMCAuMjM3LS4wNDMuMjYzLS4yMTMuMjYzLS4xNjQgMC0uMjg4LjE1Mi0uMjg4LjM1NCAwIC4yLjEyNS4zNS4yOTEuMzUuMjI1IDAgLjI3LjEwOC4yNy4yODN2LjA3NWMwIC4yOTQtLjA5Ny4zNS0uMjc3LjM1LS4yNDggMC0uMjY3LS4xNS0uMjY3LS4xOTcgMC0uMTc0LS4wOTgtLjM1LS4zMTctLjM1LS4xOTIgMC0uMzA3LjE0MS0uMzA3LjM3OCAwIC40My4zMTMuODg4Ljg5NS44ODguNTY0IDAgLjkwMS0uNC45MDEtMS4wN3YtLjA3NGMwLS4yNzQtLjA3NC0uNTAyLS4yMTQtLjY2Ni4wOTYtLjE2My4xNDgtLjM4LjE0OC0uNjM1eiIvPjwvZz48L3N2Zz4="
+                                                    alt=""></div>
+                                        </div>
+                                    </div>
+                                    <div class="Editor_editor__3VaCY rdw-editor-main">
+                                        <div class="DraftEditor-root">
+                                            <div class="public-DraftEditorPlaceholder-root">
+                                                <div class="public-DraftEditorPlaceholder-inner" id="placeholder-74ku6"
+                                                    style="white-space: pre-wrap;"  >{{NoiDungGhiChu}}</div>
+                                            </div>
+                                            <div class="DraftEditor-editorContainer">
+                                                <div aria-describedby="placeholder-74ku6" aria-label="rdw-editor"
+                                                    class="notranslate public-DraftEditor-content"
+                                                    contenteditable="true" role="textbox" spellcheck="false"
+                                                    style="outline: none; user-select: text; white-space: pre-wrap; overflow-wrap: break-word;">
+                                                    <input  [(ngModel)]="contentNote" (click)="addContent()"  class="inputNote" type="text">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Editor_editorActions__j9wTZ"><button
+                                    class="Button_btn__RW1e2 Editor_cancelBtn__uCcnv" (click)="closeAddNote()" >Hủy bỏ</button><button
+                                    class="Button_btn__RW1e2 Button_primary__86yfm {{ButtonDisabled}}" (click)="addNote()">Tạo ghi chú</button></div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="Toastify"></div>
+    </div>
+    <div class="VerticalModal_wrapper__4GY83 {{name}}">
+        <div class="VerticalModal_container__3yFkB">
+            <div class="VerticalModal_close-btn__YNy3Q" (click)="closeNote()" ><svg aria-hidden="true" focusable="false" data-prefix="fas"
+                    data-icon="xmark" class="svg-inline--fa fa-xmark" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 320 512">
+                    <path fill="currentColor"
+                        d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z">
+                    </path>
+                </svg></div>
+            <div class="VerticalModal_body__wpnMg">
+                <div class="NotesList_wrapper__mB8Mq">
+                    <ul class="NotesList_list__g9Ull">
+                        <header class="NotesList_header__7CQ4e">
+                            <h2 class="NotesList_bigHeading__tquFE">Ghi chú của tôi</h2>
+                            <div><select class="NotesList_selectable__C3Xua">
+                                    <option value="chapter"> Trong chương hiện tại </option>
+                                    <option value="course"> Trong tất cả các chương</option>
+                                </select><select class="NotesList_selectable__C3Xua">
+                                    <option value="latest">Mới nhất</option>
+                                    <option value="oldest">Cũ nhất </option>
+                                </select></div>
+                        </header>
+                        <div class="NotesList_noResult__qLIpq"><img
+                                src="../assets/media/Note.PNG"
+                                alt="Chưa có ghi chú">
+                            <div class="NotesList_heading__7xlN9">Bạn chưa có ghi chú nào</div>
+                            <div class="NotesList_description__uy0fT">Hãy ghi chép để nhớ những gì bạn đã học!</div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

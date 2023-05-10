@@ -1,0 +1,527 @@
+<head>
+    <meta charset="utf-8">
+    <title>Danh sách các khóa học lập trình tại F4</title>
+    <link href="study.component.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="root">
+        <!--phan nav-->
+        <div class="NavBar_wrapper__4m3K5" id="header">
+            <div class="NavBar_logo__Rgo-5">
+                <div *ngIf="User.idrole == 0">
+                    <a href="/homepage-user"><img
+                            src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
+                            alt="F8"></a>
+                </div>
+                <div *ngIf="User.idrole == 1">
+                    <a href="/home-page-st"><img
+                            src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
+                            alt="F8"></a>
+                </div>
+                <div *ngIf="User.idrole == 2">
+                    <a href="/homepage-gv"><img
+                            src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
+                            alt="F8"></a>
+                </div>
+
+                <h4 class="NavBar_logoHeading__bs7MP">Học Lập Trình Để Đi Làm</h4>
+
+
+            </div>
+            <div class="Navbar-Trangchu-Search-margin d-flex-center">
+                <div>
+                    <div class="Search_wrapper__Bwvae d-flex-center" aria-expanded="false">
+                        <div class="Search_searchIcon__-23JY">
+                            <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+                        </div>
+                        <input class="Search_input__GnMba" spellcheck="false"
+                            placeholder="Tìm kiếm khóa học, bài viết, video, ..." value="">
+                    </div>
+                </div>
+            </div>
+            <div class="NavBar_actions__nSNzo">
+                <div id="navbar-actions-portal">
+                </div>
+
+                <div>
+                    <div (click)="openNavNotification()" class="NavBar_actionBtn__tzSZd" id="notification-button">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bell"
+                            class="svg-inline--fa fa-bell NavBar_action-icon__l9MxX" role="img"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path fill="currentColor"
+                                d="M256 32V51.2C329 66.03 384 130.6 384 208V226.8C384 273.9 401.3 319.2 432.5 354.4L439.9 362.7C448.3 372.2 450.4 385.6 445.2 397.1C440 408.6 428.6 416 416 416H32C19.4 416 7.971 408.6 2.809 397.1C-2.353 385.6-.2883 372.2 8.084 362.7L15.5 354.4C46.74 319.2 64 273.9 64 226.8V208C64 130.6 118.1 66.03 192 51.2V32C192 14.33 206.3 0 224 0C241.7 0 256 14.33 256 32H256zM224 512C207 512 190.7 505.3 178.7 493.3C166.7 481.3 160 464.1 160 448H288C288 464.1 281.3 481.3 269.3 493.3C257.3 505.3 240.1 512 224 512z">
+                            </path>
+                        </svg>
+                    </div>
+                    <!-- aria-expanded="false" -->
+                    <div *ngIf="isDropDownOpenNotification"
+                        style="z-index: 9999; position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-68.8px, 60.8px);">
+                        <ul class="Tippy-module_wrapper__1s5m5 Notification_container__ulN0K">
+                            <header>
+                                <h6>Thông báo</h6>
+                            </header>
+                            <div class="Notification_content__0k-Tt hide-on-click">
+                                <p class="Notification_noResult__TJd2-">Chưa có thông báo nào</p>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="NavBar_avatar-wrapper__j7jMj" aria-expanded="false">
+                    <div (click)="openNavProfile()" class="FallbackAvatar_avatar__gmj3S" style="--font-size:3.2px;">
+                        <img class="NavBar_avatar__OG7ib"
+                            src="https://files.fullstack.edu.vn/f8-prod/user_photos/293030/63e71768e42bd.jpg"
+                            alt="Khánh Băng">
+                    </div>
+                </div>
+                <div *ngIf="isDropDownOpen"
+                    style="z-index: 9999; position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-27.2px, 57.6px);">
+                    <ul class="Tippy-module_wrapper__1s5m5 UserMenu_wrapper__kevhj hide-on-click">
+                        <div class="UserMenu_user__GXFLp">
+                            <div class="UserMenu_avatarWrapper__9ABYL">
+                                <div class="FallbackAvatar_avatar__gmj3S" style="--font-size:5.6px;"><img
+                                        src="https://files.fullstack.edu.vn/f8-prod/user_photos/289130/63da5c8beb71a.jpg"
+                                        alt="{{User.email}}"></div>
+                            </div>
+                            <div class="UserMenu_info__UqeZT"><span class="UserMenu_name__L18s-">{{
+                                    User.username}}</span>
+                                <div class="UserMenu_username__7qkRU">{{ User.email }}</div>
+                            </div>
+                        </div>
+                        <hr>
+                        <ul class="UserMenu_list__FI9-C">
+                            <li><a class="UserMenu_item__NXwf1" routerLink="/profile" routerLinkActive="active">Trang cá
+                                    nhân</a><router-outlet></router-outlet></li>
+                        </ul>
+                        <hr>
+                        <ul class="UserMenu_list__FI9-C">
+                            <li><a class="UserMenu_item__NXwf1" routerLink="/write-blog" routerLinkActive="active">Viết
+                                    blog</a><router-outlet></router-outlet></li>
+                            <li><a class="UserMenu_item__NXwf1" routerLink="/posts-drafts" routerLinkActive="active">Bài
+                                    viết của
+                                    tôi</a><router-outlet></router-outlet></li>
+                        </ul>
+                        <hr>
+                        <ul class="UserMenu_list__FI9-C">
+                            <li><a class="UserMenu_item__NXwf1" routerLink="/posts-public" routerLinkActive="active">Bài
+                                    viết đã
+                                    lưu</a><router-outlet></router-outlet></li>
+                        </ul>
+                        <hr>
+                        <ul class="UserMenu_list__FI9-C">
+                            <li><a class="UserMenu_item__NXwf1" href="/setting-account">Cài đặt</a></li>
+                            <li><a class="UserMenu_item__NXwf1" routerLink="/homepage-user"
+                                    routerLinkActive="active">Đăng
+                                    xuất</a><router-outlet></router-outlet></li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Phan nav -->
+
+        <div class="App_withSidebar__8lwIi">
+            <!-- Thanh ben -->
+            <div class="App_sidebarWrap__3LwsB">
+                <div class="Sidebar_wrapper__kUJFm" id="sidebar">
+                    <div>
+                        <div (click)="openNavBlog()" class="CreateButton_wrapper__Bb6o6" aria-expanded="false">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus"
+                                class="svg-inline--fa fa-plus CreateButton_icon__ipBrz" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor"
+                                    d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z">
+                                </path>
+                            </svg>
+
+                        </div>
+                        <div *ngIf="isDropDownOpenBlog"
+                            style="z-index: 9999; position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(25.6px, 62.4px);">
+                            <ul class="Tippy-module_wrapper__1s5m5 Tippy-module_options__37VQJ CreateButton_menu__YI0Ly Tippy-module_hasLink__8U2Xq"
+                                style="min-width: 200px;">
+                                <li><a routerLink="/write-blog" routerLinkActive="active"><em><svg aria-hidden="true"
+                                                focusable="false" data-prefix="fas" data-icon="pen"
+                                                class="svg-inline--fa fa-pen " role="img"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                <path fill="currentColor"
+                                                    d="M362.7 19.32C387.7-5.678 428.3-5.678 453.3 19.32L492.7 58.75C517.7 83.74 517.7 124.3 492.7 149.3L444.3 197.7L314.3 67.72L362.7 19.32zM421.7 220.3L188.5 453.4C178.1 463.8 165.2 471.5 151.1 475.6L30.77 511C22.35 513.5 13.24 511.2 7.03 504.1C.8198 498.8-1.502 489.7 .976 481.2L36.37 360.9C40.53 346.8 48.16 333.9 58.57 323.5L291.7 90.34L421.7 220.3z">
+                                                </path>
+                                            </svg></em><span>Viết blog</span></a><router-outlet></router-outlet>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="Sidebar_list__HnCzM">
+                        <div *ngIf="User.idrole == 0">
+                            <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/homepage-user"
+                                    routerLinkActive="active"><i
+                                        class="fa-solid fa-house"></i><span>Home</span></a><router-outlet></router-outlet>
+                            </li>
+                        </div>
+                        <div *ngIf="User.idrole == 1">
+                            <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/home-page-st"
+                                    routerLinkActive="active"><i
+                                        class="fa-solid fa-house"></i><span>Home</span></a><router-outlet></router-outlet>
+                            </li>
+                        </div>
+                        <div *ngIf="User.idrole == 2">
+                            <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/homepage-gv"
+                                    routerLinkActive="active"><i
+                                        class="fa-solid fa-house"></i><span>Home</span></a><router-outlet></router-outlet>
+                            </li>
+                        </div>
+
+                        <li><a class="Sidebar_itemBtn__Q78b7" routerLink="/study-route" routerLinkActive="active"><i
+                                    class="fa-solid fa-road"></i><span>Lộ
+                                    trình</span></a><router-outlet></router-outlet>
+                        </li>
+                        <li><a class="Sidebar_itemBtn__Q78b7" routerLink="/study" routerLinkActive="active"><i
+                                    class="fa-solid fa-lightbulb"></i><span>Học</span></a><router-outlet></router-outlet>
+                        </li>
+                        <li><a class="Sidebar_itemBtn__Q78b7 Sidebar_active__uvck8" routerLink="/blog"
+                                routerLinkActive="active"><i
+                                    class="fa-solid fa-book"></i><span>Blog</span></a><router-outlet></router-outlet>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- thanh ben  -->
+
+            <div class="App_withSidebarContent__o4VlQ">
+                <section class="index-module_grid__1q71E index-module_fullWidth__3X-6x" style="max-width: 1920px;">
+                    <!-- gioi thieu -->
+                    <div id="demo" class="carousel slide" data-ride="carousel">
+
+                        <!-- Indicators -->
+                        <ul class="carousel-indicators">
+                            <li data-target="#demo" data-slide-to="0" class="active"></li>
+                            <li data-target="#demo" data-slide-to="1"></li>
+                            <li data-target="#demo" data-slide-to="2"></li>
+                        </ul>
+
+                        <!-- The slideshow -->
+                        <div class="carousel-inner"
+                            style="background-image: linear-gradient(to right, rgba(74, 0, 143, 0.845), rgb(40 182 249 / 92%))">
+                            <div class="carousel-item active">
+                                <img src="https://files.fullstack.edu.vn/f8-prod/banners/Banner_01_2.png"
+                                    alt="Thành quả của học viên" title="Thành Quả của Học Viên">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://files.fullstack.edu.vn/f8-prod/banners/Banner_03_youtube.png"
+                                    alt="F4 trên Youtube" title="F4 trên Youtube">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://files.fullstack.edu.vn/f8-prod/banners/Banner_web_ReactJS.png"
+                                    alt="Khoá học ReactJS online tại F4" title="Học ReactJS Miễn Phí!">
+                            </div>
+                        </div>
+
+
+                        <!-- Left and right controls -->
+
+                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#demo" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                    </div>
+                    <!-- gioi thieu -->
+
+                    <!-- content  -->
+                    <div class="Home_wrapper__53Los">
+                        <!-- Khoa hoc pro  -->
+                        <div class="ScrollList_vertical__hG0sb">
+
+                            <div>
+                                <div class="ScrollList_heading-wrap__58LQx">
+                                    <h2 class="ScrollList_heading__BYEXH"><span rel="noreferrer" target="_self">Khóa
+                                            học
+                                            Pro<span class="ScrollList_label__aulkb">Mới</span></span></h2>
+                                </div>
+                            </div>
+
+                            <div class="ScrollList_body__iMN-l">
+                                <section class="index-module_row__-AHgh">
+                                    <!-- HTML CSS Pro -->
+                                    <section
+                                        class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb">
+                                        <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4">
+
+                                            <a class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX"
+                                                title="HTML CSS Pro" target="_self" routerLink="/course"
+                                                routerLinkActive="active"
+                                                style="background-image: url(https://files.fullstack.edu.vn/f8-prod/courses/15/62f13d2424a47.png)"><button
+                                                    class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Xem khóa
+                                                    học</button></a><router-outlet></router-outlet>
+                                            <h3 class="CommonItem_title__EpYrE"><a target="_self"
+                                                    href="/landing/htmlcss">HTML CSS Pro</a>
+                                            </h3>
+                                            <div class="CourseItem_pro-icon__474i5"><img
+                                                    src="https://fullstack.edu.vn/static/media/crown_icon.3e4800f7485935ab6ea312a7080a85fe.svg"
+                                                    alt=""></div>
+                                            <div class="price"><span
+                                                    class="CourseItem_old-price__Y-b76">2.499.000đ</span><span
+                                                    class="CourseItem_main-price__6zPwS">1.299.000đ</span></div>
+                                        </div>
+                                    </section>
+                                    <!-- JavaScript Pro -->
+                                    <section
+                                        class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb">
+                                        <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4"><span
+                                                class="CommonItem_thumb__ew8Jj" title="JavaScript Pro" target="_self"
+                                                style="background-image: url(https://files.fullstack.edu.vn/f8-prod/courses/19/62f13cb607b4b.png);"><button
+                                                    class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Xem khóa
+                                                    học</button></span>
+                                            <h3 class="CommonItem_title__EpYrE"><span target="_self">JavaScript
+                                                    Pro</span></h3>
+                                            <div class="CourseItem_pro-icon__474i5"><img
+                                                    src="https://fullstack.edu.vn/static/media/crown_icon.3e4800f7485935ab6ea312a7080a85fe.svg"
+                                                    alt=""></div>
+                                            <div class="price"></div>
+                                        </div>
+                                    </section>
+                                    <!-- ReactJS Pro -->
+                                    <section
+                                        class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb">
+                                        <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4"><span
+                                                class="CommonItem_thumb__ew8Jj" title="ReactJS Pro" target="_self"
+                                                style="background-image: url(https://files.fullstack.edu.vn/f8-prod/courses/20/62f13dded314e.png);"><button
+                                                    class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Xem khóa
+                                                    học</button></span>
+                                            <h3 class="CommonItem_title__EpYrE"><span target="_self">ReactJS
+                                                    Pro</span>
+                                            </h3>
+                                            <div class="CourseItem_pro-icon__474i5"><img
+                                                    src="https://fullstack.edu.vn/static/media/crown_icon.3e4800f7485935ab6ea312a7080a85fe.svg"
+                                                    alt=""></div>
+                                            <div class="price"></div>
+                                        </div>
+                                    </section>
+                                </section>
+                            </div>
+                        </div>
+                        <!-- Khoa hoc  -->
+                        <div class="ScrollList_vertical__hG0sb">
+                            <div>
+                                <p class="ScrollList_sub-heading__4Ymiv"><strong>293.457+</strong> người khác đã học
+                                </p>
+                                <div class="ScrollList_heading-wrap__58LQx">
+                                    <h2 class="ScrollList_heading__BYEXH"><a rel="noreferrer" target="_self"
+                                            href="../course/course.component.html">Khóa
+                                            học miễn phí
+                                            <span class="ScrollList_view-all-icon__ih66M"><i
+                                                    class="fa-regular fa-circle-right"></i>
+                                            </span></a></h2>
+
+                                </div>
+                            </div>
+                            <div class="ScrollList_body__iMN-l">
+                                <section class="index-module_row__-AHgh">
+                                    <!-- Kiến Thức Nhập Môn IT -->
+                                    <section
+                                        class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb">
+                                        <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4"><a
+                                                class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX"
+                                                title="Kiến Thức Nhập Môn IT" target="_self" routerLink="/keep-study"
+                                                routerLinkActive="active"
+                                                style="background-image: url(https://files.fullstack.edu.vn/f8-prod/courses/7.png);"><button
+                                                    class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Tiếp tục
+                                                    học</button></a><router-outlet></router-outlet>
+                                            <h3 class="CommonItem_title__EpYrE"><a target="_self"
+                                                    href="/learning/lessons-for-newbie">Kiến
+                                                    Thức Nhập Môn IT</a></h3>
+                                            <div class="CourseItem_students-count__92kIg"><svg aria-hidden="true"
+                                                    focusable="false" data-prefix="fas" data-icon="users"
+                                                    class="svg-inline--fa fa-users " role="img"
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                                                    <path fill="currentColor"
+                                                        d="M319.9 320c57.41 0 103.1-46.56 103.1-104c0-57.44-46.54-104-103.1-104c-57.41 0-103.1 46.56-103.1 104C215.9 273.4 262.5 320 319.9 320zM369.9 352H270.1C191.6 352 128 411.7 128 485.3C128 500.1 140.7 512 156.4 512h327.2C499.3 512 512 500.1 512 485.3C512 411.7 448.4 352 369.9 352zM512 160c44.18 0 80-35.82 80-80S556.2 0 512 0c-44.18 0-80 35.82-80 80S467.8 160 512 160zM183.9 216c0-5.449 .9824-10.63 1.609-15.91C174.6 194.1 162.6 192 149.9 192H88.08C39.44 192 0 233.8 0 285.3C0 295.6 7.887 304 17.62 304h199.5C196.7 280.2 183.9 249.7 183.9 216zM128 160c44.18 0 80-35.82 80-80S172.2 0 128 0C83.82 0 48 35.82 48 80S83.82 160 128 160zM551.9 192h-61.84c-12.8 0-24.88 3.037-35.86 8.24C454.8 205.5 455.8 210.6 455.8 216c0 33.71-12.78 64.21-33.16 88h199.7C632.1 304 640 295.6 640 285.3C640 233.8 600.6 192 551.9 192z">
+                                                    </path>
+                                                </svg><span>100.671</span></div>
+                                        </div>
+                                    </section>
+                                    <!-- Lập trình C++ cơ bản, nâng cao -->
+                                    <section
+                                        class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb">
+                                        <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4"><a
+                                                class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX"
+                                                title="Lập trình C++ cơ bản, nâng cao" target="_self"
+                                                routerLink="/course" routerLinkActive="active"
+                                                style="background-image: url(https://files.fullstack.edu.vn/f8-prod/courses/21/63e1bcbaed1dd.png);"><button
+                                                    class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Xem khóa
+                                                    học</button></a><router-outlet></router-outlet>
+                                            <h3 class="CommonItem_title__EpYrE"><a target="_self"
+                                                    href="/courses/lap-trinh-c-co-ban-toi-nang-cao">Lập trình C++ cơ
+                                                    bản, nâng cao</a></h3>
+                                            <div class="CourseItem_students-count__92kIg"><svg aria-hidden="true"
+                                                    focusable="false" data-prefix="fas" data-icon="users"
+                                                    class="svg-inline--fa fa-users " role="img"
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                                                    <path fill="currentColor"
+                                                        d="M319.9 320c57.41 0 103.1-46.56 103.1-104c0-57.44-46.54-104-103.1-104c-57.41 0-103.1 46.56-103.1 104C215.9 273.4 262.5 320 319.9 320zM369.9 352H270.1C191.6 352 128 411.7 128 485.3C128 500.1 140.7 512 156.4 512h327.2C499.3 512 512 500.1 512 485.3C512 411.7 448.4 352 369.9 352zM512 160c44.18 0 80-35.82 80-80S556.2 0 512 0c-44.18 0-80 35.82-80 80S467.8 160 512 160zM183.9 216c0-5.449 .9824-10.63 1.609-15.91C174.6 194.1 162.6 192 149.9 192H88.08C39.44 192 0 233.8 0 285.3C0 295.6 7.887 304 17.62 304h199.5C196.7 280.2 183.9 249.7 183.9 216zM128 160c44.18 0 80-35.82 80-80S172.2 0 128 0C83.82 0 48 35.82 48 80S83.82 160 128 160zM551.9 192h-61.84c-12.8 0-24.88 3.037-35.86 8.24C454.8 205.5 455.8 210.6 455.8 216c0 33.71-12.78 64.21-33.16 88h199.7C632.1 304 640 295.6 640 285.3C640 233.8 600.6 192 551.9 192z">
+                                                    </path>
+                                                </svg><span>4.144</span></div>
+                                        </div>
+                                    </section>
+                                    <!-- HTML CSS từ Zero đến Hero -->
+                                    <section
+                                        class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb">
+                                        <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4"><a
+                                                class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX"
+                                                title="HTML CSS từ Zero đến Hero" target="_self" routerLink="/course"
+                                                routerLinkActive="active"
+                                                style="background-image: url(https://files.fullstack.edu.vn/f8-prod/courses/2.png);"><button
+                                                    class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Tiếp tục
+                                                    học</button></a><router-outlet></router-outlet>
+                                            <h3 class="CommonItem_title__EpYrE"><a target="_self"
+                                                    href="/learning/html-css">HTML CSS từ Zero
+                                                    đến Hero</a></h3>
+                                            <div class="CourseItem_students-count__92kIg"><svg aria-hidden="true"
+                                                    focusable="false" data-prefix="fas" data-icon="users"
+                                                    class="svg-inline--fa fa-users " role="img"
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                                                    <path fill="currentColor"
+                                                        d="M319.9 320c57.41 0 103.1-46.56 103.1-104c0-57.44-46.54-104-103.1-104c-57.41 0-103.1 46.56-103.1 104C215.9 273.4 262.5 320 319.9 320zM369.9 352H270.1C191.6 352 128 411.7 128 485.3C128 500.1 140.7 512 156.4 512h327.2C499.3 512 512 500.1 512 485.3C512 411.7 448.4 352 369.9 352zM512 160c44.18 0 80-35.82 80-80S556.2 0 512 0c-44.18 0-80 35.82-80 80S467.8 160 512 160zM183.9 216c0-5.449 .9824-10.63 1.609-15.91C174.6 194.1 162.6 192 149.9 192H88.08C39.44 192 0 233.8 0 285.3C0 295.6 7.887 304 17.62 304h199.5C196.7 280.2 183.9 249.7 183.9 216zM128 160c44.18 0 80-35.82 80-80S172.2 0 128 0C83.82 0 48 35.82 48 80S83.82 160 128 160zM551.9 192h-61.84c-12.8 0-24.88 3.037-35.86 8.24C454.8 205.5 455.8 210.6 455.8 216c0 33.71-12.78 64.21-33.16 88h199.7C632.1 304 640 295.6 640 285.3C640 233.8 600.6 192 551.9 192z">
+                                                    </path>
+                                                </svg><span>152.174</span></div>
+                                        </div>
+                                    </section>
+                                    <!-- Lập Trình JavaScript Cơ Bản -->
+                                    <section
+                                        class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-3__MjWvb">
+                                        <div class="CommonItem_wrapper__1FbHi Home_courseItem__aIeZ4"><a
+                                                class="CommonItem_thumb__ew8Jj CommonItem_has-link__VLLrX"
+                                                title="Lập Trình JavaScript Cơ Bản" target="_self" routerLink="/course"
+                                                routerLinkActive="active"
+                                                style="background-image: url(https://files.fullstack.edu.vn/f8-prod/courses/1.png);"><button
+                                                    class="Button_btn__RW1e2 CommonItem_cta-btn__OK+oX">Tiếp tục
+                                                    học</button></a> <router-outlet></router-outlet>
+                                            <h3 class="CommonItem_title__EpYrE"><a target="_self"
+                                                    href="/learning/javascript-co-ban">Lập Trình
+                                                    JavaScript Cơ Bản</a>
+                                            </h3>
+                                            <div class="CourseItem_students-count__92kIg"><svg aria-hidden="true"
+                                                    focusable="false" data-prefix="fas" data-icon="users"
+                                                    class="svg-inline--fa fa-users " role="img"
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                                                    <path fill="currentColor"
+                                                        d="M319.9 320c57.41 0 103.1-46.56 103.1-104c0-57.44-46.54-104-103.1-104c-57.41 0-103.1 46.56-103.1 104C215.9 273.4 262.5 320 319.9 320zM369.9 352H270.1C191.6 352 128 411.7 128 485.3C128 500.1 140.7 512 156.4 512h327.2C499.3 512 512 500.1 512 485.3C512 411.7 448.4 352 369.9 352zM512 160c44.18 0 80-35.82 80-80S556.2 0 512 0c-44.18 0-80 35.82-80 80S467.8 160 512 160zM183.9 216c0-5.449 .9824-10.63 1.609-15.91C174.6 194.1 162.6 192 149.9 192H88.08C39.44 192 0 233.8 0 285.3C0 295.6 7.887 304 17.62 304h199.5C196.7 280.2 183.9 249.7 183.9 216zM128 160c44.18 0 80-35.82 80-80S172.2 0 128 0C83.82 0 48 35.82 48 80S83.82 160 128 160zM551.9 192h-61.84c-12.8 0-24.88 3.037-35.86 8.24C454.8 205.5 455.8 210.6 455.8 216c0 33.71-12.78 64.21-33.16 88h199.7C632.1 304 640 295.6 640 285.3C640 233.8 600.6 192 551.9 192z">
+                                                    </path>
+                                                </svg><span>99.347</span></div>
+                                        </div>
+                                    </section>
+
+                                </section>
+
+                            </div>
+                        </div>
+                        <div class="SuggestionBox_wrapper__1wl-2">
+                            <div class="SuggestionBox_info__etqmd">
+                                <h2>Bạn đang tìm kiếm lộ trình học cho người mới?</h2>
+                                <p>Các khóa học được thiết kế phù hợp cho người mới, lộ trình học rõ ràng, nội dung
+                                    dễ
+                                    hiểu.</p><a class="SuggestionBox_cta__f4eTC" routerLink="/study-route"
+                                    routeLinkActive="active">Xem lộ trình</a><router-outlet></router-outlet>
+                            </div>
+                            <div class="SuggestionBox_image__xlDiL"><img
+                                    src="https://fullstack.edu.vn/static/media/fb-group-cards.4bd525b1b8baf7b1e5a2.png"
+                                    alt="Học lập trình web (F8 - Fullstack.edu.vn)"></div>
+                        </div>
+                    </div>
+                </section>
+                <!-- content  -->
+            </div>
+
+
+
+        </div>
+
+
+        <div class="Toastify"></div>
+    </div>
+</body>
+<footer class="Footer_wrapper__RAsdB">
+    <section class="index-module_grid__1q71E index-module_wide__3c1pI" style="max-width: 1100px;">
+        <section class="index-module_row__-AHgh">
+            <section
+                class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-12__2CxUL index-module_l-3__MjWvb">
+                <div class="Footer_column__Jllii">
+                    <div>
+                        <div class="Footer_column-top__2kQ8J"><a href="/"><img class="Footer_top-logo__2i6Rn"
+                                    src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
+                                    alt="F4"></a>
+                            <h2 class="Footer_top-slogan__yvaAt">Học Lập Trình Để Đi Làm</h2>
+                        </div>
+                        <!-- <p class="Footer_contact-list__UCS+O">Điện thoại: <a href="tel:0246.329.1102">0898.0257.04</a><br>Email:
+                <a href="mailto:contact@fullstack.edu.vn">contact@fullstack.edu.vn</a><br>Địa
+                chỉ: Số 26 Dương Đình Nghệ, Phường Yên Hòa, Quận Cầu Giấy, TP. Hà Nội
+              </p> -->
+
+                    </div>
+                </div>
+            </section>
+            <section
+                class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-2__2TSUm">
+                <div class="Footer_column__Jllii">
+                    <div>
+                        <h2 class="Footer_heading__JLn-b">Về F4</h2>
+                        <!-- <ul class="Footer_list__pNU8w">
+                <li><a href="/about-us">Giới thiệu</a></li>
+                <li><a href="/contact-us">Liên hệ</a></li>
+                <li><a href="/terms">Điều khoản</a></li>
+                <li><a href="/privacy">Bảo mật</a></li>
+              </ul> -->
+                    </div>
+                </div>
+            </section>
+            <section
+                class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-4__30Uoi index-module_l-2__2TSUm">
+                <div class="Footer_column__Jllii">
+                    <div>
+                        <h2 class="Footer_heading__JLn-b">Công cụ</h2>
+                        <!-- <ul class="Footer_list__pNU8w">
+                <li><a href="https://cv.fullstack.edu.vn/" target="_blank" rel="noreferrer">Tạo
+                    CV xin việc</a></li>
+                <li><a href="/shorten-urls">Rút gọn liên kết</a></li>
+                <li><a href="https://clippy.fullstack.edu.vn/" target="_blank" rel="noreferrer">Clip-path maker</a>
+                </li>
+                <li><a href="https://snippet-generator.fullstack.edu.vn/" target="_blank" rel="noreferrer">Snippet
+                    generator</a></li>
+              </ul> -->
+                    </div>
+                </div>
+            </section>
+            <section
+                class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-6__30cxf index-module_l-3__MjWvb">
+                <div class="Footer_column__Jllii">
+                    <div>
+                        <!-- <h2 class="Footer_heading__JLn-b"><a target="_blank"
+                  href="https://www.google.com/search?q=C%C3%94NG+TY+C%E1%BB%94+PH%E1%BA%A6N+C%C3%94NG+NGH%E1%BB%86+GI%C3%81O+D%E1%BB%A4C+F8"
+                  rel="noreferrer">CÔNG TY CỔ PHẦN CÔNG NGHỆ GIÁO DỤC F8</a></h2>
+              <ul class="Footer_list__pNU8w">
+                <li>Mã số thuế: 0109922901</li>
+                <li>Ngày thành lập: 04/03/2022</li>
+                <li>Lĩnh vực: Công nghệ, giáo dục, lập trình. F8 xây dựng và phát triển những
+                  sản phẩm mang lại giá trị cho cộng đồng.</li>
+              </ul> -->
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section class="index-module_row__-AHgh">
+            <section
+                class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-12__2CxUL index-module_l-12__340Ve">
+                <div class="Footer_bottom__J7kjW">
+                    <p class="Footer_copyright__2WB24">© 2018 - 2023 F4. Nền tảng học lập trình hàng đầu
+                        Việt Nam</p>
+
+                </div>
+            </section>
+
+        </section>
+    </section>
+</footer>
+<!-- <router-outlet></router-outlet> -->

@@ -1,0 +1,1536 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="SIQIFfmR8hhzmuoTX27TN_uf9rd425mDs_TNWTTiISk">
+    <title>Xem khóa học</title>
+    <link href="course.component.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="root">
+        <!--phan nav-->
+        <div class="NavBar_wrapper__4m3K5" id="header">
+            <div class="NavBar_logo__Rgo-5">
+                <div *ngIf="User.idrole == 0">
+                    <a href="/homepage-user"><img
+                        src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png" alt="F8"></a>
+                  </div>
+                  <div *ngIf="User.idrole == 1">
+                    <a href="/home-page-st"><img
+                        src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png" alt="F8"></a>
+                  </div>
+                  <div *ngIf="User.idrole == 2">
+                    <a href="/homepage-gv"><img
+                        src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png" alt="F8"></a>
+                  </div>
+                <h4 class="NavBar_logoHeading__bs7MP">Học Lập Trình Để Đi Làm</h4>
+            </div>
+            <!-- </div> -->
+            <div class="Navbar-Trangchu-Search-margin d-flex-center">
+                <div>
+                    <div class="Search_wrapper__Bwvae d-flex-center" aria-expanded="false">
+                        <div class="Search_searchIcon__-23JY">
+                        </div>
+                        <input class="Search_input__GnMba" spellcheck="false"
+                            placeholder="Tìm kiếm khóa học, bài viết, video, ..." value="">
+                    </div>
+                </div>
+            </div>
+            <div class="NavBar_actions__nSNzo">
+                <div id="navbar-actions-portal">
+                </div>
+
+                <div>
+                    <div (click)="openNavNotification()" class="NavBar_actionBtn__tzSZd" id="notification-button"><svg
+                            aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bell"
+                            class="svg-inline--fa fa-bell NavBar_action-icon__l9MxX" role="img"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path fill="currentColor"
+                                d="M256 32V51.2C329 66.03 384 130.6 384 208V226.8C384 273.9 401.3 319.2 432.5 354.4L439.9 362.7C448.3 372.2 450.4 385.6 445.2 397.1C440 408.6 428.6 416 416 416H32C19.4 416 7.971 408.6 2.809 397.1C-2.353 385.6-.2883 372.2 8.084 362.7L15.5 354.4C46.74 319.2 64 273.9 64 226.8V208C64 130.6 118.1 66.03 192 51.2V32C192 14.33 206.3 0 224 0C241.7 0 256 14.33 256 32H256zM224 512C207 512 190.7 505.3 178.7 493.3C166.7 481.3 160 464.1 160 448H288C288 464.1 281.3 481.3 269.3 493.3C257.3 505.3 240.1 512 224 512z">
+                            </path>
+                        </svg></div>
+                    <!-- aria-expanded="false" -->
+                    <div *ngIf="isDropDownOpenNotification"
+                        style="z-index: 9999; position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-68.8px, 60.8px);">
+                        <ul class="Tippy-module_wrapper__1s5m5 Notification_container__ulN0K">
+                            <header>
+                                <h6>Thông báo</h6>
+                            </header>
+                            <div class="Notification_content__0k-Tt hide-on-click">
+                                <p class="Notification_noResult__TJd2-">Chưa có thông báo nào</p>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="NavBar_avatar-wrapper__j7jMj" aria-expanded="false">
+                    <div (click)="openNavProfile()" class="FallbackAvatar_avatar__gmj3S" style="--font-size:3.2px;"><img
+                            class="NavBar_avatar__OG7ib"
+                            src="https://files.fullstack.edu.vn/f8-prod/user_photos/293030/63e71768e42bd.jpg"
+                            alt="Khánh Băng"></div>
+                </div>
+                <div *ngIf="isDropDownOpen"
+                    style="z-index: 9999; position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-27.2px, 57.6px);">
+                    <ul class="Tippy-module_wrapper__1s5m5 UserMenu_wrapper__kevhj hide-on-click">
+                        <div class="UserMenu_user__GXFLp">
+                            <div class="UserMenu_avatarWrapper__9ABYL">
+                                <div class="FallbackAvatar_avatar__gmj3S" style="--font-size:5.6px;"><img
+                                        src="https://files.fullstack.edu.vn/f8-prod/user_photos/289130/63da5c8beb71a.jpg"
+                                        alt="{{TenEmail}}"></div>
+                            </div>
+                            <div class="UserMenu_info__UqeZT"><span class="UserMenu_name__L18s-">{{ TenEmail }}</span>
+                                <div class="UserMenu_username__7qkRU">{{ Email }}</div>
+                            </div>
+                        </div>
+                        <hr>
+                        <ul class="UserMenu_list__FI9-C">
+                            <li><a class="UserMenu_item__NXwf1" routerLink="/profile" routerLinkActive="active">Trang cá
+                                    nhân</a><router-outlet></router-outlet></li>
+                        </ul>
+                        <hr>
+                        <ul class="UserMenu_list__FI9-C">
+                            <li><a class="UserMenu_item__NXwf1" routerLink="/write-blog" routerLinkActive="active">Viết
+                                    blog</a><router-outlet></router-outlet></li>
+                            <li><a class="UserMenu_item__NXwf1" routerLink="/posts-drafts" routerLinkActive="active">Bài
+                                    viết của tôi</a><router-outlet></router-outlet></li>
+                        </ul>
+                        <hr>
+                        <ul class="UserMenu_list__FI9-C">
+                            <li><a class="UserMenu_item__NXwf1" routerLink="/posts-public" routerLinkActive="active">Bài
+                                    viết đã lưu</a><router-outlet></router-outlet></li>
+                        </ul>
+                        <hr>
+                        <ul class="UserMenu_list__FI9-C">
+                            <li><a class="UserMenu_item__NXwf1" href="/setting-account">Cài đặt</a></li>
+                            <li><a class="UserMenu_item__NXwf1" routerLink="/login-form" routerLinkActive="active">Đăng
+                                    xuất</a><router-outlet></router-outlet></li>
+                        </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Phan nav -->
+        <!-- Thanh ben -->
+        <div class="App_withSidebar__8lwIi">
+            <div class="App_sidebarWrap__3LwsB">
+                <div class="Sidebar_wrapper__kUJFm" id="sidebar">
+                    <div>
+                        <div class="CreateButton_wrapper__Bb6o6" aria-expanded="false">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus"
+                                class="svg-inline--fa fa-plus CreateButton_icon__ipBrz" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor"
+                                    d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                    <ul class="Sidebar_list__HnCzM">
+                        <div *ngIf="User.idrole == 0">
+                          <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/homepage-user"
+                              routerLinkActive="active"><i
+                                class="fa-solid fa-house"></i><span>Home</span></a><router-outlet></router-outlet>
+                          </li>
+                        </div>
+                        <div *ngIf="User.idrole == 1">
+                          <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/home-page-st"
+                              routerLinkActive="active"><i
+                                class="fa-solid fa-house"></i><span>Home</span></a><router-outlet></router-outlet>
+                          </li>
+                        </div>
+                        <div *ngIf="User.idrole == 2">
+                          <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 " routerLink="/homepage-gv"
+                              routerLinkActive="active"><i
+                                class="fa-solid fa-house"></i><span>Home</span></a><router-outlet></router-outlet>
+                          </li>
+                        </div>
+                        
+                        <li><a class="Sidebar_itemBtn__Q78b7" routerLink="/study-route" routerLinkActive="active"><i
+                              class="fa-solid fa-road"></i><span>Lộ trình</span></a><router-outlet></router-outlet>
+                        </li>
+                        <li><a class="Sidebar_itemBtn__Q78b7" routerLink="/study" routerLinkActive="active"><i
+                              class="fa-solid fa-lightbulb"></i><span>Học</span></a><router-outlet></router-outlet>
+                        </li>
+                        <li><a class="Sidebar_itemBtn__Q78b7 Sidebar_active__uvck8" routerLink="/blog" routerLinkActive="active"><i
+                              class="fa-solid fa-book"></i><span>Blog</span></a><router-outlet></router-outlet></li>
+                      </ul>
+                </div>
+            </div>
+            <!-- noi dung  -->
+            <div class="App_withSidebarContent__o4VlQ">
+                <section class="index-module_grid__1q71E index-module_fullWidth__3X-6x" style="max-width: 1920px;">
+                    <section class="index-module_row__-AHgh CourseDetail_wrapper__myy9O">
+                        <section
+                            class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-12__2CxUL index-module_l-8__yebHm">
+                            <h1 class="CourseDetail_courseName__g37pH">Lập trình C++ cơ bản, nâng cao</h1>
+                            <div class="CourseDetail_textContent__Y2-aV">Khóa học lập trình C++ từ cơ bản tới nâng cao
+                                dành cho người mới bắt đầu. Mục tiêu của khóa học này nhằm giúp các bạn nắm được các
+                                khái niệm căn cơ của lập trình, giúp các bạn có nền tảng vững chắc để chinh phục con
+                                đường trở thành một lập trình viên.</div>
+                            <div class="CurriculumOfCourse_curriculumOfCourse__8Z1rQ">
+                                <div class="CurriculumOfCourse_headerSticky__sUlkH">
+                                    <div class="CurriculumOfCourse_headerBlock__o0bme">
+                                        <h2 class="CurriculumOfCourse_floatLeft__zxBeB">Nội dung khóa học</h2>
+                                    </div>
+                                    <div class="CurriculumOfCourse_subHeadWrapper__Hkcns">
+                                        <ul>
+                                            <li class="CurriculumOfCourse_hiddenMobile__iP-4s"><strong>11 </strong>
+                                                chương</li>
+                                            <li
+                                                class="CurriculumOfCourse_dot__lIoF- CurriculumOfCourse_hiddenMobile__iP-4s">
+                                                •</li>
+                                            <li><strong>56 </strong> bài học</li>
+                                            <li class="CurriculumOfCourse_dot__lIoF-">•</li>
+                                            <li><span>Thời lượng <strong>10 giờ 19 phút</strong></span></li>
+                                        </ul>
+                                        <div class="CurriculumOfCourse_toggleBtn__jeYrM">Mở rộng tất cả</div>
+                                    </div>
+                                </div>
+                                <div class="CurriculumOfCourse_curriculumPanel__nHTcj">
+                                    <div class="CurriculumOfCourse_panelGroup__qG1sx">
+                                        <div>
+                                            <div class="  CurriculumOfCourse_panel__QT1YG">
+                                                <div class="CurriculumOfCourse_panelHeading__eln5T noselect">
+                                                    <h5 class="CurriculumOfCourse_panelTitle__GPGOF">
+                                                        <div class="CurriculumOfCourse_headline__KIUuw"><span
+                                                                class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_groupName__2MhIE"><strong>1.
+                                                                    Giới thiệu</strong></span><span
+                                                                class="CurriculumOfCourse_floatRight__Mg1ee CurriculumOfCourse_timeOfSection__JrLAX">3
+                                                                bài học</span></div>
+                                                    </h5>
+                                                </div>
+                                                <div class="CurriculumOfCourse_collapse__kkyWy">
+                                                    <div class="CurriculumOfCourse_panelBody__Ypogo">
+                                                        <div>
+                                                            <div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            1. Giới thiệu khóa học</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">01:03</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            2. Cài đặt Dev - C++</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">02:31</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            3. Hướng dẫn sử dụng Dev - C++</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">03:33</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="  CurriculumOfCourse_panel__QT1YG">
+                                                <div class="CurriculumOfCourse_panelHeading__eln5T noselect">
+                                                    <h5 class="CurriculumOfCourse_panelTitle__GPGOF">
+                                                        <div class="CurriculumOfCourse_headline__KIUuw"><span
+                                                                class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_groupName__2MhIE"><strong>2.
+                                                                    Biến và kiểu dữ liệu</strong></span><span
+                                                                class="CurriculumOfCourse_floatRight__Mg1ee CurriculumOfCourse_timeOfSection__JrLAX">8
+                                                                bài học</span></div>
+                                                    </h5>
+                                                </div>
+                                                <div class="CurriculumOfCourse_collapse__kkyWy">
+                                                    <div class="CurriculumOfCourse_panelBody__Ypogo">
+                                                        <div>
+                                                            <div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            4. Biến và nhập xuất dữ liệu</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">07:34</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            5. Kiểu dữ liệu thường gặp</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">05:43</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            6. Biến cục bộ và biến toàn cục</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">06:42</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            7. Hằng số</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">03:38</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            8. Toán tử gán và toán tử số học</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">10:54</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            9. Toán tử quan hệ và toán tử logic</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">12:26</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            10. Ép kiểu dữ liệu và bảng mã ASCII</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">08:52</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            11. Bài tập chương 02</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">15:31</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="  CurriculumOfCourse_panel__QT1YG">
+                                                <div class="CurriculumOfCourse_panelHeading__eln5T noselect">
+                                                    <h5 class="CurriculumOfCourse_panelTitle__GPGOF">
+                                                        <div class="CurriculumOfCourse_headline__KIUuw"><span
+                                                                class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_groupName__2MhIE"><strong>3.
+                                                                    Cấu trúc điều khiển và vòng lặp</strong></span><span
+                                                                class="CurriculumOfCourse_floatRight__Mg1ee CurriculumOfCourse_timeOfSection__JrLAX">7
+                                                                bài học</span></div>
+                                                    </h5>
+                                                </div>
+                                                <div class="CurriculumOfCourse_collapse__kkyWy">
+                                                    <div class="CurriculumOfCourse_panelBody__Ypogo">
+                                                        <div>
+                                                            <div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            12. Cấu trúc if else</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">09:22</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            13. Cấu trúc switch case</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">11:12</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            14. Toán tử 3 ngôi</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">05:33</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            15. Vòng lặp</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">12:47</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            16. Bài tập về vòng lặp</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">11:25</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            17. Break, continue, goto</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">12:51</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            18. Bài tập chương 03</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">23:29</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="  CurriculumOfCourse_panel__QT1YG">
+                                                <div class="CurriculumOfCourse_panelHeading__eln5T noselect">
+                                                    <h5 class="CurriculumOfCourse_panelTitle__GPGOF">
+                                                        <div class="CurriculumOfCourse_headline__KIUuw"><span
+                                                                class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_groupName__2MhIE"><strong>4.
+                                                                    Mảng</strong></span><span
+                                                                class="CurriculumOfCourse_floatRight__Mg1ee CurriculumOfCourse_timeOfSection__JrLAX">6
+                                                                bài học</span></div>
+                                                    </h5>
+                                                </div>
+                                                <div class="CurriculumOfCourse_collapse__kkyWy">
+                                                    <div class="CurriculumOfCourse_panelBody__Ypogo">
+                                                        <div>
+                                                            <div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            19. Mảng 1 chiều</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">09:20</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            20. Thực hành sử dụng mảng</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">18:51</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            21. Mảng 2 chiều</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">07:27</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            22. Thực hành sử dụng mảng #2</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">19:20</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            23. Thuật toán sắp xếp bubble sort</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">09:01</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            24. Bài tập chương 04</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">18:16</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="  CurriculumOfCourse_panel__QT1YG">
+                                                <div class="CurriculumOfCourse_panelHeading__eln5T noselect">
+                                                    <h5 class="CurriculumOfCourse_panelTitle__GPGOF">
+                                                        <div class="CurriculumOfCourse_headline__KIUuw"><span
+                                                                class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_groupName__2MhIE"><strong>5.
+                                                                    String</strong></span><span
+                                                                class="CurriculumOfCourse_floatRight__Mg1ee CurriculumOfCourse_timeOfSection__JrLAX">3
+                                                                bài học</span></div>
+                                                    </h5>
+                                                </div>
+                                                <div class="CurriculumOfCourse_collapse__kkyWy">
+                                                    <div class="CurriculumOfCourse_panelBody__Ypogo">
+                                                        <div>
+                                                            <div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            25. String</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">07:39</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            26. Các phương thức làm việc với string
+                                                                        </div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">14:43</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            27. Bài tập chương 05</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">27:16</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="  CurriculumOfCourse_panel__QT1YG">
+                                                <div class="CurriculumOfCourse_panelHeading__eln5T noselect">
+                                                    <h5 class="CurriculumOfCourse_panelTitle__GPGOF">
+                                                        <div class="CurriculumOfCourse_headline__KIUuw"><span
+                                                                class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_groupName__2MhIE"><strong>6.
+                                                                    Hàm</strong></span><span
+                                                                class="CurriculumOfCourse_floatRight__Mg1ee CurriculumOfCourse_timeOfSection__JrLAX">7
+                                                                bài học</span></div>
+                                                    </h5>
+                                                </div>
+                                                <div class="CurriculumOfCourse_collapse__kkyWy">
+                                                    <div class="CurriculumOfCourse_panelBody__Ypogo">
+                                                        <div>
+                                                            <div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            28. Hàm</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">17:53</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            29. Tham số và đối số</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">08:21</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            30. Đối số mặc định</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">03:18</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            31. Tham chiếu và tham trị</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">11:53</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            32. Hàm nguyên mẫu</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">03:40</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            33. Đệ quy</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">07:06</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            34. Bài tập chương 06</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">17:47</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="  CurriculumOfCourse_panel__QT1YG">
+                                                <div class="CurriculumOfCourse_panelHeading__eln5T noselect">
+                                                    <h5 class="CurriculumOfCourse_panelTitle__GPGOF">
+                                                        <div class="CurriculumOfCourse_headline__KIUuw"><span
+                                                                class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_groupName__2MhIE"><strong>7.
+                                                                    Con trỏ</strong></span><span
+                                                                class="CurriculumOfCourse_floatRight__Mg1ee CurriculumOfCourse_timeOfSection__JrLAX">4
+                                                                bài học</span></div>
+                                                    </h5>
+                                                </div>
+                                                <div class="CurriculumOfCourse_collapse__kkyWy">
+                                                    <div class="CurriculumOfCourse_panelBody__Ypogo">
+                                                        <div>
+                                                            <div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            35. Con trỏ</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">08:51</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            36. Cấp phát động</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">06:34</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            37. Cấp phát mảng động</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">07:00</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            38. Bài tập chương 07</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">27:49</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="  CurriculumOfCourse_panel__QT1YG">
+                                                <div class="CurriculumOfCourse_panelHeading__eln5T noselect">
+                                                    <h5 class="CurriculumOfCourse_panelTitle__GPGOF">
+                                                        <div class="CurriculumOfCourse_headline__KIUuw"><span
+                                                                class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_groupName__2MhIE"><strong>8.
+                                                                    Struct</strong></span><span
+                                                                class="CurriculumOfCourse_floatRight__Mg1ee CurriculumOfCourse_timeOfSection__JrLAX">4
+                                                                bài học</span></div>
+                                                    </h5>
+                                                </div>
+                                                <div class="CurriculumOfCourse_collapse__kkyWy">
+                                                    <div class="CurriculumOfCourse_panelBody__Ypogo">
+                                                        <div>
+                                                            <div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            39. Struct</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">16:45</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            40. Con trỏ và struct</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">05:59</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            41. Nạp chồng toán tử</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">11:31</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            42. Bài tập chương 08</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">31:23</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="  CurriculumOfCourse_panel__QT1YG">
+                                                <div class="CurriculumOfCourse_panelHeading__eln5T noselect">
+                                                    <h5 class="CurriculumOfCourse_panelTitle__GPGOF">
+                                                        <div class="CurriculumOfCourse_headline__KIUuw"><span
+                                                                class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_groupName__2MhIE"><strong>9.
+                                                                    Làm việc với file</strong></span><span
+                                                                class="CurriculumOfCourse_floatRight__Mg1ee CurriculumOfCourse_timeOfSection__JrLAX">3
+                                                                bài học</span></div>
+                                                    </h5>
+                                                </div>
+                                                <div class="CurriculumOfCourse_collapse__kkyWy">
+                                                    <div class="CurriculumOfCourse_panelBody__Ypogo">
+                                                        <div>
+                                                            <div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            43. Làm việc với file text</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">19:50</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            44. Các chế độ làm việc với file</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">11:50</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            45. Làm việc với file nhị phân</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">08:54</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="  CurriculumOfCourse_panel__QT1YG">
+                                                <div class="CurriculumOfCourse_panelHeading__eln5T noselect">
+                                                    <h5 class="CurriculumOfCourse_panelTitle__GPGOF">
+                                                        <div class="CurriculumOfCourse_headline__KIUuw"><span
+                                                                class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_groupName__2MhIE"><strong>10.
+                                                                    Hướng đối tượng (OOP)</strong></span><span
+                                                                class="CurriculumOfCourse_floatRight__Mg1ee CurriculumOfCourse_timeOfSection__JrLAX">10
+                                                                bài học</span></div>
+                                                    </h5>
+                                                </div>
+                                                <div class="CurriculumOfCourse_collapse__kkyWy">
+                                                    <div class="CurriculumOfCourse_panelBody__Ypogo">
+                                                        <div>
+                                                            <div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            46. Class và object</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">15:51</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            47. Tính đóng gói</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">04:45</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            48. Con trỏ và object</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">09:12</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            49. Tính kế thừa</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">07:34</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            50. Thuộc tính truy cập và kiểu kế thừa
+                                                                        </div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">11:31</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            51. Tính đa hình (nạp chồng và ghi đè)</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">13:01</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            52. Tính đa hình (phương thức ảo)</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">05:03</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            53. Tính trừu tượng</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">05:18</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            54. Hàm bạn (friend function)</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">07:20</span>
+                                                                </div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="circle-play"
+                                                                            class="svg-inline--fa fa-circle-play CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_video__GQtG1"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 512 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            55. Lớp bạn (friend class)</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">15:08</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="  CurriculumOfCourse_panel__QT1YG">
+                                                <div class="CurriculumOfCourse_panelHeading__eln5T noselect">
+                                                    <h5 class="CurriculumOfCourse_panelTitle__GPGOF">
+                                                        <div class="CurriculumOfCourse_headline__KIUuw"><span
+                                                                class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_groupName__2MhIE"><strong>11.
+                                                                    Hoàn thành khóa học</strong></span><span
+                                                                class="CurriculumOfCourse_floatRight__Mg1ee CurriculumOfCourse_timeOfSection__JrLAX">1
+                                                                bài học</span></div>
+                                                    </h5>
+                                                </div>
+                                                <div class="CurriculumOfCourse_collapse__kkyWy">
+                                                    <div class="CurriculumOfCourse_panelBody__Ypogo">
+                                                        <div>
+                                                            <div>
+                                                                <div class="  CurriculumOfCourse_lessonItem__0Vr9k">
+                                                                    <span
+                                                                        class="CurriculumOfCourse_floatLeft__zxBeB CurriculumOfCourse_iconLink__4vkcB"><svg
+                                                                            aria-hidden="true" focusable="false"
+                                                                            data-prefix="fas" data-icon="file-lines"
+                                                                            class="svg-inline--fa fa-file-lines CurriculumOfCourse_icon__1fxR9 CurriculumOfCourse_file__j5eZt"
+                                                                            role="img"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            viewBox="0 0 384 512">
+                                                                            <path fill="currentColor"
+                                                                                d="M256 0v128h128L256 0zM224 128L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V160h-127.1C238.3 160 224 145.7 224 128zM272 416h-160C103.2 416 96 408.8 96 400C96 391.2 103.2 384 112 384h160c8.836 0 16 7.162 16 16C288 408.8 280.8 416 272 416zM272 352h-160C103.2 352 96 344.8 96 336C96 327.2 103.2 320 112 320h160c8.836 0 16 7.162 16 16C288 344.8 280.8 352 272 352zM288 272C288 280.8 280.8 288 272 288h-160C103.2 288 96 280.8 96 272C96 263.2 103.2 256 112 256h160C280.8 256 288 263.2 288 272z">
+                                                                            </path>
+                                                                        </svg>
+                                                                        <div
+                                                                            class="CurriculumOfCourse_lessonName__llwRr">
+                                                                            56. Hoàn thành khóa học</div>
+                                                                    </span><span
+                                                                        class="CurriculumOfCourse_floatRight__Mg1ee">01:00</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <section class="index-module_row__-AHgh"></section>
+                        </section>
+                        <section
+                            class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-12__2CxUL index-module_l-4__3tf5p">
+                            <div class="CourseDetail_purchaseBadge__CZ9PK">
+                                <div class="CourseDetail_imgPreview__qGZSi">
+                                    <div class="CourseDetail_bg__Xacm8"
+                                        style="background-image: url(&quot;https://files.fullstack.edu.vn/f8-prod/courses/21/63e1bcbaed1dd.png&quot;);">
+                                    </div><svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                        data-icon="circle-play"
+                                        class="svg-inline--fa fa-circle-play CourseDetail_icon__sLJtd" role="img"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <path fill="currentColor"
+                                            d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM176 168V344C176 352.7 180.7 360.7 188.3 364.9C195.8 369.2 205.1 369 212.5 364.5L356.5 276.5C363.6 272.1 368 264.4 368 256C368 247.6 363.6 239.9 356.5 235.5L212.5 147.5C205.1 142.1 195.8 142.8 188.3 147.1C180.7 151.3 176 159.3 176 168V168z">
+                                        </path>
+                                    </svg>
+                                    <p>Xem giới thiệu khóa học</p>
+                                </div>
+                                <h5>Miễn phí</h5><button
+                                    class="Button_btn__RW1e2 Button_primary__86yfm CourseDetail_learnNow__A3hLp"
+                                    routerLink="/keep-study" routerLinkActive="active">ĐĂNG KÝ
+                                    HỌC</button><router-outlet></router-outlet>
+                                <ul>
+                                    <li><svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                            data-icon="gauge-high"
+                                            class="svg-inline--fa fa-gauge-high CourseDetail_icon__sLJtd" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                            <path fill="currentColor"
+                                                d="M512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256zM256 64C238.3 64 224 78.33 224 96C224 113.7 238.3 128 256 128C273.7 128 288 113.7 288 96C288 78.33 273.7 64 256 64zM256 416C291.3 416 320 387.3 320 352C320 334.6 313.1 318.9 301.9 307.4L365.1 161.7C371.3 149.5 365.8 135.4 353.7 130C341.5 124.7 327.4 130.2 322 142.3L257.9 288C257.3 288 256.6 287.1 256 287.1C220.7 287.1 192 316.7 192 352C192 387.3 220.7 416 256 416V416zM144 112C126.3 112 112 126.3 112 144C112 161.7 126.3 176 144 176C161.7 176 176 161.7 176 144C176 126.3 161.7 112 144 112zM96 288C113.7 288 128 273.7 128 256C128 238.3 113.7 224 96 224C78.33 224 64 238.3 64 256C64 273.7 78.33 288 96 288zM416 224C398.3 224 384 238.3 384 256C384 273.7 398.3 288 416 288C433.7 288 448 273.7 448 256C448 238.3 433.7 224 416 224z">
+                                            </path>
+                                        </svg><span>Trình độ cơ bản</span></li>
+                                    <li><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="film"
+                                            class="svg-inline--fa fa-film CourseDetail_icon__sLJtd" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                            <path fill="currentColor"
+                                                d="M463.1 32h-416C21.49 32-.0001 53.49-.0001 80v352c0 26.51 21.49 48 47.1 48h416c26.51 0 48-21.49 48-48v-352C511.1 53.49 490.5 32 463.1 32zM111.1 408c0 4.418-3.582 8-8 8H55.1c-4.418 0-8-3.582-8-8v-48c0-4.418 3.582-8 8-8h47.1c4.418 0 8 3.582 8 8L111.1 408zM111.1 280c0 4.418-3.582 8-8 8H55.1c-4.418 0-8-3.582-8-8v-48c0-4.418 3.582-8 8-8h47.1c4.418 0 8 3.582 8 8V280zM111.1 152c0 4.418-3.582 8-8 8H55.1c-4.418 0-8-3.582-8-8v-48c0-4.418 3.582-8 8-8h47.1c4.418 0 8 3.582 8 8L111.1 152zM351.1 400c0 8.836-7.164 16-16 16H175.1c-8.836 0-16-7.164-16-16v-96c0-8.838 7.164-16 16-16h160c8.836 0 16 7.162 16 16V400zM351.1 208c0 8.836-7.164 16-16 16H175.1c-8.836 0-16-7.164-16-16v-96c0-8.838 7.164-16 16-16h160c8.836 0 16 7.162 16 16V208zM463.1 408c0 4.418-3.582 8-8 8h-47.1c-4.418 0-7.1-3.582-7.1-8l0-48c0-4.418 3.582-8 8-8h47.1c4.418 0 8 3.582 8 8V408zM463.1 280c0 4.418-3.582 8-8 8h-47.1c-4.418 0-8-3.582-8-8v-48c0-4.418 3.582-8 8-8h47.1c4.418 0 8 3.582 8 8V280zM463.1 152c0 4.418-3.582 8-8 8h-47.1c-4.418 0-8-3.582-8-8l0-48c0-4.418 3.582-8 7.1-8h47.1c4.418 0 8 3.582 8 8V152z">
+                                            </path>
+                                        </svg><span>Tổng số <strong>56</strong> bài học</span></li>
+                                    <li><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="clock"
+                                            class="svg-inline--fa fa-clock CourseDetail_icon__sLJtd" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                            <path fill="currentColor"
+                                                d="M256 512C114.6 512 0 397.4 0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512zM232 256C232 264 236 271.5 242.7 275.1L338.7 339.1C349.7 347.3 364.6 344.3 371.1 333.3C379.3 322.3 376.3 307.4 365.3 300L280 243.2V120C280 106.7 269.3 96 255.1 96C242.7 96 231.1 106.7 231.1 120L232 256z">
+                                            </path>
+                                        </svg><span>Thời lượng <strong>10 giờ 19 phút</strong></span></li>
+                                    <li><svg aria-hidden="true" focusable="false" data-prefix="fas"
+                                            data-icon="battery-full"
+                                            class="svg-inline--fa fa-battery-full CourseDetail_icon__sLJtd" role="img"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                            <path fill="currentColor"
+                                                d="M448 320H96V192H448V320zM0 176C0 131.8 35.82 96 80 96H464C508.2 96 544 131.8 544 176V192C561.7 192 576 206.3 576 224V288C576 305.7 561.7 320 544 320V336C544 380.2 508.2 416 464 416H80C35.82 416 0 380.2 0 336V176zM80 160C71.16 160 64 167.2 64 176V336C64 344.8 71.16 352 80 352H464C472.8 352 480 344.8 480 336V176C480 167.2 472.8 160 464 160H80z">
+                                            </path>
+                                        </svg><span>Học mọi lúc, mọi nơi</span></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </div>
+            <!-- noi dung  -->
+        </div>
+
+
+        <div class="Toastify"></div>
+    </div>
+</body>

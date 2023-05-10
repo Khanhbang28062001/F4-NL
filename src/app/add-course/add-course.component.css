@@ -1,0 +1,40 @@
+@import url(../app.component.css);
+@import url(../static1/css/5111.f4552640.chunk.css);
+@import url(../static1/css/4147.9b74a139.chunk.css);
+
+.form-group {
+    width: 80%;
+}
+
+.glyphicon .glyphicon-plus {
+    align-items: center;
+    background-color: #1473e6;
+    border-color: #1473e6;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    height: 44px;
+    justify-content: center;
+    margin: 8px 0 2px;
+    -webkit-user-select: none;
+    user-select: none;
+    width: 44px;
+}
+
+.display-inline-block {
+    display: inline-block;
+}
+
+.add-course-content {
+    font-size: larger;
+    font-weight: 600;
+}
+.NewPost_title-input__d-X6s {
+    border: none;
+    color: #292929;
+    font-size: 3.2rem;
+    font-weight: 500;
+    min-height: 48px;
+    width: 100%;
+}

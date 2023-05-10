@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="SIQIFfmR8hhzmuoTX27TN_uf9rd425mDs_TNWTTiISk">
+    <title>Đăng nhập vào F4</title>
+    <link href="login-form.component.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="root">
+        <div class="Login_wrapper__AaBCA Login_hasBg__jWrjt">
+            <div class="Login_container__l+22X">
+                <div class="Login_content__Clzqv">
+                    <div class="Login_backBtn__Ua2VX"><svg aria-hidden="true" focusable="false" data-prefix="fas"
+                            data-icon="chevron-left" class="svg-inline--fa fa-chevron-left fa-w-10 " role="img"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                            <path fill="currentColor"
+                                d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z">
+                            </path>
+                        </svg></div>
+                    <div class="Login_header__2VlZX"><a href="https://fullstack.edu.vn/"><img class="Login_logo__OAmX6"
+                                src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
+                                alt="F8"></a>
+                        <h1 class="Login_title__ONT4I">Đăng nhập vào F4</h1>
+                    </div>
+                    <form autocomplete="off" #formGroup="ngForm" [formGroup]="formDataLogin"  (ngSubmit)="onSubmit(formGroup.value)">
+                        <div class="Login_body__t6Xgp">
+                            <div class="Login_formBody__kXy82">
+                                <div class="FormControl_wrapper__WJGST">
+                                    <div class="FormInput_wrapper__agiKS">
+                                        <div class="FormInput_labelGroup__pDJ+V"><label
+                                                class="FormInput_label__kIc-w">Tên
+                                                tài khoản</label></div>
+                                        <div class="FormInput_inputWrap__mjtRx">
+                                            <input formControlName="username" [(ngModel)]="username"
+                                                placeholder="Nhập tên tài khoản" name="display_name" maxlength="50"
+                                                value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="FormControl_wrapper__WJGST">
+                                    <div class="FormInput_wrapper__agiKS">
+                                        <div class="FormInput_inputWrap__mjtRx">
+                                            <input formControlName="password" [(ngModel)]="password"
+                                                placeholder="Nhập mật khẩu" name="display_name" maxlength="50" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="ranks-module_primary__3Sh2z base-module_button__2kgqC sizes-module_m__2XF5n Login_submitBtn__h5Ikm tooltip-module_tooltip__3Q4cn"
+                                     type="submit"  >
+                                     <!-- [disabled]="formDataLogin.value" --> 
+                                    <div class="base-module_inner__182n1 sizes-module_inner__3Ua2h">
+                                        <span class="base-module_text__1MM8s">Đăng nhập</span>
+                                    </div>
+                                </button>
+                            </div>
+                            <p class="Login_dontHaveAcc__l0kxL">Bạn chưa có tài khoản? <a routerLink="/signup-form"
+                                    routerLinkActive="active">Đăng ký</a> <router-outlet></router-outlet> </p>
+                        </div>
+                    </form>
+                    <div class="Login_acceptTerm__y3Imp">Việc bạn tiếp tục sử dụng trang web này đồng nghĩa bạn đồng
+                        ý
+                        với <a href="https://fullstack.edu.vn/terms">Điều khoản sử dụng</a> của chúng tôi.</div>
+                </div>
+                <div class="Login_about__4AA3m"><a href="https://fullstack.edu.vn/about-us" target="_blank"
+                        rel="noopener noreferrer">Giới thiệu về F4</a><span>|</span><a
+                        href="https://www.youtube.com/c/F8VNOfficial" target="_blank" rel="noopener noreferrer">F4 trên
+                        Youtube</a><span>|</span><a href="https://www.facebook.com/groups/f8official" target="_blank"
+                        rel="noopener noreferrer">F4 trên Facebook</a></div>
+            </div>
+            <div id="send-verifycode-button" style="opacity: 0;">
+                <div class="grecaptcha-badge" data-style="bottomright"
+                    style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;">
+                    <div class="grecaptcha-logo"><iframe title="reCAPTCHA"
+                            src="https://www.google.com/recaptcha/api2/anchor?ar=1k=6LcMZR0UAAAAALgPMcgHwga7gY5p8QMg1Hj-bmUvco=aHR0cHM6Ly9hY2NvdW50cy5mdWxsc3RhY2suZWR1LnZuOjQ0Mw..&amp;hl=vi&amp;v=NZrMWHVy58-S9gVvad9HVGxk&amp;size=invisible&amp;cb=n4rvpqrxbypg"
+                            width="256" height="60" role="presentation" name="a-aqnk4jvm5rzb" frameborder="0"
+                            scrolling="no"
+                            sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe>
+                    </div>
+                    <div class="grecaptcha-error"></div><textarea id="g-recaptcha-response" name="g-recaptcha-response"
+                        class="g-recaptcha-response"
+                        style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
+                </div><iframe style="display: none;"></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

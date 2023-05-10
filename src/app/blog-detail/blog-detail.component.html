@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Blog</title>
+    <link href="blog-detail.component.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="root">
+        <div>
+            <!-- nav trên -->
+            <div class="NavBar_wrapper__4m3K5" id="header">
+                <div class="NavBar_logo__Rgo-5">
+                    <a href="/home-page-st"><img
+                            src="https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Logo/Logo_F4.png"
+                            alt="F8"></a>
+                    <h4 class="NavBar_logoHeading__bs7MP">Học Lập Trình Để Đi Làm</h4>
+                </div>
+                <!-- </div> -->
+                <div class="Navbar-Trangchu-Search-margin d-flex-center">
+                    <div>
+                        <div class="Search_wrapper__Bwvae d-flex-center" aria-expanded="false">
+                            <div class="Search_searchIcon__-23JY">
+                              <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+                            </div>
+                            <input class="Search_input__GnMba" spellcheck="false" placeholder="Tìm kiếm khóa học, bài viết, video, ..."
+                              value="">
+                          </div>
+                    </div>
+                </div>
+                <div class="NavBar_actions__nSNzo">
+                    <div id="navbar-actions-portal">
+                    </div>
+
+                    <div>
+                        <div (click)="openNavNotification()" class="NavBar_actionBtn__tzSZd" id="notification-button">
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bell"
+                                class="svg-inline--fa fa-bell NavBar_action-icon__l9MxX" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path fill="currentColor"
+                                    d="M256 32V51.2C329 66.03 384 130.6 384 208V226.8C384 273.9 401.3 319.2 432.5 354.4L439.9 362.7C448.3 372.2 450.4 385.6 445.2 397.1C440 408.6 428.6 416 416 416H32C19.4 416 7.971 408.6 2.809 397.1C-2.353 385.6-.2883 372.2 8.084 362.7L15.5 354.4C46.74 319.2 64 273.9 64 226.8V208C64 130.6 118.1 66.03 192 51.2V32C192 14.33 206.3 0 224 0C241.7 0 256 14.33 256 32H256zM224 512C207 512 190.7 505.3 178.7 493.3C166.7 481.3 160 464.1 160 448H288C288 464.1 281.3 481.3 269.3 493.3C257.3 505.3 240.1 512 224 512z">
+                                </path>
+                            </svg>
+                        </div>
+                        <!-- aria-expanded="false" -->
+                        <div *ngIf="isDropDownOpenNotification"
+                            style="z-index: 9999; position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-68.8px, 60.8px);">
+                            <ul class="Tippy-module_wrapper__1s5m5 Notification_container__ulN0K">
+                                <header>
+                                    <h6>Thông báo</h6>
+                                </header>
+                                <div class="Notification_content__0k-Tt hide-on-click">
+                                    <p class="Notification_noResult__TJd2-">Chưa có thông báo nào</p>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="NavBar_avatar-wrapper__j7jMj" aria-expanded="false">
+                        <div (click)="openNavProfile()" class="FallbackAvatar_avatar__gmj3S" style="--font-size:3.2px;">
+                            <img class="NavBar_avatar__OG7ib"
+                                src="https://files.fullstack.edu.vn/f8-prod/user_photos/293030/63e71768e42bd.jpg"
+                                alt="Khánh Băng">
+                        </div>
+                    </div>
+                    <div *ngIf="isDropDownOpen"
+                        style="z-index: 9999; position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-27.2px, 57.6px);">
+                        <ul class="Tippy-module_wrapper__1s5m5 UserMenu_wrapper__kevhj hide-on-click">
+                            <div class="UserMenu_user__GXFLp">
+                                <div class="UserMenu_avatarWrapper__9ABYL">
+                                    <div class="FallbackAvatar_avatar__gmj3S" style="--font-size:5.6px;"><img
+                                            src="https://files.fullstack.edu.vn/f8-prod/user_photos/289130/63da5c8beb71a.jpg"
+                                            alt="{{TenEmail}}"></div>
+                                </div>
+                                <div class="UserMenu_info__UqeZT"><span class="UserMenu_name__L18s-">{{ TenEmail
+                                        }}</span>
+                                    <div class="UserMenu_username__7qkRU">{{ Email }}</div>
+                                </div>
+                            </div>
+                            <hr>
+                            <ul class="UserMenu_list__FI9-C">
+                                <li><a class="UserMenu_item__NXwf1" routerLink="/profile"
+                                        routerLinkActive="active">Trang cá
+                                        nhân</a><router-outlet></router-outlet></li>
+                            </ul>
+                            <hr>
+                            <ul class="UserMenu_list__FI9-C">
+                                <li><a class="UserMenu_item__NXwf1" routerLink="/write-blog"
+                                        routerLinkActive="active">Viết
+                                        blog</a><router-outlet></router-outlet></li>
+                                <li><a class="UserMenu_item__NXwf1" routerLink="/posts-drafts"
+                                        routerLinkActive="active">Bài viết của
+                                        tôi</a><router-outlet></router-outlet></li>
+                            </ul>
+                            <hr>
+                            <ul class="UserMenu_list__FI9-C">
+                                <li><a class="UserMenu_item__NXwf1" routerLink="/posts-public"
+                                        routerLinkActive="active">Bài viết đã
+                                        lưu</a><router-outlet></router-outlet></li>
+                            </ul>
+                            <hr>
+                            <ul class="UserMenu_list__FI9-C">
+                                <li><a class="UserMenu_item__NXwf1" href="/setting-account">Cài đặt</a></li>
+                                <li><a class="UserMenu_item__NXwf1" routerLink="/homepage-user"
+                                        routerLinkActive="active">Đăng
+                                        xuất</a><router-outlet></router-outlet></li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- nav trên -->
+            <div class="App_withSidebar__8lwIi">
+                <!-- Nav điều hướng  -->
+                <div class="App_sidebarWrap__3LwsB App_hidden__PlKoC App_tutorial__00HQ2">
+                    <div class="Sidebar_wrapper__kUJFm" id="sidebar">
+                        <div>
+                            <div class="CreateButton_wrapper__Bb6o6" aria-expanded="false"><svg aria-hidden="true"
+                                    focusable="false" data-prefix="fas" data-icon="plus"
+                                    class="svg-inline--fa fa-plus CreateButton_icon__ipBrz" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path fill="currentColor"
+                                        d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z">
+                                    </path>
+                                </svg></div>
+                        </div>
+                        <ul class="Sidebar_list__HnCzM">
+                            <li><a aria-current="page" class="Sidebar_itemBtn__Q78b7 Sidebar_active__uvck8"><i
+                                        class="fa-solid fa-house"></i><span>Home</span></a></li>
+                            <li><a class="Sidebar_itemBtn__Q78b7" routerLink="/study-route" routerLinkActive="active"><i
+                                        class="fa-solid fa-road"></i><span>Lộ trình</span></a>
+                            </li>
+
+                            <li><a class="Sidebar_itemBtn__Q78b7" routerLink="/home-page-st"
+                                    routerLinkActive="active"><i class="fa-solid fa-lightbulb"></i><span>Học</span></a>
+                            </li>
+                            <li><a class="Sidebar_itemBtn__Q78b7" routerLink="/blog" routerLinkActive="active"><i
+                                        class="fa-solid fa-book"></i><span>Blog</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Nav điều hướng  -->
+                <div class="App_withSidebarContent__o4VlQ App_hidden__PlKoC">
+                    <div class="BlogDetail_wrapper__9lHHY">
+                        <section class="index-module_grid__1q71E index-module_fullWidth__3X-6x">
+                            <section class="index-module_row__-AHgh">
+                                <section
+                                    class="index-module_col__2EQm9 index-module_c-0__10PYb index-module_m-0__18VBx index-module_l-2__2TSUm index-module_l-o-1__3wI_9">
+                                    <div class="BlogDetail_aside__5IVfa"><a href="/@hieucaok">
+                                            <h4 class="BlogDetail_userName__XjPY6">Hieu Cao K.</h4>
+                                        </a>
+                                        <p class="BlogDetail_userTitle__Ylia7"></p>
+                                        <hr>
+                                        <div class="Reaction_wrapper__Jjsxl">
+                                            <div class="Reaction_btnReact__O0zy5" title="Nhấn để thích bài này"><svg
+                                                    aria-hidden="true" focusable="false" data-prefix="far"
+                                                    data-icon="heart" class="svg-inline--fa fa-heart " role="img"
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                    <path fill="currentColor"
+                                                        d="M244 84L255.1 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84C243.1 84 244 84.01 244 84L244 84zM255.1 163.9L210.1 117.1C188.4 96.28 157.6 86.4 127.3 91.44C81.55 99.07 48 138.7 48 185.1V190.9C48 219.1 59.71 246.1 80.34 265.3L256 429.3L431.7 265.3C452.3 246.1 464 219.1 464 190.9V185.1C464 138.7 430.4 99.07 384.7 91.44C354.4 86.4 323.6 96.28 301.9 117.1L255.1 163.9z">
+                                                    </path>
+                                                </svg><span>{{blog.favoriteBlog}}</span></div>
+                                            <div class="Reaction_btnReact__O0zy5"><svg aria-hidden="true"
+                                                    focusable="false" data-prefix="far" data-icon="comment"
+                                                    class="svg-inline--fa fa-comment " role="img"
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                    <path fill="currentColor"
+                                                        d="M256 32C114.6 32 .0272 125.1 .0272 240c0 47.63 19.91 91.25 52.91 126.2c-14.88 39.5-45.87 72.88-46.37 73.25c-6.625 7-8.375 17.25-4.625 26C5.818 474.2 14.38 480 24 480c61.5 0 109.1-25.75 139.1-46.25C191.1 442.8 223.3 448 256 448c141.4 0 255.1-93.13 255.1-208S397.4 32 256 32zM256.1 400c-26.75 0-53.12-4.125-78.38-12.12l-22.75-7.125l-19.5 13.75c-14.25 10.12-33.88 21.38-57.5 29c7.375-12.12 14.37-25.75 19.88-40.25l10.62-28l-20.62-21.87C69.82 314.1 48.07 282.2 48.07 240c0-88.25 93.25-160 208-160s208 71.75 208 160S370.8 400 256.1 400z">
+                                                    </path>
+                                                </svg><span>{{blog.commentBlog}}</span></div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section
+                                    class="index-module_col__2EQm9 index-module_c-12__u7UXF index-module_m-12__2CxUL index-module_l-6__JoV9k">
+                                    <div>
+                                        <ng-container>
+                                            <h1 class="BlogDetail_heading__DUpyK">{{ blog.descriptionBlog
+                                                }}</h1>
+                                        </ng-container>
+                                        <!-- Thông tin user của blog  -->
+                                        <div class="BlogDetail_header__w09Xd">
+                                            <div class="BlogDetail_user__Q6EHE"><a href="/@hieucaok">
+                                                    <div class="FallbackAvatar_avatar__gmj3S"
+                                                        style="--font-size:5.6px;">
+                                                        <img src="{{blog.imageurlBlog}}" alt="Hieu Cao K.">
+                                                    </div>
+                                                </a>
+                                                <div class="BlogDetail_info__3xVU9"><a href="/@hieucaok"><span
+                                                            class="BlogDetail_name__FKdW-">Hieu Cao K.</span></a>
+                                                    <p class="BlogDetail_time__J0n0e">10 giờ trước <span
+                                                            class="BlogDetail_dot__HCutF">·</span> 1 phút đọc</p>
+                                                </div>
+                                            </div>
+                                            <div class="BlogDetail_actions__wYPwr">
+                                                <div class="Bookmark_toggleBtn__sSS-2 BlogDetail_optionBtn__k9OVy"><svg
+                                                        aria-hidden="true" focusable="false" data-prefix="far"
+                                                        data-icon="bookmark" class="svg-inline--fa fa-bookmark "
+                                                        role="img" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 384 512">
+                                                        <path fill="currentColor"
+                                                            d="M336 0h-288C21.49 0 0 21.49 0 48v431.9c0 24.7 26.79 40.08 48.12 27.64L192 423.6l143.9 83.93C357.2 519.1 384 504.6 384 479.9V48C384 21.49 362.5 0 336 0zM336 452L192 368l-144 84V54C48 50.63 50.63 48 53.1 48h276C333.4 48 336 50.63 336 54V452z">
+                                                        </path>
+                                                    </svg></div>
+                                                <div class="BlogDetail_optionBtn__k9OVy" aria-expanded="false"><svg
+                                                        aria-hidden="true" focusable="false" data-prefix="fas"
+                                                        data-icon="ellipsis" class="svg-inline--fa fa-ellipsis "
+                                                        role="img" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 448 512">
+                                                        <path fill="currentColor"
+                                                            d="M120 256C120 286.9 94.93 312 64 312C33.07 312 8 286.9 8 256C8 225.1 33.07 200 64 200C94.93 200 120 225.1 120 256zM280 256C280 286.9 254.9 312 224 312C193.1 312 168 286.9 168 256C168 225.1 193.1 200 224 200C254.9 200 280 225.1 280 256zM328 256C328 225.1 353.1 200 384 200C414.9 200 440 225.1 440 256C440 286.9 414.9 312 384 312C353.1 312 328 286.9 328 256z">
+                                                        </path>
+                                                    </svg></div>
+                                            </div>
+                                        </div>
+                                        <!-- Thông tin user của blog  -->
+                                        <!-- Nội dung blog -->
+                                        <div class="RelatedPosts_relatedItem__Apw+s">
+                                            <img class="RelatedPosts_photo__Lafnu" src="{{blog.imageurlBlog}}"
+                                                alt="Ảnh của blog">
+                                        </div>
+
+                                        <div class="MarkdownParser_wrapper__JYN63 BlogDetail_markdownParser__QFL3L"
+                                            style="--font-size:1.8rem; --line-height:2;">
+                                            {{blog.contentBlog}}
+
+                                        </div>
+                                        <!-- Nội dung blog -->
+                                        <div class="BlogDetail_bodyBottom__BuJE1">
+                                            <div class="Reaction_wrapper__Jjsxl">
+                                                <div class="Reaction_btnReact__O0zy5" title="Nhấn để thích bài này"><svg
+                                                        aria-hidden="true" focusable="false" data-prefix="far"
+                                                        data-icon="heart" class="svg-inline--fa fa-heart " role="img"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                        <path fill="currentColor"
+                                                            d="M244 84L255.1 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 0 232.4 0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84C243.1 84 244 84.01 244 84L244 84zM255.1 163.9L210.1 117.1C188.4 96.28 157.6 86.4 127.3 91.44C81.55 99.07 48 138.7 48 185.1V190.9C48 219.1 59.71 246.1 80.34 265.3L256 429.3L431.7 265.3C452.3 246.1 464 219.1 464 190.9V185.1C464 138.7 430.4 99.07 384.7 91.44C354.4 86.4 323.6 96.28 301.9 117.1L255.1 163.9z">
+                                                        </path>
+                                                    </svg><span>{{blog.favoriteBlog}}</span></div>
+                                                <div class="Reaction_btnReact__O0zy5"><svg aria-hidden="true"
+                                                        focusable="false" data-prefix="far" data-icon="comment"
+                                                        class="svg-inline--fa fa-comment " role="img"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                        <path fill="currentColor"
+                                                            d="M256 32C114.6 32 .0272 125.1 .0272 240c0 47.63 19.91 91.25 52.91 126.2c-14.88 39.5-45.87 72.88-46.37 73.25c-6.625 7-8.375 17.25-4.625 26C5.818 474.2 14.38 480 24 480c61.5 0 109.1-25.75 139.1-46.25C191.1 442.8 223.3 448 256 448c141.4 0 255.1-93.13 255.1-208S397.4 32 256 32zM256.1 400c-26.75 0-53.12-4.125-78.38-12.12l-22.75-7.125l-19.5 13.75c-14.25 10.12-33.88 21.38-57.5 29c7.375-12.12 14.37-25.75 19.88-40.25l10.62-28l-20.62-21.87C69.82 314.1 48.07 282.2 48.07 240c0-88.25 93.25-160 208-160s208 71.75 208 160S370.8 400 256.1 400z">
+                                                        </path>
+                                                    </svg><span>{{blog.commentBlog}}</span></div>
+                                            </div>
+                                            <div class="PostsWithSameAuthor_wrapper__ZTsxW">
+                                                <h3 class="PostsWithSameAuthor_heading__7+PGO">Bài đăng cùng tác giả
+                                                </h3>
+                                                <p class="PostsWithSameAuthor_noResult__rRwb0">Tác giả chưa có bài đăng
+                                                    nào
+                                                    khác.</p>
+                                            </div>
+
+                                        </div>
+                                        <div class="TopicsList_wrapper__lizCe">
+                                            <h3>Các chủ đề được đề xuất</h3>
+                                            <ul class="TopicsList_topics__EU6iM">
+                                                <li>
+                                                    <a href="/blog/topic/front-end-mobile-apps">Front-end / Mobile
+                                                        apps</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/blog/topic/back-end-devops">Back-end / Devops</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/blog/topic/ui-ux-design">UI / UX / Design</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/blog/topic/others">Others</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </section>
+                            </section>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
