@@ -123,7 +123,8 @@
               </ul>
               <hr>
               <ul class="UserMenu_list__FI9-C">
-                <li><a class="UserMenu_item__NXwf1" href="/setting-account">Cài đặt</a></li>
+                <li><a class="UserMenu_item__NXwf1" routerLink="/setting-account" routerLinkActive="active">Cài đặt</a>
+                </li>
                 <li><a class="UserMenu_item__NXwf1" routerLink="/login-form" routerLinkActive="active">Đăng xuất</a>
                 </li>
               </ul>
@@ -198,11 +199,11 @@
                             <a routerLink="/blog" routerLinkActive="active">
                               <div class="FallbackAvatar_avatar__gmj3S FallbackAvatar_pro__-8mK+"
                                 style="--font-size: 2.9px">
-                                <img src="{{blog.imageurlBlog}}" alt="Đặng Thị Khánh Băng" />
+                                <img src="{{blog.image_url}}" alt="Đặng Thị Khánh Băng" />
                               </div>
                             </a>
 
-                            <a href="{{blog.imageurlBlog}}">
+                            <a [routerLink]="['/blogDetail/', +blog.id]">
                               <span>Đặng Thị Khánh Băng {{blog.id}}</span>
                               <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-check"
                                 class="svg-inline--fa fa-circle-check UserName_icon__zT+rB" role="img"
@@ -238,20 +239,20 @@
                           <div class="PostItem_info__DZr39">
                             <a [routerLink]="['/blogDetail/', +blog.id]">
                               <h2 class="PostItem_title__8lSHm">
-                                {{blog.descriptionBlog}}
+                                {{blog.description}}
                               </h2>
                             </a>
                             <p class="PostItem_desc__be9G8">
-                              {{blog.contentBlog}}
+                              {{blog.content}}
                             </p>
                             <div class="PostItem_info__DZr39">
-                              <span>{{blog.timeCreateBlog}}</span>
+                              <span>{{blog.date_created}}</span>
                               <span class="PostItem_dot__ZYdFt">·</span>2 phút
                               đọc
                             </div>
                           </div>
                           <div class="PostItem_thumb__m4iXl">
-                            <img src="{{blog.imageurlBlog}}" />
+                            <img src="{{blog.image_url}}" />
                           </div>
                         </div>
                       </div>

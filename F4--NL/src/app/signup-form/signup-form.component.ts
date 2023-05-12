@@ -20,6 +20,7 @@ export class SignupFormComponent implements OnInit {
     username: ['', [Validators.required, Validators.maxLength(30)]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
+    imguser:['https://my-web-study-onl-project.s3.ap-southeast-1.amazonaws.com/Media/fallback-avatar.155cdb2376c5d99ea151.jpg'],
     idrole: [1]
   });
 

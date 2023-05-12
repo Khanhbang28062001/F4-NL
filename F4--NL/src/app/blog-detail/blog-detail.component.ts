@@ -12,7 +12,7 @@ import { UserModule } from '../model/user.module';
 })
 export class BlogDetailComponent implements OnInit {
   blog: BlogModelModule = new BlogModelModule(1, 2, "", "", "", 2, 3, new Date);
-  public description = this.blog.descriptionBlog;
+  public description = this.blog.description;
   blogId?: any;
   constructor(private getBlogService: GetBlogService,
     private router: Router,
@@ -33,10 +33,12 @@ export class BlogDetailComponent implements OnInit {
     console.log("id blog ne",this.blog.id);
     this.getBlogService.getSubmitBlog(this.blogId).subscribe((data) => {
       this.blog = data;
+      this.blog.content="";
+      this.description="";
     })
     this.userIdService.currentUserId.subscribe(userId => this.userId = userId);
     this.userService.getUserById(this.userId).subscribe((data) => {
-      this.User = data;
+    this.User = data;
       console.log("Lay du lieu role id route roi ne!!!!!! " + this.User.idrole);
     })
   }
