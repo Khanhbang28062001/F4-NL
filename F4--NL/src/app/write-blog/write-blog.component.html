@@ -109,10 +109,9 @@
                     </div>
                 </div>
                 <div class="NavBar_avatar-wrapper__j7jMj" aria-expanded="false">
-                    <div (click)="openNavProfile()" class="FallbackAvatar_avatar__gmj3S" style="--font-size:3.2px;"><img
-                            class="NavBar_avatar__OG7ib"
-                            src="https://files.fullstack.edu.vn/f8-prod/user_photos/293030/63e71768e42bd.jpg"
-                            alt="Khánh Băng"></div>
+                    <div (click)="openNavProfile()" class="FallbackAvatar_avatar__gmj3S" style="--font-size:3.2px;">
+                        <img class="NavBar_avatar__OG7ib" src="{{User.imguser}}" alt="User">
+                    </div>
                 </div>
                 <div *ngIf="isDropDownOpen"
                     style="z-index: 9999; position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(-27.2px, 57.6px);">
@@ -120,35 +119,41 @@
                         <div class="UserMenu_user__GXFLp">
                             <div class="UserMenu_avatarWrapper__9ABYL">
                                 <div class="FallbackAvatar_avatar__gmj3S" style="--font-size:5.6px;"><img
-                                        src="https://files.fullstack.edu.vn/f8-prod/user_photos/289130/63da5c8beb71a.jpg"
-                                        alt="{{TenEmail}}"></div>
+                                        src="{{User.imguser}}" alt="{{User.username}}"></div>
                             </div>
-                            <div class="UserMenu_info__UqeZT"><span class="UserMenu_name__L18s-">{{ TenEmail }}</span>
-                                <div class="UserMenu_username__7qkRU">{{ Email }}</div>
+                            <div class="UserMenu_info__UqeZT"><span class="UserMenu_name__L18s-">{{ User.username
+}}</span>
+                                <div class="UserMenu_username__7qkRU">{{ User.email }}</div>
                             </div>
                         </div>
                         <hr>
                         <ul class="UserMenu_list__FI9-C">
                             <li><a class="UserMenu_item__NXwf1" routerLink="/profile" routerLinkActive="active">Trang cá
-                                    nhân</a></li>
+                                    nhân</a>
+                            </li>
                         </ul>
                         <hr>
                         <ul class="UserMenu_list__FI9-C">
                             <li><a class="UserMenu_item__NXwf1" routerLink="/write-blog" routerLinkActive="active">Viết
-                                    blog</a></li>
+                                    blog</a>
+                            </li>
                             <li><a class="UserMenu_item__NXwf1" routerLink="/posts-drafts" routerLinkActive="active">Bài
-                                    viết của tôi</a></li>
+                                    viết của
+                                    tôi</a></li>
                         </ul>
                         <hr>
                         <ul class="UserMenu_list__FI9-C">
                             <li><a class="UserMenu_item__NXwf1" routerLink="/posts-public" routerLinkActive="active">Bài
-                                    viết đã lưu</a></li>
+                                    viết đã
+                                    lưu</a></li>
                         </ul>
                         <hr>
                         <ul class="UserMenu_list__FI9-C">
-                            <li><a class="UserMenu_item__NXwf1" href="/setting-account">Cài đặt</a></li>
-                            <li><a class="UserMenu_item__NXwf1" routerLink="/homepage-user"
-                                    routerLinkActive="active">Đăng xuất</a></li>
+                            <li><a class="UserMenu_item__NXwf1" routerLink="/setting-account"
+                                    routerLinkActive="active">Cài đặt</a></li>
+                            <li><a class="UserMenu_item__NXwf1" routerLink="/login-form" routerLinkActive="active">Đăng
+                                    xuất</a>
+                            </li>
                         </ul>
                     </ul>
                 </div>

@@ -21,9 +21,9 @@ export class AddCourseComponent {
   public errorMessage: string | undefined;
 
   public formData = this.formBuilder.group({
-    title: ['', [Validators.required, Validators.maxLength(30)]],
-    description: ['', [Validators.required, Validators.email]],
-    imageUrl: ['', [Validators.required, Validators.minLength(6)]],
+    title: ['', [Validators.required]],
+    description: ['', [Validators.required]],
+    imageUrl: ['', [Validators.required]],
     subscribers: [0],
     user_id : [2]
   });

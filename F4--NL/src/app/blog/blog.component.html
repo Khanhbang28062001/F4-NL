@@ -69,7 +69,7 @@
                 aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bell"
                 class="svg-inline--fa fa-bell NavBar_action-icon__l9MxX" role="img" xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 448 512">
-                <path fill="currentColor"
+<path fill="currentColor"
                   d="M256 32V51.2C329 66.03 384 130.6 384 208V226.8C384 273.9 401.3 319.2 432.5 354.4L439.9 362.7C448.3 372.2 450.4 385.6 445.2 397.1C440 408.6 428.6 416 416 416H32C19.4 416 7.971 408.6 2.809 397.1C-2.353 385.6-.2883 372.2 8.084 362.7L15.5 354.4C46.74 319.2 64 273.9 64 226.8V208C64 130.6 118.1 66.03 192 51.2V32C192 14.33 206.3 0 224 0C241.7 0 256 14.33 256 32H256zM224 512C207 512 190.7 505.3 178.7 493.3C166.7 481.3 160 464.1 160 448H288C288 464.1 281.3 481.3 269.3 493.3C257.3 505.3 240.1 512 224 512z">
                 </path>
               </svg></div>
@@ -99,8 +99,7 @@
                   <div class="FallbackAvatar_avatar__gmj3S" style="--font-size:5.6px;"><img src="{{User.imguser}}"
                       alt="{{User.username}}"></div>
                 </div>
-                <div class="UserMenu_info__UqeZT"><span class="UserMenu_name__L18s-">{{ User.username
-                    }}</span>
+                <div class="UserMenu_info__UqeZT"><span class="UserMenu_name__L18s-">{{ User.username}}</span>
                   <div class="UserMenu_username__7qkRU">{{ User.email }}</div>
                 </div>
               </div>
@@ -117,13 +116,14 @@
                     tôi</a></li>
               </ul>
               <hr>
-              <ul class="UserMenu_list__FI9-C">
+<ul class="UserMenu_list__FI9-C">
                 <li><a class="UserMenu_item__NXwf1" routerLink="/posts-public" routerLinkActive="active">Bài viết đã
                     lưu</a></li>
               </ul>
               <hr>
               <ul class="UserMenu_list__FI9-C">
-                <li><a class="UserMenu_item__NXwf1" href="/setting-account">Cài đặt</a></li>
+                <li><a class="UserMenu_item__NXwf1" routerLink="/setting-account" routerLinkActive="active">Cài đặt</a>
+                </li>
                 <li><a class="UserMenu_item__NXwf1" routerLink="/login-form" routerLinkActive="active">Đăng xuất</a>
                 </li>
               </ul>
@@ -170,7 +170,7 @@
                   class="fa-solid fa-lightbulb"></i><span>Học</span></a>
             </li>
             <li><a class="Sidebar_itemBtn__Q78b7 Sidebar_active__uvck8" routerLink="/blog" routerLinkActive="active"><i
-                  class="fa-solid fa-book"></i><span>Blog</span></a></li>
+class="fa-solid fa-book"></i><span>Blog</span></a></li>
           </ul>
         </div>
       </div>
@@ -198,12 +198,12 @@
                             <a routerLink="/blog" routerLinkActive="active">
                               <div class="FallbackAvatar_avatar__gmj3S FallbackAvatar_pro__-8mK+"
                                 style="--font-size: 2.9px">
-                                <img src="{{blog.imageurlBlog}}" alt="Đặng Thị Khánh Băng" />
+                                <img src="{{blog.image_url}}" alt="Đặng Thị Khánh Băng" />
                               </div>
                             </a>
 
-                            <a href="{{blog.imageurlBlog}}">
-                              <span>Đặng Thị Khánh Băng {{blog.id}}</span>
+                            <a [routerLink]="['/blogDetail/', +blog.id]">
+                              <span>{{User.username}}</span>
                               <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-check"
                                 class="svg-inline--fa fa-circle-check UserName_icon__zT+rB" role="img"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="font-size: 1rem">
@@ -215,7 +215,7 @@
                           </div>
                           <div class="PostItem_actions__eWV5m">
                             <div class="Bookmark_toggleBtn__sSS-2 PostItem_optionBtn__h8ALw">
-                              <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="bookmark"
+<svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="bookmark"
                                 class="svg-inline--fa fa-bookmark" role="img" xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 384 512">
                                 <path fill="currentColor"
@@ -238,20 +238,20 @@
                           <div class="PostItem_info__DZr39">
                             <a [routerLink]="['/blogDetail/', +blog.id]">
                               <h2 class="PostItem_title__8lSHm">
-                                {{blog.descriptionBlog}}
+                                {{blog.description}}
                               </h2>
                             </a>
                             <p class="PostItem_desc__be9G8">
-                              {{blog.contentBlog}}
+                              {{blog.content}}
                             </p>
                             <div class="PostItem_info__DZr39">
-                              <span>{{blog.timeCreateBlog}}</span>
+                              <span>{{blog.date_created}}</span>
                               <span class="PostItem_dot__ZYdFt">·</span>2 phút
                               đọc
                             </div>
                           </div>
                           <div class="PostItem_thumb__m4iXl">
-                            <img src="{{blog.imageurlBlog}}" />
+                            <img src="{{blog.image_url}}" />
                           </div>
                         </div>
                       </div>
@@ -260,7 +260,7 @@
                   <div>
                     <div class="Pagination_wrapper__Rvhto">
                       <div class="Pagination_pages__FFgjW">
-                        <div class="Pagination_page__fm3g4 Pagination_btn-pre__Pm0Wu">
+<div class="Pagination_page__fm3g4 Pagination_btn-pre__Pm0Wu">
                           <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angles-left"
                             class="svg-inline--fa fa-angles-left Pagination_icon__rsM4G" role="img"
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -303,7 +303,7 @@
                           <span style="margin: 0px auto">11</span>
                         </div>
                         <div class="Pagination_page__fm3g4 Pagination_btn-next__TNt+b">
-                          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angles-right"
+<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angles-right"
                             class="svg-inline--fa fa-angles-right Pagination_icon__rsM4G" role="img"
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                             <path fill="currentColor"
