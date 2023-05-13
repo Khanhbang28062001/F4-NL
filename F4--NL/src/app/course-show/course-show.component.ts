@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Course } from '../common/course';
 import { CourseService } from '../Service/course.service';
+import { CourseModule } from '../model/course.module';
 
 @Component({
   selector: 'app-course-show',
@@ -9,7 +9,7 @@ import { CourseService } from '../Service/course.service';
   styleUrls: ['./course-show.component.css']
 })
 export class CourseShowComponent implements OnInit {
-  courses: Course[] = [];
+  courses: CourseModule[] = [];
   
 
   constructor(
