@@ -99,8 +99,7 @@
                   <div class="FallbackAvatar_avatar__gmj3S" style="--font-size:5.6px;"><img src="{{User.imguser}}"
                       alt="{{User.username}}"></div>
                 </div>
-                <div class="UserMenu_info__UqeZT"><span class="UserMenu_name__L18s-">{{ User.username
-                    }}</span>
+                <div class="UserMenu_info__UqeZT"><span class="UserMenu_name__L18s-">{{ User.username}}</span>
                   <div class="UserMenu_username__7qkRU">{{ User.email }}</div>
                 </div>
               </div>
@@ -204,7 +203,7 @@
                             </a>
 
                             <a [routerLink]="['/blogDetail/', +blog.id]">
-                              <span>Đặng Thị Khánh Băng {{blog.id}}</span>
+                              <span>{{User.username}}</span>
                               <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-check"
                                 class="svg-inline--fa fa-circle-check UserName_icon__zT+rB" role="img"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="font-size: 1rem">
