@@ -1,15 +1,16 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Course } from '../common/course';
+import { CourseModule } from '../model/course.module';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourseService {
 
-  private baseUrl = 'http://127.0.0.1:8080/api/course/';
-  private currentCourseSubject: BehaviorSubject<Course | null> = new BehaviorSubject<Course | null>(null);
+  private REST_API_SERVER = 'http://127.0.0.1:8080/api/course/';
+  private currentCourseSubject: BehaviorSubject<CourseModule | null> = new BehaviorSubject<CourseModule | null>(null);
   private httpOptions = {
     headers : new HttpHeaders({
       'Content-Type': 'application/json',
@@ -17,30 +18,31 @@ export class CourseService {
   };
   constructor(private httpClient: HttpClient) { }
 
-  getCourse(courseId: number): Observable<Course> {
-    const courseUrl = `${this.baseUrl}${courseId}`;
-    return this.httpClient.get<Course>(courseUrl);
+  getCourse(courseId: number): Observable<CourseModule> {
+    const courseUrl = `${this.REST_API_SERVER}${courseId}`;
+    return this.httpClient.get<CourseModule>(courseUrl);
   }
 
-  getCourses(): Observable<Course[]> {
-    return this.httpClient.get<Course[]>(this.baseUrl);
+  getCourses(): Observable<CourseModule[]> {
+    return this.httpClient.get<CourseModule[]>(this.REST_API_SERVER);
   }
 
-  searchCourses(keyword: string): Observable<Course[]> {
-    const searchUrl = `${this.baseUrl}search/${keyword}`;
-    return this.httpClient.get<Course[]>(searchUrl);
+  searchCourses(keyword: string): Observable<CourseModule[]> {
+    const searchUrl = `${this.REST_API_SERVER}search/${keyword}`;
+    return this.httpClient.get<CourseModule[]>(searchUrl);
   }
 
-  getCurrentCourse(): Observable<Course | null> {
+  getCurrentCourse(): Observable<CourseModule | null> {
     return this.currentCourseSubject.asObservable();
   }
 
-  setCurrentCourse(course: Course): void {
+  setCurrentCourse(course: CourseModule): void {
     this.currentCourseSubject.next(course);
   }
 
-  public addCourses(payload: any): Observable< any > {
-    const url = `${this.baseUrl}`;
+  public addCourses(payload: any ): Observable< any > {
+    const url = `${this.REST_API_SERVER}`;
     return this.httpClient.post<any> (url,  payload ,this.httpOptions);
   }
+
 }

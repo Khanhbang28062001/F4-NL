@@ -1,3 +1,4 @@
+import { CommonService } from './../Service/common.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GetBlogService } from '../Service/get-blog.service';
@@ -6,6 +7,7 @@ import { UserService } from '../Service/user.service';
 import { UserModule } from '../model/user.module';
 import { CourseService } from '../Service/course.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { HttpServerService } from '../Service/http-server.service';
 
 @Component({
   selector: 'app-add-course',
@@ -21,12 +23,13 @@ export class AddCourseComponent {
   public errorMessage: string | undefined;
 
   public formData = this.formBuilder.group({
-    title: ['', [Validators.required, Validators.maxLength(30)]],
-    description: ['', [Validators.required, Validators.email]],
-    imageUrl: ['', [Validators.required, Validators.minLength(6)]],
+    title: ['', [Validators.required]],
+    description: ['', [Validators.required]],
+    imageUrl: ['', [Validators.required]],
     subscribers: [0],
     user_id : [2]
   });
+  common: any;
  
   constructor(
     private courseService: CourseService,
@@ -34,7 +37,9 @@ export class AddCourseComponent {
     private router: Router,
     private userIdService: UserIDService,
     private userService: UserService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private httpServerService: HttpServerService,
+    private CommonService: CommonService,
   ) {
   }
   userId: Number = 0;
@@ -49,9 +54,14 @@ export class AddCourseComponent {
 
   }
 
-  addCourse() {
-    this.courseService.addCourses(this.formData).subscribe((data) => {
-      console.log('UserService', data);
-    });
+  public addCourse(): void {
+
+    this.CommonService.sendData(this.formData.value);
+    this.courseService.addCourses(this.formData.value).subscribe((data) => {
+      console.log('postSubmitBlog', data)
+    }
+    );
+    this.httpServerService.getSubmitBlog();
+
   }
 }

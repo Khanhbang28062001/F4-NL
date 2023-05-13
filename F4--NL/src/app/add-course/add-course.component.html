@@ -145,9 +145,10 @@
           </ul>
         </div>
       </div>
+      <div form [formGroup]="formData" >
       <div class="App_withSidebarContent__o4VlQ">
         <div spellcheck="false" data-empty-text="Tiêu đề" contenteditable="true"
-          class="ContentEditable_wrapper__YxeRy NewPost_title-input__d-X6s"></div>
+          class="ContentEditable_wrapper__YxeRy NewPost_title-input__d-X6s" formControlName="title" [(ngModel)]="title"></div>
 
         <div class="form-group">
           <h1>Mô tả</h1>
@@ -155,16 +156,16 @@
         </div>
         <div>
           <div spellcheck="false" data-empty-text="Nội dung khóa học" contenteditable="true"
-            class="ContentEditable_wrapper__YxeRy NewPost_title-input__d-X6s"></div>
+            class="ContentEditable_wrapper__YxeRy NewPost_title-input__d-X6s" formControlName="description" [(ngModel)]="description"></div>
           <div>
 
             <div _ngcontent-rxf-c48="" class="display-inline-block">
             <h1>URL hình ảnh</h1>
             <div spellcheck="false" data-empty-text="Đường link liên kết đến hình ảnh" contenteditable="true"
-            class="ContentEditable_wrapper__YxeRy NewPost_title-input__d-X6s"></div>
+            class="ContentEditable_wrapper__YxeRy NewPost_title-input__d-X6s"  formControlName="imageUrl" [(ngModel)]="imageUrl"></div>
             <h1>Số lượng học viên đăng ký</h1>
             <div spellcheck="false" data-empty-text="Số lượng" contenteditable="true"
-            class="ContentEditable_wrapper__YxeRy NewPost_title-input__d-X6s"></div>
+            class="ContentEditable_wrapper__YxeRy NewPost_title-input__d-X6s"  formControlName="subscribers" [(ngModel)]="subscribers"></div>
            
               <div class="NewPost_nav-actions__zzC9x">
                 <button (click)="addCourse()"
@@ -178,6 +179,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </body>
