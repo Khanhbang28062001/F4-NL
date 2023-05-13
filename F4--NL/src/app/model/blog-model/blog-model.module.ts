@@ -33,6 +33,7 @@ export class BlogModelModule {
       this.content=content;
       this.total_favorite=total_favorite;
       this.total_comment=total_comment;
+    
       this.date_created=date_created;
 
   }
