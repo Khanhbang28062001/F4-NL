@@ -29,8 +29,10 @@ import { HomepageGvComponent } from './homepage-gv/homepage-gv.component';
 import { HomepageUserComponent } from './homepage-user/homepage-user.component';
 import { BlogDetailComponent } from './blog-detail/blog-detail.component';
 import { GetBlogService } from './Service/get-blog.service';
-import { UserModule } from './model/user.module';
+
 import { StudyComponent } from './study/study.component';
+import { CourseService } from './Service/course.service';
+import { CourseShowComponent } from './course-show/course-show.component';
 
 
 
@@ -59,6 +61,7 @@ import { StudyComponent } from './study/study.component';
     HomepageUserComponent,
     BlogDetailComponent,
     StudyComponent,
+    CourseShowComponent,
 
     
   
@@ -75,7 +78,7 @@ import { StudyComponent } from './study/study.component';
 
     
   ],
-  providers: [GetBlogService],
+  providers: [GetBlogService, CourseService],
 
   bootstrap: [AppComponent]
 })
