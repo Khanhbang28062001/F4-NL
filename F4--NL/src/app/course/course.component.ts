@@ -1,9 +1,13 @@
+import { CommonService } from './../Service/common.service';
+import { CourseService } from './../Service/course.service';
+import { Course } from './../model/course.module';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GetBlogService } from '../Service/get-blog.service';
 import { UserIDService } from '../Service/user-id.service';
 import { UserService } from '../Service/user.service';
 import { UserModule } from '../model/user.module';
+import { CourseModule } from '../model/course.module';
 
 @Component({
   selector: 'app-course',
@@ -38,13 +42,23 @@ export class CourseComponent {
   public signup() {
     this.router.navigate(['/signup-form']);
   }
+  course: CourseModule = new CourseModule(1,"","","",0,new Date,0);
+  public description = this.course.description;
+  CourseId?: any;
   constructor(
     private getBlogService: GetBlogService,
     private route: ActivatedRoute,
     private router: Router,
     private userIdService: UserIDService,
-    private userService: UserService
+    private userService: UserService,
+    private courseService:CourseService
   ) {
+    this.CourseId = this.route.snapshot.paramMap.get('id');
+    console.log("id course ne",this.course.id);
+    this.courseService.getCourse(this.CourseId).subscribe((data) => {
+      this.course = data;
+      console.log("data course",this.course)
+    })
   }
   userId: Number = 0;
   User: UserModule = new UserModule(0, "", "", "", 0,"");

@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: 'bookmark', component: BookmarkComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'blogDetail/:id', component: BlogDetailComponent },
-  { path: 'course', component: CourseComponent },
+  { path: 'course/:id', component: CourseComponent },
   { path: 'keep-study', component: KeepStudyComponent },
   { path: 'login-form', component: LoginFormComponent },
   { path: 'posts-drafts', component: PostsDraftsComponent },

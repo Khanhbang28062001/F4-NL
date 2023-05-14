@@ -147,25 +147,25 @@
       </div>
       <div form [formGroup]="formData" >
       <div class="App_withSidebarContent__o4VlQ">
-        <div spellcheck="false" data-empty-text="Tiêu đề" contenteditable="true"
-          class="ContentEditable_wrapper__YxeRy NewPost_title-input__d-X6s" formControlName="title" [(ngModel)]="title"></div>
+        <textarea spellcheck="false" placeholder="Tiêu đề" contenteditable="true"
+          class="ContentEditable_wrapper__YxeRy NewPost_title-input__d-X6s ng-untouched ng-pristine ng-invalid" formControlName="title" [(ngModel)]="title">{{title}}</textarea>
 
         <div class="form-group">
           <h1>Mô tả</h1>
 
         </div>
         <div>
-          <div spellcheck="false" data-empty-text="Nội dung khóa học" contenteditable="true"
-            class="ContentEditable_wrapper__YxeRy NewPost_title-input__d-X6s" formControlName="description" [(ngModel)]="description"></div>
+          <textarea spellcheck="false" placeholder="Nội dung khóa học" contenteditable="true"
+            class="ContentEditable_wrapper__YxeRy NewPost_title-input__d-X6s ng-untouched ng-pristine ng-invalid" formControlName="description" [(ngModel)]="description">{{description}}</textarea>
           <div>
 
             <div _ngcontent-rxf-c48="" class="display-inline-block">
             <h1>URL hình ảnh</h1>
-            <div spellcheck="false" data-empty-text="Đường link liên kết đến hình ảnh" contenteditable="true"
-            class="ContentEditable_wrapper__YxeRy NewPost_title-input__d-X6s"  formControlName="imageUrl" [(ngModel)]="imageUrl"></div>
+            <textarea spellcheck="false" placeholder="Đường link liên kết đến hình ảnh" contenteditable="true"
+            class="ContentEditable_wrapper__YxeRy NewPost_title-input__d-X6s ng-untouched ng-pristine ng-invalid"  formControlName="imageUrl" [(ngModel)]="imageUrl">{{imageUrl}}</textarea>
             <h1>Số lượng học viên đăng ký</h1>
-            <div spellcheck="false" data-empty-text="Số lượng" contenteditable="true"
-            class="ContentEditable_wrapper__YxeRy NewPost_title-input__d-X6s"  formControlName="subscribers" [(ngModel)]="subscribers"></div>
+            <textarea spellcheck="false" placeholder="Số lượng" contenteditable="true"
+            class="ContentEditable_wrapper__YxeRy NewPost_title-input__d-X6s ng-untouched ng-pristine ng-invalid"  formControlName="subscribers" [(ngModel)]="subscribers">{{subscribers}}</textarea>
            
               <div class="NewPost_nav-actions__zzC9x">
                 <button (click)="addCourse()"
