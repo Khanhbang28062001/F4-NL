@@ -3,7 +3,7 @@
 @import url(../static1/css/4147.9b74a139.chunk.css);
 
 .form-group {
-    width: 80%;
+    width: 100%;
 }
 
 .glyphicon .glyphicon-plus {
@@ -21,11 +21,9 @@
     user-select: none;
     width: 44px;
 }
-
-.display-inline-block {
-    display: inline-block;
+.ng-untouched.ng-pristine.ng-invalid {
+    width: 100%;
 }
-
 .add-course-content {
     font-size: larger;
     font-weight: 600;
@@ -37,4 +35,8 @@
     font-weight: 500;
     min-height: 48px;
     width: 100%;
+}
+.App_withSidebarContent__o4VlQ:not(.App_hidden__PlKoC) {
+    max-width: calc(100% );
+    padding: 0 40px 0 20px;
 }
