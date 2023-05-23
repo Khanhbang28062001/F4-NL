@@ -18,6 +18,7 @@ export class CourseComponent {
   isDropDownOpen: boolean = false;
   isDropDownOpenNotification: boolean = false;
   isDropDownOpenBlog: boolean = false;
+  openCourse :boolean=false;
   public TenEmail = "bang";
   public Email = "bang-Email";
    
@@ -69,6 +70,26 @@ export class CourseComponent {
       this.User = data;
       console.log("Lay du lieu role id route roi ne!!!!!! " + this.User.idrole);
     })
+ 
 
+  }
+  public openCourses():void{
+    this.openCourse = true;
+    console.log("true",   this.openCourse)
+  }
+  public KeepStudy(): void{
+ 
+        if (this.User.idrole == 1){
+          this.router.navigate(['/keep-study']);
+        }
+        if (this.User.idrole == 2){
+          this.router.navigate(['/keep-study']);
+        }
+        if (this.User.idrole== 3){
+           this.router.navigate(['/keep-study']);
+        }
+
+      
+    
   }
 }
