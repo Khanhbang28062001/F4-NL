@@ -18,6 +18,7 @@ export class KeepStudyComponent {
   public NoiDungGhiChu = "Nội dung ghi chú...";
   public ButtonDisabled = "Button_disabled__1cmvp";
   public note ="";
+  public showVideo: boolean = false ;
 
 
 
@@ -85,6 +86,11 @@ export class KeepStudyComponent {
       console.log("Lay du lieu role id route roi ne!!!!!! " + this.User.idrole);
     })
 
+  }
+  openCourse :boolean=false;
+  public openCourses():void{
+    this.openCourse = true;
+    console.log("true",   this.openCourse)
   }
 
 }
